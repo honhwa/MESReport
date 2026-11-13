@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Module First Pass Yield報表說明</title>
+</head>
+<body>
+    <table border="1" style="border-right: black thin solid; border-top: black thin solid;
+        font-weight: bold; font-size: 12pt; border-left: black thin solid; width: 871px;
+        border-bottom: black thin solid; font-family: Arial; height: 1px">
+        <tr>
+            <td style="width: 97px; height: 71px">
+                <img height="69" src="../images/CMI_ch2.jpg" width="187" /></td>
+            <td colspan="3" style="font-weight: bold; font-size: 16pt; color: blue; height: 71px">
+                Module First Pass Yield報表說明 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="font-size: 10pt; color: blue; font-family: Arial; height: 4px">
+                版本變更記錄:<br />
+                <table style="width: 809px">
+                    <tr>
+                        <td style="width: 55px; color: black">
+                            版本號</td>
+                        <td style="width: 74px; color: black">
+                            日期</td>
+                        <td style="width: 51px; color: black">
+                            記錄人</td>
+                        <td style="width: 100px; color: black">
+                            記錄說明</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; color: black">
+                            V1.00</td>
+                        <td style="width: 100px; color: black">
+                            2013-08-01</td>
+                        <td style="width: 150px; color: black">
+                            MES</td>
+                        <td style="width: 100px; color: black">
+                            新增</td>
+                    </tr>
+                                        <tr>
+                        <td style="width: 100px; color: black; height: 18px;">
+                            V1.01</td>
+                        <td style="width: 100px; color: black; height: 18px;">
+                            2014-05-12</td>
+                        <td style="width: 150px; color: black; height: 18px;">
+                            Power</td>
+                        <td style="width: 100px; color: black; height: 18px;">
+                            新增</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; color: blue">
+                1.報表的作用:</td>
+            <td colspan="3" style="font-size: 10pt;">
+                供整合單位查看Module First Pass Yield</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; color: blue">
+                2.報表公式介紹:</td>
+            <td colspan="3" style="font-size: 10pt">
+                </td>
+        </tr>
+        <tr>
+            <td align="right" style="font-size: 10pt; color: blue; height: 21px">
+                FPY</td>
+            <td colspan="3" style="font-size: 10pt; height: 21px">
+                FPY=各站點的 A Yield的相乘<br />
+                ChipQty=取最後一站數量不為0的ChipQty</td>
+        </tr>
+        <tr>
+            <td align="right" style="font-size: 10pt; color: blue; height: 18px">
+                [8210M2-COG]<br />
+                [8220M2-COF]<br />
+                [8230M2-FPC]<br />
+                [8234M2-FOG]<br />
+                [8240M2-TOD]<br />
+                [8250M2-FOB]<br />
+                [8260OCA]<br />
+                [8270Half Module Test]<br />
+                [8280M2]<br />
+                [8285M2.5]<br />
+                [8290M2.5]<br />
+                [8292M2.5]<br />
+                [8294M2.5]<br />
+                [8296M2.5]<br />
+                [829XM2.5]<br />
+                [8297M2.5]<br />
+                [8298M2.5]<br />
+                [8299M2.5]<br />
+                [8300Assembly Received]<br />
+                [8305M3-VIA]<br />
+                [8350Assembly]<br />
+                [8351Burn-In]<br />
+                [8352Baking]<br />
+                [8353Module Test]<br />
+                [8355AssemblyResorting]<br />
+                [8360OQC]<br />
+                [8380Module Packing1]</td>
+            <td colspan="3" style="font-size: 10pt; height: 18px">
+                ChipQty=A+S<br />
+                A Yield=A/(ChipQty)<br />
+                R Yield=R/(ChipQty)<br />
+                S Yield=S/(ChipQty)</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; color: blue">
+                3.數據產生說明:</td>
+            <td colspan="3" style="font-size: 10pt">
+                1.當天的07:30~第二天的07:30算當天的數據<br />
+                2.每30分鐘Summary當天數據一次,每次會將之前Summary的數據刪掉再重新Summary<br />
+                3.以週日為每週的開始日<br />
+                4.每年第一天不為週日，則所在的周為0周<br />
+                5.資料庫只保留最近2年的數據</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; width: 97px; color: blue">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

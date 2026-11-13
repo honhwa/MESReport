@@ -1,0 +1,61 @@
+.tn-var:
+  variables:
+    img_web : tn_report #需小寫
+    # img_web : ie_web
+    # account : 'CICD01.fs' #harbor_robot
+    # password : 'P@ss0310' #harbor_token
+    project_name : tnreportui
+    # project_name1 : fsapiie
+    harbor_url : https://irepocld.cminl.oa/api/v2.0/projects/
+    k8s_token : eyJhbGciOiJFUzI1NiIsImtpZCI6Ikwyc3A3UmdGMmwzQklnVGpxR3ZYY2xxZUJnRHJmOXNoMV9KVW9aQVpZLTgifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJmc3JlcG9ydCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJmc3JlcG9ydHVpLXRva2VuLWRnYjluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImZzcmVwb3J0dWkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI0MzAzMWM3OC1jMjExLTQ2MWEtOGVjZS1hMTNkZDg1MjI1ZDgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZnNyZXBvcnQ6ZnNyZXBvcnR1aSJ9.9_QBwgQrAaLxY7pxTqdvH9n7Jljx8oUz3Ni0DTvpxQEviwo-jYDvLZI7HvCOyMz0ztWACVtDypu1nPNywG3nxw
+    K8s_url : https://10.189.127.73:6443/   
+
+.tn-build: 
+  extends: .tn-var
+  script:
+    - echo "TN build Image $CI_JOB_NAME"
+    #覆蓋site的設定
+    - cp SiteConfig/.env.TN .env.production
+    - docker build --network=bridge1 -f Dockerfile -t $img_web:$CI_COMMIT_TAG .
+
+.tn-push:
+  extends: .tn-var
+  script:    
+    - echo "tn push img to harbor"
+    - echo 'account:'$fs_runner_account
+    - echo 'password:'"$fs_runner_password"
+    - echo "$fs_runner_password" | docker login -u $fs_runner_account --password-stdin irepocld.cminl.oa
+    #IMG打tag
+    - docker tag $img_web:$CI_COMMIT_TAG irepocld.cminl.oa/$project_name/$img_web:$CI_COMMIT_TAG
+    #IMG推送到harbor
+    - docker push irepocld.cminl.oa/$project_name/$img_web:$CI_COMMIT_TAG
+    #IMG取消tag
+    - docker rmi irepocld.cminl.oa/$project_name/$img_web:$CI_COMMIT_TAG
+    - echo docker logout irepocld.cminl.oa
+    - img=$(docker images $img_web -q | tail -n 1)
+    - echo "img:"$img
+    - new_img=$(docker images $img_web:$CI_COMMIT_TAG -q)
+    - echo "new_img:"$new_img
+    # - if [ z"$img" == z ]; then
+    - if [ $img == $new_img ]; then
+    - echo "no img should delete"
+    - elif [ $(docker images $img_web -q | wc -l) -le 2 ]; then
+    - echo "img version less 2"
+    - else
+    - docker image rmi $(docker images $img_web -q | tail -n 1)
+    - fi 
+
+.tn-delete:
+  extends: .tn-var
+  script:
+    - echo "10.55.9.70 irepocld.cminl.oa tnhabor01" >> /etc/hosts
+    #harbor刪除IMG
+    - echo "del img in harbor"
+    - tag=($(curl -k -X GET -u $fs_runner_account:$fs_runner_password $harbor_url$project_name"/repositories/"$img_web"/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=false&with_signature=false&with_immutable_status=false" -H "accept:\ application/json" -H "X-Accept-Vulnerabilities:\ application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0" | jq -r '.[].tags[].name'))
+    - del_img_web=$harbor_url$project_name"/repositories/"$img_web"/artifacts/"
+    - echo "所有的img id如下："${tag[@]} 
+    - echo "共有的img數量："${#tag[*]} 
+    # - unset tag[0];
+    # - if [ ${#tag[*]} -le 3 ]; then for ((i=0; i < 3; i++));do unset tag[$i];done ; else echo "img less 3"; fi
+    - for ((i=0; i < 3; i++));do unset tag[$i];done ;
+    - for var in ${tag[@]}; do curl -k -X DELETE -u $fs_runner_account:$fs_runner_password $del_img_web$var  -H "accept:\ application/json"; done;

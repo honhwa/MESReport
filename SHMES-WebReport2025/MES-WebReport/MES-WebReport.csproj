@@ -1,0 +1,1945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81DE693F-DFEA-4F1F-803D-176C86748832}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Report</RootNamespace>
+    <AssemblyName>Report</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <CodeAnalysisRuleSet>MixedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <PublishDatabases>false</PublishDatabases>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.10618.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetPager">
+      <HintPath>Dll\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.Enterprise.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.Enterprise.InfoStore.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web">
+      <HintPath>..\..\MES-WebReport_20241106\MES-WebReport\lib\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DundasWebChart">
+      <HintPath>Dll\DundasWebChart.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.2.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.340.80\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\UNICOMTheme\Stylesheet.css" />
+    <Content Include="Default.aspx" />
+    <None Include="lib\AjaxControlToolkit.dll" />
+    <None Include="lib\AspNetPager.dll" />
+    <None Include="lib\AspNetPager.pdb" />
+    <None Include="lib\DundasWebChart.dll" />
+    <None Include="lib\Excel.dll" />
+    <None Include="lib\ExcelIO.dll" />
+    <None Include="lib\ExcelIO.pdb" />
+    <None Include="lib\NPOI.DDF.dll" />
+    <None Include="lib\NPOI.dll" />
+    <None Include="lib\NPOI.HPSF.dll" />
+    <None Include="lib\NPOI.HSSF.dll" />
+    <None Include="lib\NPOI.POIFS.dll" />
+    <None Include="lib\NPOI.Util.dll" />
+    <Content Include="Images\logo-m.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_Innolux.jpg" />
+    <Content Include="Images\保存.gif" />
+    <Content Include="Images\匯出.gif" />
+    <Content Include="Images\查詢.gif" />
+    <Content Include="Reports\CARTONID\images\right_bg.jpg" />
+    <Content Include="Reports\CARTONID\Pager.css" />
+    <Content Include="Reports\CARTONID\popcalendar.js" />
+    <Content Include="Reports\CARTONID\Select.aspx" />
+    <Content Include="Reports\IE\CycleTime2.aspx" />
+    <Content Include="Reports\IE\Default_BMW.aspx" />
+    <Content Include="Reports\IE\MOEE_Tgt.aspx" />
+    <Content Include="Reports\LockSrew\LockScrewDataQuery.aspx" />
+    <Content Include="Reports\MFG\QueryOfflineHandling.aspx" />
+    <Content Include="Reports\MFG\YaHeTest.aspx" />
+    <Content Include="Reports\PC\WOCompress.aspx" />
+    <Content Include="Reports\RMA\popcalendar.js" />
+    <Content Include="Reports\RMA\RMASelect.aspx" />
+    <Content Include="Reports\TraceAbility\jquery-1.4.1.js" />
+    <Content Include="Reports\TraceAbility\jquery.superTable.js" />
+    <Content Include="Reports\TraceAbility\OneClickQuery.aspx" />
+    <Content Include="Reports\TraceAbility\superTables.css" />
+    <Content Include="Reports\TraceAbility\superTables.js" />
+    <Content Include="Reports\TraceAbility\tableStyle.css" />
+    <Content Include="Reports\zhongweishu\1501207380371080313.jpg" />
+    <Content Include="Reports\zhongweishu\IE_MEDIAN.aspx" />
+    <Content Include="RoleSetMgt\EditGroupMenuMapping.aspx" />
+    <Content Include="RoleSetMgt\EditUserGroupMapping.aspx" />
+    <Content Include="RoleSetMgt\EditUserRole.aspx" />
+    <Content Include="RoleSetMgt\QueryGroupUserMapping.aspx" />
+    <Content Include="TreeMenu.aspx" />
+    <Content Include="WebControl\EQUnit.ascx" />
+    <Content Include="WebControl\ModuleSubLineUnit.ascx" />
+    <Content Include="WebControl\SubLineUnit.ascx" />
+    <Content Include="Reports\IE\MoudleSubLineStatus.aspx" />
+    <Content Include="Reports\IE\WebCell2SubLineStatus.aspx" />
+    <Content Include="Reports\IE\WebEQSM.aspx" />
+    <Content Include="EXCModule\Images\1.jpg" />
+    <Content Include="EXCModule\Images\bg_1.gif" />
+    <Content Include="EXCModule\Images\bg_Login.jpg" />
+    <Content Include="EXCModule\Images\bottom.jpg" />
+    <Content Include="EXCModule\Images\bottom_bg.jpg" />
+    <Content Include="EXCModule\Images\Button.gif" />
+    <Content Include="EXCModule\Images\button2.jpg" />
+    <Content Include="EXCModule\Images\button_1.jpg" />
+    <Content Include="EXCModule\Images\button_2.jpg" />
+    <Content Include="EXCModule\Images\button_3.jpg" />
+    <Content Include="EXCModule\Images\button_4.jpg" />
+    <Content Include="EXCModule\Images\button_5.jpg" />
+    <Content Include="EXCModule\Images\button_6.jpg" />
+    <Content Include="EXCModule\Images\button_7.jpg" />
+    <Content Include="EXCModule\Images\button_8.jpg" />
+    <Content Include="EXCModule\Images\button_9.jpg" />
+    <Content Include="EXCModule\Images\button_bg.jpg" />
+    <Content Include="EXCModule\Images\C001.gif" />
+    <Content Include="EXCModule\Images\C001.jpg" />
+    <Content Include="EXCModule\Images\C002.jpg" />
+    <Content Include="EXCModule\Images\C003.jpg" />
+    <Content Include="EXCModule\Images\C004.jpg" />
+    <Content Include="EXCModule\Images\C005.jpg" />
+    <Content Include="EXCModule\Images\C006.jpg" />
+    <Content Include="EXCModule\Images\C007.jpg" />
+    <Content Include="EXCModule\Images\C008.jpg" />
+    <Content Include="EXCModule\Images\calendar.gif" />
+    <Content Include="EXCModule\Images\class_ar.gif" />
+    <Content Include="EXCModule\Images\close.gif" />
+    <Content Include="EXCModule\Images\Date.gif" />
+    <Content Include="EXCModule\Images\drop1.gif" />
+    <Content Include="EXCModule\Images\drop2.gif" />
+    <Content Include="EXCModule\Images\head.jpg" />
+    <Content Include="EXCModule\Images\left1.gif" />
+    <Content Include="EXCModule\Images\left2.gif" />
+    <Content Include="EXCModule\Images\left_bg.jpg" />
+    <Content Include="EXCModule\Images\line.gif" />
+    <Content Include="EXCModule\Images\logo.jpg" />
+    <Content Include="EXCModule\Images\logout.jpg" />
+    <Content Include="EXCModule\Images\Logout.png" />
+    <Content Include="EXCModule\Images\logo_bg.jpg" />
+    <Content Include="EXCModule\Images\page1.jpg" />
+    <Content Include="EXCModule\Images\P_1.GIF" />
+    <Content Include="EXCModule\Images\P_2.GIF" />
+    <Content Include="EXCModule\Images\P_3.GIF" />
+    <Content Include="EXCModule\Images\P_4.GIF" />
+    <Content Include="EXCModule\Images\right1.gif" />
+    <Content Include="EXCModule\Images\right2.gif" />
+    <Content Include="EXCModule\Images\right_bg.jpg" />
+    <Content Include="EXCModule\Images\title_bg.jpg" />
+    <Content Include="EXCModule\Images\userinfo_bg.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="Left.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="MainReport.aspx" />
+    <Content Include="Reports\MFG\DailyInputAndOutput.aspx" />
+    <Content Include="Reports\MenuLeft.aspx" />
+    <Content Include="Reports\Material\ModuleMaterielScrapQuery.aspx" />
+    <Content Include="Reports\Rework\ModuleReworkWeeklyReport.aspx" />
+    <Content Include="Reports\Material\NonKeyMaterialExchangeQuery.aspx" />
+    <Content Include="Reports\Material\NonKeyMaterialTransferQuery.aspx" />
+    <Content Include="Reports\OQC\OQCRecordReport.aspx" />
+    <Content Include="Reports\OQC\OQCWeekReport.aspx" />
+    <Content Include="Reports\MFG\PerformanceAccessReport.aspx" />
+    <Content Include="Reports\popcalendar.js" />
+    <Content Include="Reports\sdate.htm" />
+    <Content Include="Reports\IE\LineProductStatus.aspx" />
+    <Content Include="Reports\timeS.htm" />
+    <Content Include="Top.aspx" />
+    <Content Include="T_L.HTM" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CrystalReport\CREQSMMRate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CREQSMMRate.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DSEQSMMRate.Designer.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Library\AESCbcPbkdf2.cs" />
+    <Compile Include="Library\AppClass.cs" />
+    <Compile Include="Library\BaseExcel.cs" />
+    <Compile Include="Library\Const.cs" />
+    <Compile Include="Library\DBConn.cs" />
+    <Compile Include="Library\LogonImpersonate.cs" />
+    <Compile Include="Library\mdlEncryption.cs" />
+    <Compile Include="Library\MSSQLHelper.cs" />
+    <Compile Include="Library\RecordLog.cs" />
+    <Compile Include="Library\SPCDBConn.cs" />
+    <Compile Include="Library\WipDBConn.cs" />
+    <Compile Include="Library\WNetHelper.cs" />
+    <Compile Include="LockScrewDataQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>LockScrewDataQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LockScrewDataQuery.aspx.designer.cs">
+      <DependentUpon>LockScrewDataQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="multi_line.aspx.cs">
+      <DependentUpon>multi_line.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="multi_line.aspx.designer.cs">
+      <DependentUpon>multi_line.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\8180Outputquery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>8180Outputquery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\8180Outputquery.aspx.designer.cs">
+      <DependentUpon>8180Outputquery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\AccWipReport.aspx.cs">
+      <DependentUpon>AccWipReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\AccWipReport.aspx.designer.cs">
+      <DependentUpon>AccWipReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\NonKeyMaterialQuery.aspx.cs">
+      <DependentUpon>NonKeyMaterialQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\NonKeyMaterialQuery.aspx.designer.cs">
+      <DependentUpon>NonKeyMaterialQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\VAPWIP.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>VAPWIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\VAPWIP.aspx.designer.cs">
+      <DependentUpon>VAPWIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\WIPCheck.aspx.cs">
+      <DependentUpon>WIPCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\WIPCheck.aspx.designer.cs">
+      <DependentUpon>WIPCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\WOQuery.aspx.cs">
+      <DependentUpon>WOQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ACC\WOQuery.aspx.designer.cs">
+      <DependentUpon>WOQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AOI_FP\AOIFP.aspx.cs">
+      <DependentUpon>AOIFP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\AOI_FP\AOIFP.aspx.designer.cs">
+      <DependentUpon>AOIFP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\IssueinfoQuary.aspx.cs">
+      <DependentUpon>IssueinfoQuary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\IssueinfoQuary.aspx.designer.cs">
+      <DependentUpon>IssueinfoQuary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\LcRecipeCheckQuery.aspx.cs">
+      <DependentUpon>LcRecipeCheckQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\LcRecipeCheckQuery.aspx.designer.cs">
+      <DependentUpon>LcRecipeCheckQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\LcRecyclequary.aspx.cs">
+      <DependentUpon>LcRecyclequary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BarcodeSystemQuary\LcRecyclequary.aspx.designer.cs">
+      <DependentUpon>LcRecyclequary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CARTONID\Select.aspx.cs">
+      <DependentUpon>Select.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CARTONID\Select.aspx.designer.cs">
+      <DependentUpon>Select.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\EMSQuery.aspx.cs">
+      <DependentUpon>EMSQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\EMSQuery.aspx.designer.cs">
+      <DependentUpon>EMSQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\EMSStatusQuery.aspx.cs">
+      <DependentUpon>EMSStatusQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\EMSStatusQuery.aspx.designer.cs">
+      <DependentUpon>EMSStatusQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\EQ24HRSTATUSQuery.aspx.cs">
+      <DependentUpon>EQ24HRSTATUSQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\EQ24HRSTATUSQuery.aspx.designer.cs">
+      <DependentUpon>EQ24HRSTATUSQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\EQ24STS.aspx.cs">
+      <DependentUpon>EQ24STS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\EQ24STS.aspx.designer.cs">
+      <DependentUpon>EQ24STS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\EQAndSublineStatusDetail.aspx.cs">
+      <DependentUpon>EQAndSublineStatusDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\EQAndSublineStatusDetail.aspx.designer.cs">
+      <DependentUpon>EQAndSublineStatusDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FrmEQSMMReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMReport.aspx.designer.cs">
+      <DependentUpon>FrmEQSMMReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMReportQuery.aspx.cs">
+      <DependentUpon>FrmEQSMMReportQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMReportQuery.aspx.designer.cs">
+      <DependentUpon>FrmEQSMMReportQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMSummary.aspx.cs">
+      <DependentUpon>FrmEQSMMSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\FrmEQSMMSummary.aspx.designer.cs">
+      <DependentUpon>FrmEQSMMSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\Graph1.aspx.cs">
+      <DependentUpon>Graph1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\Graph1.aspx.designer.cs">
+      <DependentUpon>Graph1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\Graph2.aspx.cs">
+      <DependentUpon>Graph2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\Graph2.aspx.designer.cs">
+      <DependentUpon>Graph2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\LCM2EQAndSublinePerformance.aspx.cs">
+      <DependentUpon>LCM2EQAndSublinePerformance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\LCM2EQAndSublinePerformance.aspx.designer.cs">
+      <DependentUpon>LCM2EQAndSublinePerformance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\SubLine24STS.aspx.cs">
+      <DependentUpon>SubLine24STS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\SubLine24STS.aspx.designer.cs">
+      <DependentUpon>SubLine24STS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\SubLineEQ24HRStatusQuery.aspx.cs">
+      <DependentUpon>SubLineEQ24HRStatusQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\SubLineEQ24HRStatusQuery.aspx.designer.cs">
+      <DependentUpon>SubLineEQ24HRStatusQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJLot1Query.aspx.cs">
+      <DependentUpon>ZJLot1Query.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJLot1Query.aspx.designer.cs">
+      <DependentUpon>ZJLot1Query.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusChange.aspx.cs">
+      <DependentUpon>ZJStatusChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusChange.aspx.designer.cs">
+      <DependentUpon>ZJStatusChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusHisQuery.aspx.cs">
+      <DependentUpon>ZJStatusHisQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusHisQuery.aspx.designer.cs">
+      <DependentUpon>ZJStatusHisQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusQuery.aspx.cs">
+      <DependentUpon>ZJStatusQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EMS\ZJStatusQuery.aspx.designer.cs">
+      <DependentUpon>ZJStatusQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IEB\IbeWipQuery.aspx.cs">
+      <DependentUpon>IbeWipQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IEB\IbeWipQuery.aspx.designer.cs">
+      <DependentUpon>IbeWipQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IEB\IbeWipReport.aspx.cs">
+      <DependentUpon>IbeWipReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IEB\IbeWipReport.aspx.designer.cs">
+      <DependentUpon>IbeWipReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\CycleTime.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CycleTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\CycleTime.aspx.designer.cs">
+      <DependentUpon>CycleTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\RMSP.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>RMSP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ACC\RMSP.aspx.designer.cs">
+      <DependentUpon>RMSP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\CycleTime2.aspx.cs">
+      <DependentUpon>CycleTime2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\CycleTime2.aspx.designer.cs">
+      <DependentUpon>CycleTime2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\Default_BMW.aspx.cs">
+      <DependentUpon>Default_BMW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\Default_BMW.aspx.designer.cs">
+      <DependentUpon>Default_BMW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\DTactTime.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>DTactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\DTactTime.aspx.designer.cs">
+      <DependentUpon>DTactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\MOEE_Tgt.aspx.cs">
+      <DependentUpon>MOEE_Tgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\MOEE_Tgt.aspx.designer.cs">
+      <DependentUpon>MOEE_Tgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\OEE_EXEC.aspx.cs">
+      <DependentUpon>OEE_EXEC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\OEE_EXEC.aspx.designer.cs">
+      <DependentUpon>OEE_EXEC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\TactTime.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>TactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\TactTime.aspx.designer.cs">
+      <DependentUpon>TactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\UNPRODIDTT.aspx.cs">
+      <DependentUpon>UNPRODIDTT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\UNPRODIDTT.aspx.designer.cs">
+      <DependentUpon>UNPRODIDTT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\UNTactTime.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>UNTactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\UNTactTime.aspx.designer.cs">
+      <DependentUpon>UNTactTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\WebUserControl1.ascx.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\WebUserControl1.ascx.designer.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LockSrew\LockScrewDataQuery20190715.aspx.cs">
+      <DependentUpon>LockScrewDataQuery20190715.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\LockSrew\LockScrewDataQuery20190715.aspx.designer.cs">
+      <DependentUpon>LockScrewDataQuery20190715.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LockSrew\LockScrewDataQuery.aspx.cs">
+      <DependentUpon>LockScrewDataQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\LockSrew\LockScrewDataQuery.aspx.designer.cs">
+      <DependentUpon>LockScrewDataQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\MaterialQuery.aspx.cs">
+      <DependentUpon>MaterialQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Material\MaterialQuery.aspx.designer.cs">
+      <DependentUpon>MaterialQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\MaterielScrapQuery.aspx.cs">
+      <DependentUpon>MaterielScrapQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Material\MaterielScrapQuery.aspx.designer.cs">
+      <DependentUpon>MaterielScrapQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\ActOutputQuery.aspx.cs">
+      <DependentUpon>ActOutputQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\ActOutputQuery.aspx.designer.cs">
+      <DependentUpon>ActOutputQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\Burn_In_RecordQuery.aspx.cs">
+      <DependentUpon>Burn_In_RecordQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\Burn_In_RecordQuery.aspx.designer.cs">
+      <DependentUpon>Burn_In_RecordQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\By_Customer_Wkctr.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>By_Customer_Wkctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\By_Customer_Wkctr.aspx.designer.cs">
+      <DependentUpon>By_Customer_Wkctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\CFA.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CFA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\CFA.aspx.designer.cs">
+      <DependentUpon>CFA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmInputANDOutput.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FrmInputANDOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmInputANDOutput.aspx.designer.cs">
+      <DependentUpon>FrmInputANDOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmInputANDOutputQuery.aspx.cs">
+      <DependentUpon>FrmInputANDOutputQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmInputANDOutputQuery.aspx.designer.cs">
+      <DependentUpon>FrmInputANDOutputQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmSBInput.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FrmSBInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmSBInput.aspx.designer.cs">
+      <DependentUpon>FrmSBInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmSBInputQuery.aspx.cs">
+      <DependentUpon>FrmSBInputQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\FrmSBInputQuery.aspx.designer.cs">
+      <DependentUpon>FrmSBInputQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\OperationIDQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>OperationIDQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\OperationIDQuery.aspx.designer.cs">
+      <DependentUpon>OperationIDQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\Product Summary.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Product Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\Product Summary.aspx.designer.cs">
+      <DependentUpon>Product Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\QueryOfflineHandling.aspx.cs">
+      <DependentUpon>QueryOfflineHandling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\QueryOfflineHandling.aspx.designer.cs">
+      <DependentUpon>QueryOfflineHandling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\WipInfoQuerySum.aspx.cs">
+      <DependentUpon>WipInfoQuerySum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\WipInfoQuerySum.aspx.designer.cs">
+      <DependentUpon>WipInfoQuerySum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\WipStatusQuery.aspx.cs">
+      <DependentUpon>WipStatusQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\WipStatusQuery.aspx.designer.cs">
+      <DependentUpon>WipStatusQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\WipStayMonitor.aspx.cs">
+      <DependentUpon>WipStayMonitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\WipStayMonitor.aspx.designer.cs">
+      <DependentUpon>WipStayMonitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\YaHeTest.aspx.cs">
+      <DependentUpon>YaHeTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\YaHeTest.aspx.designer.cs">
+      <DependentUpon>YaHeTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\N90\Cell2Report.aspx.cs">
+      <DependentUpon>Cell2Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\N90\Cell2Report.aspx.designer.cs">
+      <DependentUpon>Cell2Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\N90\N90ActualYield.aspx.cs">
+      <DependentUpon>N90ActualYield.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\N90\N90ActualYield.aspx.designer.cs">
+      <DependentUpon>N90ActualYield.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\ActualOutputMark.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ActualOutputMark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\ActualOutputMark.aspx.designer.cs">
+      <DependentUpon>ActualOutputMark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\ActualOutputQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ActualOutputQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\ActualOutputQuery.aspx.designer.cs">
+      <DependentUpon>ActualOutputQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\FinalOutQty.aspx.cs">
+      <DependentUpon>FinalOutQty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\FinalOutQty.aspx.designer.cs">
+      <DependentUpon>FinalOutQty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\HOLD.aspx.cs">
+      <DependentUpon>HOLD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\HOLD.aspx.designer.cs">
+      <DependentUpon>HOLD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\InputAndOutput.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>InputAndOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\InputAndOutput.aspx.designer.cs">
+      <DependentUpon>InputAndOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LoadExcel.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>LoadExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LoadExcel.aspx.designer.cs">
+      <DependentUpon>LoadExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDPMModify.aspx.cs">
+      <DependentUpon>RMDDPMModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDPMModify.aspx.designer.cs">
+      <DependentUpon>RMDDPMModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDPMModifySave.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>RMDDPMModifySave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDPMModifySave.aspx.designer.cs">
+      <DependentUpon>RMDDPMModifySave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>RMDDQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDQuery.aspx.designer.cs">
+      <DependentUpon>RMDDQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDQueryChart.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>RMDDQueryChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDQueryChart.aspx.designer.cs">
+      <DependentUpon>RMDDQueryChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDScrapMaterial.aspx.cs">
+      <DependentUpon>RMDDScrapMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MFG\RMDDScrapMaterial.aspx.designer.cs">
+      <DependentUpon>RMDDScrapMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCMonthReprot.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>OQCMonthReprot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCMonthReprot.aspx.designer.cs">
+      <DependentUpon>OQCMonthReprot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\NForceSwomQuery.aspx.cs">
+      <DependentUpon>NForceSwomQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\NForceSwomQuery.aspx.designer.cs">
+      <DependentUpon>NForceSwomQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\OutQty.aspx.cs">
+      <DependentUpon>OutQty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\OutQty.aspx.designer.cs">
+      <DependentUpon>OutQty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\SGradeDfectPanelDQuery.aspx.cs">
+      <DependentUpon>SGradeDfectPanelDQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\SGradeDfectPanelDQuery.aspx.designer.cs">
+      <DependentUpon>SGradeDfectPanelDQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\WipInfoQuery.aspx.cs">
+      <DependentUpon>WipInfoQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\WipInfoQuery.aspx.designer.cs">
+      <DependentUpon>WipInfoQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\WOCompress.aspx.cs">
+      <DependentUpon>WOCompress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\WOCompress.aspx.designer.cs">
+      <DependentUpon>WOCompress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PC\WOCycleTime.aspx.cs">
+      <DependentUpon>WOCycleTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PC\WOCycleTime.aspx.designer.cs">
+      <DependentUpon>WOCycleTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\datepicker.ascx.cs">
+      <DependentUpon>datepicker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\datepicker.ascx.designer.cs">
+      <DependentUpon>datepicker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\EngReport.aspx.cs">
+      <DependentUpon>EngReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\EngReport.aspx.designer.cs">
+      <DependentUpon>EngReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MPC\WIPAnalysis.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>WIPAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MPC\WIPAnalysis.aspx.designer.cs">
+      <DependentUpon>WIPAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MPC\ProductDailyReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ProductDailyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MPC\ProductDailyReport.aspx.designer.cs">
+      <DependentUpon>ProductDailyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\glasssemiscribe.aspx.cs">
+      <DependentUpon>glasssemiscribe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\glasssemiscribe.aspx.designer.cs">
+      <DependentUpon>glasssemiscribe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\OXInfo.aspx.cs">
+      <DependentUpon>OXInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\OXInfo.aspx.designer.cs">
+      <DependentUpon>OXInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\PanelRecord.aspx.cs">
+      <DependentUpon>PanelRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\PanelRecord.aspx.designer.cs">
+      <DependentUpon>PanelRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PE\semiscribescrap.aspx.cs">
+      <DependentUpon>semiscribescrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\PE\semiscribescrap.aspx.designer.cs">
+      <DependentUpon>semiscribescrap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RMA\RMASelect.aspx.cs">
+      <DependentUpon>RMASelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\RMA\RMASelect.aspx.designer.cs">
+      <DependentUpon>RMASelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SPC\SPCCPKData.aspx.cs">
+      <DependentUpon>SPCCPKData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\SPC\SPCCPKData.aspx.designer.cs">
+      <DependentUpon>SPCCPKData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TPT\tptmpmgm.aspx.cs">
+      <DependentUpon>tptmpmgm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TPT\tptmpmgm.aspx.designer.cs">
+      <DependentUpon>tptmpmgm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TPT\tptmpmgm1.aspx.cs">
+      <DependentUpon>tptmpmgm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TPT\tptmpmgm1.aspx.designer.cs">
+      <DependentUpon>tptmpmgm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TPT\tptReport.aspx.cs">
+      <DependentUpon>tptReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TPT\tptReport.aspx.designer.cs">
+      <DependentUpon>tptReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\BMWTestResult.aspx.cs">
+      <DependentUpon>BMWTestResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\BMWTestResult.aspx.designer.cs">
+      <DependentUpon>BMWTestResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\BySNQyeryPanelID.aspx.cs">
+      <DependentUpon>BySNQyeryPanelID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\BySNQyeryPanelID.aspx.designer.cs">
+      <DependentUpon>BySNQyeryPanelID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\ByCartidQLot.aspx.cs">
+      <DependentUpon>ByCartidQLot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\ByCartidQLot.aspx.designer.cs">
+      <DependentUpon>ByCartidQLot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\Cell2PanelRecord.aspx.cs">
+      <DependentUpon>Cell2PanelRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\Cell2PanelRecord.aspx.designer.cs">
+      <DependentUpon>Cell2PanelRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\ConsumeTrace.aspx.cs">
+      <DependentUpon>ConsumeTrace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\ConsumeTrace.aspx.designer.cs">
+      <DependentUpon>ConsumeTrace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\EQParameter.aspx.cs">
+      <DependentUpon>EQParameter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\EQParameter.aspx.designer.cs">
+      <DependentUpon>EQParameter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\FrmOQC.aspx.cs">
+      <DependentUpon>FrmOQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\FrmOQC.aspx.designer.cs">
+      <DependentUpon>FrmOQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\FrmUserID.aspx.cs">
+      <DependentUpon>FrmUserID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\FrmUserID.aspx.designer.cs">
+      <DependentUpon>FrmUserID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotDefectQueryList.aspx.cs">
+      <DependentUpon>LotDefectQueryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotDefectQueryList.aspx.designer.cs">
+      <DependentUpon>LotDefectQueryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LOTSPLT.aspx.cs">
+      <DependentUpon>LOTSPLT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LOTSPLT.aspx.designer.cs">
+      <DependentUpon>LOTSPLT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotTraceQuery.aspx.cs">
+      <DependentUpon>LotTraceQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotTraceQuery.aspx.designer.cs">
+      <DependentUpon>LotTraceQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MACHINEPMTRACKING.aspx.cs">
+      <DependentUpon>MACHINEPMTRACKING.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MACHINEPMTRACKING.aspx.designer.cs">
+      <DependentUpon>MACHINEPMTRACKING.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MachineRunHistory.aspx.cs">
+      <DependentUpon>MachineRunHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MachineRunHistory.aspx.designer.cs">
+      <DependentUpon>MachineRunHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MaterialK.aspx.cs">
+      <DependentUpon>MaterialK.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MaterialK.aspx.designer.cs">
+      <DependentUpon>MaterialK.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OneClickQuery.aspx.cs">
+      <DependentUpon>OneClickQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OneClickQuery.aspx.designer.cs">
+      <DependentUpon>OneClickQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OnlineDefectSummary.aspx.cs">
+      <DependentUpon>OnlineDefectSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OnlineDefectSummary.aspx.designer.cs">
+      <DependentUpon>OnlineDefectSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OQCBlock.aspx.cs">
+      <DependentUpon>OQCBlock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OQCBlock.aspx.designer.cs">
+      <DependentUpon>OQCBlock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OQCLabelScanReport.aspx.cs">
+      <DependentUpon>OQCLabelScanReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\OQCLabelScanReport.aspx.designer.cs">
+      <DependentUpon>OQCLabelScanReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\PanelInfo.aspx.cs">
+      <DependentUpon>PanelInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\PanelInfo.aspx.designer.cs">
+      <DependentUpon>PanelInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotWIP.aspx.cs">
+      <DependentUpon>LotWIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\LotWIP.aspx.designer.cs">
+      <DependentUpon>LotWIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MaterialLotSNPanel.aspx.cs">
+      <DependentUpon>MaterialLotSNPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\MaterialLotSNPanel.aspx.designer.cs">
+      <DependentUpon>MaterialLotSNPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\DefectCodesummary.aspx.cs">
+      <DependentUpon>DefectCodesummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\DefectCodesummary.aspx.designer.cs">
+      <DependentUpon>DefectCodesummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\PanelReworkInfo.aspx.cs">
+      <DependentUpon>PanelReworkInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\PanelReworkInfo.aspx.designer.cs">
+      <DependentUpon>PanelReworkInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\QueryCarton.aspx.cs">
+      <DependentUpon>QueryCarton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\QueryCarton.aspx.designer.cs">
+      <DependentUpon>QueryCarton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\QueryScrapData.aspx.cs">
+      <DependentUpon>QueryScrapData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\TraceAbility\QueryScrapData.aspx.designer.cs">
+      <DependentUpon>QueryScrapData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\zhongweishu\IE_MEDIAN.aspx.cs">
+      <DependentUpon>IE_MEDIAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\zhongweishu\IE_MEDIAN.aspx.designer.cs">
+      <DependentUpon>IE_MEDIAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditGroupMenuMapping.aspx.cs">
+      <DependentUpon>EditGroupMenuMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditGroupMenuMapping.aspx.designer.cs">
+      <DependentUpon>EditGroupMenuMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditUserGroupMapping.aspx.cs">
+      <DependentUpon>EditUserGroupMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditUserGroupMapping.aspx.designer.cs">
+      <DependentUpon>EditUserGroupMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditUserRole.aspx.cs">
+      <DependentUpon>EditUserRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleSetMgt\EditUserRole.aspx.designer.cs">
+      <DependentUpon>EditUserRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleSetMgt\QueryGroupUserMapping.aspx.cs">
+      <DependentUpon>QueryGroupUserMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleSetMgt\QueryGroupUserMapping.aspx.designer.cs">
+      <DependentUpon>QueryGroupUserMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ConsumeTrace.cs" />
+    <Compile Include="Sources\CycleTime.cs" />
+    <Compile Include="Sources\HOLD.cs" />
+    <Compile Include="Sources\InputAndOutPut.cs" />
+    <Compile Include="Sources\LCM2PerformanceGraph1.cs" />
+    <Compile Include="Sources\LCM2PerformanceGraph2.cs" />
+    <Compile Include="Sources\OQCMonth.cs" />
+    <Compile Include="Sources\RMDD.cs" />
+    <Compile Include="Sources\RMSP.cs" />
+    <Compile Include="Sources\WIPAnalysis.cs" />
+    <Compile Include="TreeMenu.aspx.cs">
+      <DependentUpon>TreeMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TreeMenu.aspx.designer.cs">
+      <DependentUpon>TreeMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControl\EQUnit.ascx.cs">
+      <DependentUpon>EQUnit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControl\EQUnit.ascx.designer.cs">
+      <DependentUpon>EQUnit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControl\ModuleSubLineUnit.ascx.cs">
+      <DependentUpon>ModuleSubLineUnit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControl\ModuleSubLineUnit.ascx.designer.cs">
+      <DependentUpon>ModuleSubLineUnit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebControl\SubLineUnit.ascx.cs">
+      <DependentUpon>SubLineUnit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControl\SubLineUnit.ascx.designer.cs">
+      <DependentUpon>SubLineUnit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\MoudleSubLineStatus.aspx.cs">
+      <DependentUpon>MoudleSubLineStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\MoudleSubLineStatus.aspx.designer.cs">
+      <DependentUpon>MoudleSubLineStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\WebCell2SubLineStatus.aspx.cs">
+      <DependentUpon>WebCell2SubLineStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\WebCell2SubLineStatus.aspx.designer.cs">
+      <DependentUpon>WebCell2SubLineStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\WebEQSM.aspx.cs">
+      <DependentUpon>WebEQSM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\WebEQSM.aspx.designer.cs">
+      <DependentUpon>WebEQSM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Left.aspx.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Left.aspx.designer.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Library\BaseStatic.cs" />
+    <Compile Include="Library\CollectionStandard.cs" />
+    <Compile Include="Library\DataSetHelper.cs" />
+    <Compile Include="Library\DateHelper.cs" />
+    <Compile Include="Library\Eqsm.cs" />
+    <Compile Include="Library\Eqsms.cs" />
+    <Compile Include="Library\FabInfo.cs" />
+    <Compile Include="Library\LOTTYPE.cs" />
+    <Compile Include="Library\ProdID.cs" />
+    <Compile Include="Library\Slln.cs" />
+    <Compile Include="Library\Sllns.cs" />
+    <Compile Include="Library\Standard.cs" />
+    <Compile Include="Library\SubLine.cs" />
+    <Compile Include="Library\SubLineID.cs" />
+    <Compile Include="Library\SubLines.cs" />
+    <Compile Include="Library\TeamID.cs" />
+    <Compile Include="Library\UserID.cs" />
+    <Compile Include="Library\UserInfo.cs" />
+    <Compile Include="Library\UserLogin.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainReport.aspx.cs">
+      <DependentUpon>MainReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainReport.aspx.designer.cs">
+      <DependentUpon>MainReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\MFG\DailyInputAndOutput.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>DailyInputAndOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\DailyInputAndOutput.aspx.designer.cs">
+      <DependentUpon>DailyInputAndOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\ModuleMaterielScrapQuery.aspx.cs">
+      <DependentUpon>ModuleMaterielScrapQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Material\ModuleMaterielScrapQuery.aspx.designer.cs">
+      <DependentUpon>ModuleMaterielScrapQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IE\LineProductStatus.aspx.cs">
+      <DependentUpon>LineProductStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\IE\LineProductStatus.aspx.designer.cs">
+      <DependentUpon>LineProductStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rework\ModuleReworkWeeklyReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ModuleReworkWeeklyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Rework\ModuleReworkWeeklyReport.aspx.designer.cs">
+      <DependentUpon>ModuleReworkWeeklyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\NonKeyMaterialExchangeQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>NonKeyMaterialExchangeQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\NonKeyMaterialExchangeQuery.aspx.designer.cs">
+      <DependentUpon>NonKeyMaterialExchangeQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\NonKeyMaterialTransferQuery.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>NonKeyMaterialTransferQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Material\NonKeyMaterialTransferQuery.aspx.designer.cs">
+      <DependentUpon>NonKeyMaterialTransferQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCRecordReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>OQCRecordReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCRecordReport.aspx.designer.cs">
+      <DependentUpon>OQCRecordReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCWeekReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>OQCWeekReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OQC\OQCWeekReport.aspx.designer.cs">
+      <DependentUpon>OQCWeekReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\PerformanceAccessReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PerformanceAccessReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MFG\PerformanceAccessReport.aspx.designer.cs">
+      <DependentUpon>PerformanceAccessReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\DailyInputAndOutput.cs" />
+    <Compile Include="Sources\EQ24HRStatus.cs" />
+    <Compile Include="Sources\LCM2DptEQPerformance.cs" />
+    <Compile Include="Sources\LCM2DptSubLinePerformance.cs" />
+    <Compile Include="Sources\LCM2EQPerformance.cs" />
+    <Compile Include="Sources\LCM2SubLinePerformance.cs" />
+    <Compile Include="Sources\LineProductStatus.cs" />
+    <Compile Include="Sources\ModuleMaterielScrapQuery.cs" />
+    <Compile Include="Sources\ModuleReworkWeekly.cs" />
+    <Compile Include="Sources\NonKeyMaterialExchangQuery.cs" />
+    <Compile Include="Sources\NonKeyMaterialTransfer.cs" />
+    <Compile Include="Sources\OQCRecord.cs" />
+    <Compile Include="Sources\OQCWeek.cs" />
+    <Compile Include="Sources\PerformanceAccess.cs" />
+    <Compile Include="Sources\SubLine24HRStatus.cs" />
+    <Compile Include="Top.aspx.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Top.aspx.designer.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CrystalReport\DSEQSMMRate.xsc">
+      <DependentUpon>DSEQSMMRate.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DSEQSMMRate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CrystalReport\DSEQSMMRate.xss">
+      <DependentUpon>DSEQSMMRate.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DSEQSMMRate.xsx">
+      <DependentUpon>DSEQSMMRate.xsd</DependentUpon>
+    </None>
+    <None Include="Description\MaterailScrap.mht" />
+    <None Include="Description\ModuleReworkWeekly.mht" />
+    <None Include="EXCModule\OQCMONTH.xls" />
+    <None Include="EXCModule\OQCWeek.xls" />
+    <None Include="EXCModule\RMDD.xls" />
+    <None Include="Properties\DataSources\Report.Sources.ModuleMaterielScrapQuery.datasource" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="RDLC\MaterialK.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SNChk.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SnQCartId.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SNQPanelID.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SNUserId.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Report_OEE_LOG.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\DefectQueryResult.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\InputOutputQueryResult.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\IssueinfoQuary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LaserRepair.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LCM2PerfermanceGraph2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LCM2SublineEQPerformance.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LcRecipeCheckQuary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LcRecycle.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LockScrewDataQuery.aspx" />
+    <Content Include="multi_line.aspx" />
+    <Content Include="Reports\ACC\8180Outputquery.aspx" />
+    <Content Include="Reports\ACC\NewDate.js" />
+    <Content Include="Reports\ACC\WOQuery.aspx" />
+    <Content Include="Reports\AOI_FP\AOIFP.aspx" />
+    <Content Include="Reports\AOI_FP\NewDate.js" />
+    <Content Include="Reports\IE\OEE_EXEC.aspx" />
+    <Content Include="Reports\LockSrew\LockScrewDataQuery20190715.aspx" />
+    <Content Include="Reports\LockSrew\popcalendar.js" />
+    <Content Include="Reports\MFG\Burn_In_RecordQuery.aspx" />
+    <Content Include="Reports\MFG\OperationIDQuery.aspx" />
+    <Content Include="Reports\PE\PanelRecord.aspx" />
+    <Content Include="Reports\TraceAbility\OQCBlock.aspx" />
+    <Content Include="Reports\TraceAbility\OQCLabelScanReport.aspx" />
+    <Content Include="Reports\TraceAbility\QueryCarton.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RDLC\LCM2SublineEQPerformance1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Description\TACTTIMEHELP.htm" />
+    <Content Include="Description\會計WIP盤點報表.html" />
+    <Content Include="EXCModule\Images\ip.png" />
+    <Content Include="EXCModule\Images\left.png" />
+    <Content Include="EXCModule\Images\right.png" />
+    <Content Include="EXCModule\Images\tb_bg.gif" />
+    <Content Include="EXCModule\Images\tb_bg.png" />
+    <Content Include="EXCModule\Images\user.png" />
+    <Content Include="EXCModule\Images\xls.jpg" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\bg_1.gif" />
+    <Content Include="Images\bg_Login.jpg" />
+    <Content Include="Images\bottom.jpg" />
+    <Content Include="Images\bottom_bg.jpg" />
+    <Content Include="Images\Button.gif" />
+    <Content Include="Images\button2.jpg" />
+    <Content Include="Images\button_1.jpg" />
+    <Content Include="Images\button_2.jpg" />
+    <Content Include="Images\button_3.jpg" />
+    <Content Include="Images\button_4.jpg" />
+    <Content Include="Images\button_5.jpg" />
+    <Content Include="Images\button_6.jpg" />
+    <Content Include="Images\button_7.jpg" />
+    <Content Include="Images\button_8.jpg" />
+    <Content Include="Images\button_9.jpg" />
+    <Content Include="Images\button_bg.jpg" />
+    <Content Include="Images\C001.gif" />
+    <Content Include="Images\C001.jpg" />
+    <Content Include="Images\C002.jpg" />
+    <Content Include="Images\C003.jpg" />
+    <Content Include="Images\C004.jpg" />
+    <Content Include="Images\C005.jpg" />
+    <Content Include="Images\C006.jpg" />
+    <Content Include="Images\C007.jpg" />
+    <Content Include="Images\C008.jpg" />
+    <Content Include="Images\calendar.gif" />
+    <Content Include="Images\class_ar.gif" />
+    <Content Include="Images\close.gif" />
+    <Content Include="Images\Date.gif" />
+    <Content Include="Images\drop1.gif" />
+    <Content Include="Images\drop2.gif" />
+    <Content Include="Images\head.jpg" />
+    <Content Include="Images\help.gif" />
+    <Content Include="Images\ip.png" />
+    <Content Include="Images\left.png" />
+    <Content Include="Images\left1.gif" />
+    <Content Include="Images\left2.gif" />
+    <Content Include="Images\left_bg.jpg" />
+    <Content Include="Images\line.gif" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\logout.jpg" />
+    <Content Include="Images\Logout.png" />
+    <Content Include="Images\logo_bg.jpg" />
+    <Content Include="Images\page1.jpg" />
+    <Content Include="Images\P_1.GIF" />
+    <Content Include="Images\P_2.GIF" />
+    <Content Include="Images\P_3.GIF" />
+    <Content Include="Images\P_4.GIF" />
+    <Content Include="Images\right.png" />
+    <Content Include="Images\right1.gif" />
+    <Content Include="Images\right2.gif" />
+    <Content Include="Images\right_bg.jpg" />
+    <Content Include="Images\tb_bg.gif" />
+    <Content Include="Images\tb_bg.png" />
+    <Content Include="Images\title_bg.jpg" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\userinfo_bg.png" />
+    <Content Include="Images\xls.jpg" />
+    <Content Include="Reports\ACC\AccWipReport.aspx" />
+    <Content Include="Reports\ACC\NonKeyMaterialQuery.aspx" />
+    <Content Include="Reports\ACC\popcalendar.js" />
+    <Content Include="Reports\ACC\sdate.htm" />
+    <Content Include="Reports\ACC\timeS.htm" />
+    <Content Include="Reports\ACC\VAPWIP.aspx" />
+    <Content Include="Reports\ACC\WIPCheck.aspx" />
+    <Content Include="Reports\BarcodeSystemQuary\IssueinfoQuary.aspx" />
+    <Content Include="Reports\BarcodeSystemQuary\LcRecipeCheckQuery.aspx" />
+    <Content Include="Reports\BarcodeSystemQuary\LcRecyclequary.aspx" />
+    <Content Include="Reports\BarcodeSystemQuary\popcalendar.js" />
+    <Content Include="Reports\EMS\EMSQuery.aspx" />
+    <Content Include="Reports\EMS\EMSStatusQuery.aspx" />
+    <Content Include="Reports\EMS\EQ24HRSTATUSQuery.aspx" />
+    <Content Include="Reports\EMS\EQ24STS.aspx" />
+    <Content Include="Reports\EMS\EQAndSublineStatusDetail.aspx" />
+    <Content Include="Reports\EMS\FrmEQSMMReport.aspx" />
+    <Content Include="Reports\EMS\FrmEQSMMReportQuery.aspx" />
+    <Content Include="Reports\EMS\FrmEQSMMSummary.aspx" />
+    <Content Include="Reports\EMS\Graph1.aspx" />
+    <Content Include="Reports\EMS\Graph2.aspx" />
+    <Content Include="Reports\EMS\LCM2EQAndSublinePerformance.aspx" />
+    <Content Include="Reports\EMS\popcalendar.js" />
+    <Content Include="Reports\EMS\SubLine24STS.aspx" />
+    <Content Include="Reports\EMS\SubLineEQ24HRStatusQuery.aspx" />
+    <Content Include="Reports\EMS\timeS.htm" />
+    <Content Include="Reports\EMS\xls.jpg" />
+    <Content Include="Reports\EMS\ZJLot1Query.aspx" />
+    <Content Include="Reports\EMS\ZJStatusChange.aspx" />
+    <Content Include="Reports\EMS\ZJStatusHisQuery.aspx" />
+    <Content Include="Reports\EMS\ZJStatusQuery.aspx" />
+    <Content Include="Reports\IEB\IbeWipQuery.aspx" />
+    <Content Include="Reports\IEB\IbeWipReport.aspx" />
+    <Content Include="Reports\IEB\popcalendar.js" />
+    <Content Include="Reports\IE\CycleTime.aspx" />
+    <Content Include="Reports\IE\Default.aspx" />
+    <Content Include="Reports\IE\DTactTime.aspx" />
+    <Content Include="Reports\IE\popcalendar.js" />
+    <Content Include="Reports\IE\sdate.htm" />
+    <Content Include="Reports\IE\TactTime.aspx" />
+    <Content Include="Reports\IE\timeS.htm" />
+    <Content Include="Reports\ACC\RMSP.aspx" />
+    <Content Include="Reports\IE\UNPRODIDTT.aspx" />
+    <Content Include="Reports\IE\UNTactTime.aspx" />
+    <Content Include="Reports\IE\WebUserControl1.ascx" />
+    <Content Include="Reports\Material\MaterialQuery.aspx" />
+    <Content Include="Reports\Material\MaterielScrapQuery.aspx" />
+    <Content Include="Reports\MFG\ActOutputQuery.aspx" />
+    <Content Include="Reports\MFG\By_Customer_Wkctr.aspx" />
+    <Content Include="Reports\MFG\CFA.aspx" />
+    <Content Include="Reports\MFG\FrmInputANDOutput.aspx" />
+    <Content Include="Reports\MFG\FrmInputANDOutputQuery.aspx" />
+    <Content Include="Reports\MFG\FrmSBInput.aspx" />
+    <Content Include="Reports\MFG\FrmSBInputQuery.aspx" />
+    <Content Include="Reports\MFG\Product Summary.aspx" />
+    <Content Include="Reports\MFG\WipInfoQuerySum.aspx" />
+    <Content Include="Reports\MFG\WipStatusQuery.aspx" />
+    <Content Include="Reports\MFG\WipStayMonitor.aspx" />
+    <Content Include="Reports\MPC\popcalendar.js" />
+    <Content Include="Reports\MPC\sdate.htm" />
+    <Content Include="Reports\MPC\timeS.htm" />
+    <Content Include="Reports\MPC\xls.JPG" />
+    <Content Include="Reports\N90\Cell2Report.aspx" />
+    <Content Include="Reports\N90\N90ActualYield.aspx" />
+    <Content Include="Reports\N90\popcalendar.js" />
+    <Content Include="Reports\PC\ActualOutputMark.aspx" />
+    <Content Include="Reports\PC\ActualOutputQuery.aspx" />
+    <Content Include="Reports\PC\FinalOutQty.aspx" />
+    <Content Include="Reports\PC\HOLD.aspx" />
+    <Content Include="Reports\PC\InputAndOutput.aspx" />
+    <Content Include="Reports\PC\NForceSwomQuery.aspx" />
+    <Content Include="Reports\PC\OutQty.aspx" />
+    <Content Include="Reports\PC\popcalendar.js" />
+    <Content Include="Reports\PC\sdate.htm" />
+    <Content Include="Reports\PC\SGradeDfectPanelDQuery.aspx" />
+    <Content Include="Reports\PC\timeS.htm" />
+    <Content Include="Reports\LoadExcel.aspx" />
+    <Content Include="Reports\Material\popcalendar.js" />
+    <Content Include="Reports\Material\sdate.htm" />
+    <Content Include="Reports\Material\timeS.htm" />
+    <Content Include="Reports\MFG\popcalendar.js" />
+    <Content Include="Reports\MFG\RMDDPMModify.aspx" />
+    <Content Include="Reports\MFG\RMDDPMModifySave.aspx" />
+    <Content Include="Reports\MFG\RMDDQuery.aspx" />
+    <Content Include="Reports\MFG\RMDDQueryChart.aspx" />
+    <Content Include="Reports\MFG\RMDDScrapMaterial.aspx" />
+    <Content Include="Reports\MFG\sdate.htm" />
+    <Content Include="Reports\MFG\timeS.htm" />
+    <Content Include="Reports\OQC\OQCMonthReprot.aspx" />
+    <Content Include="Reports\OQC\popcalendar.js" />
+    <Content Include="Reports\OQC\sdate.htm" />
+    <Content Include="Reports\OQC\timeS.htm" />
+    <Content Include="Reports\PC\WipInfoQuery.aspx" />
+    <Content Include="Reports\PC\WOCycleTime.aspx" />
+    <Content Include="Reports\PE\datepicker.ascx" />
+    <Content Include="Reports\PE\EngReport.aspx" />
+    <Content Include="Reports\PE\glasssemiscribe.aspx" />
+    <Content Include="Reports\PE\OXInfo.aspx" />
+    <Content Include="Reports\PE\popcalendar.js" />
+    <Content Include="Reports\PE\sdate.htm" />
+    <Content Include="Reports\PE\semiscribescrap.aspx" />
+    <Content Include="Reports\PE\timeS.htm" />
+    <Content Include="Reports\PE\xls.JPG" />
+    <Content Include="Reports\MPC\ProductDailyReport.aspx" />
+    <Content Include="Reports\Rework\popcalendar.js" />
+    <Content Include="Reports\Rework\sdate.htm" />
+    <Content Include="Reports\Rework\timeS.htm" />
+    <Content Include="Reports\MPC\WIPAnalysis.aspx" />
+    <Content Include="Reports\SPC\SPCCPKData.aspx" />
+    <Content Include="Reports\TPT\popcalendar.js" />
+    <Content Include="Reports\TPT\tptmpmgm.aspx" />
+    <Content Include="Reports\TPT\tptmpmgm1.aspx" />
+    <Content Include="Reports\TPT\tptReport.aspx" />
+    <Content Include="Reports\TraceAbility\BMWTestResult.aspx" />
+    <Content Include="Reports\TraceAbility\BySNQyeryPanelID.aspx" />
+    <Content Include="Reports\TraceAbility\ByCartidQLot.aspx" />
+    <Content Include="Reports\TraceAbility\Cell2PanelRecord.aspx" />
+    <Content Include="Reports\TraceAbility\ConsumeTrace.aspx" />
+    <Content Include="Reports\TraceAbility\EQParameter.aspx" />
+    <Content Include="Reports\TraceAbility\FrmOQC.aspx" />
+    <Content Include="Reports\TraceAbility\FrmUserID.aspx" />
+    <Content Include="Reports\TraceAbility\LotDefectQueryList.aspx" />
+    <Content Include="Reports\TraceAbility\LOTSPLT.aspx" />
+    <Content Include="Reports\TraceAbility\LotTraceQuery.aspx" />
+    <Content Include="Reports\TraceAbility\MACHINEPMTRACKING.aspx" />
+    <Content Include="Reports\TraceAbility\MachineRunHistory.aspx" />
+    <Content Include="Reports\TraceAbility\MaterialK.aspx" />
+    <Content Include="Reports\TraceAbility\OnlineDefectSummary.aspx" />
+    <Content Include="Reports\TraceAbility\PanelInfo.aspx" />
+    <Content Include="Reports\TraceAbility\popcalendar.js" />
+    <Content Include="Reports\TraceAbility\QueryScrapData.aspx" />
+    <Content Include="Reports\TraceAbility\sdate.htm" />
+    <Content Include="Reports\TraceAbility\timeS.htm" />
+    <Content Include="Reports\TraceAbility\LotWIP.aspx" />
+    <Content Include="Reports\TraceAbility\MaterialLotSNPanel.aspx" />
+    <Content Include="Reports\TraceAbility\DefectCodesummary.aspx" />
+    <Content Include="Reports\TraceAbility\PanelReworkInfo.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport\CREQSMMRate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CREQSMMRate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="multi_line.aspx.resx">
+      <DependentUpon>multi_line.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\licenses.licx" />
+    <Content Include="RDLC\ACCWIPReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\BMWTestResult.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ByCartidQLot.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ConsumeTrace.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\CycleTime.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\CycleTime2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\DailyInputAndOutput.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\DailyInputAndOutput2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\DefectCodesummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\EQ24HRStatus.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\EQAndSublineStatusDetail.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\EQParameter.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\EQSMMQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\EQSMSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\GlassSemiScribe.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Graph1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Graph2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\HOLD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\IBEWipQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\IBEWipQueryForDetail.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\IBEWIPReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LCM2PerfermanceGraph1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LineProductStatus.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LotDefectQueryList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LotQueryCarton.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LOTSPLT.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LotTraceQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LotWIP.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\MACHINEPMTRACKING.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\MachineRunHistory.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\MaterialLotSNPanel.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\MaterialReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ModuleMaterielScrapQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ModuleReworkWeekly.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ModuleReworkWeekly2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ModuleReworkWeekly3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ModuleScrapQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\NForceSwomQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\NonKeyMaterialExchange.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\NonKeyMaterialQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\NonKeyMaterialQuery_bak.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\NonKeyMaterialTransfer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OnlineDefectSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OQCLabelScan.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OQCLotBlock.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OQCPieceBlock.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OQCRecordROQC.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\OQCRecordROQCS.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\PanelInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\PerformanceAccess.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\PieceQueryCarton.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ProductDailyRepot.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\QueryScrapData.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Report_OEE.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\RMDD2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\RMDDQUERY.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\RMDDSMATERIAL.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\RMDDSMATERIALCHART.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LCM2SublineEQPerformance3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\LCM2SublineEQPerformance2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\InputAndOutput.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\RMDDSMC.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Rmsp.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SemiscribeScrap.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SNQueryPanelID.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\SPCCPKDataInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\TPTReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\VAPWIP.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\WIPCheck.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\WipInfoQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\WOCycleTime.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\ZJStatusHisQuery.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDLC\Report_OEE_BMW.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reports\BarcodeSystemQuary\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\BarcodeSystemQuary\Report3.rdlc" />
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <Content Include="RDLC\SubLine24HRStatus.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="doc\" />
+    <Folder Include="ExportFile\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExcelIO\ExcelIO.csproj">
+      <Project>{614e44c9-53be-4398-b8e9-d938ff4e7334}</Project>
+      <Name>ExcelIO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6488</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

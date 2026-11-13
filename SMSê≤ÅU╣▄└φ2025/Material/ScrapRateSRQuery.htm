@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SR報表-區間明細查詢報表說明</title>
+    <script language="javascript" type="text/javascript">
+        function document.onkeydown() {
+            if (event.keyCode == 27) {
+                window.close();
+            }
+        }
+    </script>
+    </head>
+<body style="font-size:12px">
+
+        <div>
+            
+            <table id="gvData" border="1" cellspacing="0" rules="all" 
+                style="WIDTH: 950px; BORDER-COLLAPSE: collapse; FONT-SIZE: 10pt">
+                <tr style="BACKGROUND-COLOR: yellowgreen">
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        廠別</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        客戶名稱</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        尺寸</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Project Name</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Module Name</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Output Qty(k)</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        CELL2Output Qty(k)</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        MODULEOutput Qty(k)</th>
+                    <th align="middle" colspan="3" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        損耗率</th>
+                </tr>
+                <tr style="BACKGROUND-COLOR: yellowgreen">
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Cell2</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        MODULE</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        TTL</th>
+                </tr>
+                <tr>
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="14" 
+                        style="BACKGROUND-COLOR: #ccffff; WIDTH: 50px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        WE01</td>
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap" valign="top">
+                        Alpine</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        8.4</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        LAJ084T001A</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0840NC00140</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #33cccc">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #cc99ff">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        3,442</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.032</td>
+                </tr>
+                <tr>
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="5" style="WIDTH: 120px; WHITE-SPACE: nowrap" valign="top">
+                        Bosch</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        5.0</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        LAJ050T001A</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0500ZZ00140</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        4,727</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        4,727</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.024</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.024</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #33cccc">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        6,914</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        6,914</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.024</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.024</td>
+                </tr>
+                <tr>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        7.0</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NP-01B</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NP00540</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        1,293</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        1,293</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.083</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.083</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #33cccc">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        1,293</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        1,293</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.083</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.083</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #cc99ff">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        26,945</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        26,945</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.047</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.047</td>
+                </tr>
+                <tr>
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="5" style="WIDTH: 120px; WHITE-SPACE: nowrap" valign="top">
+                        Harman Becker</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        8.4</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ084NA-01A</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0840014Q</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        754</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        754</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                </tr>
+                <tr>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0840NA00940</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        34,935</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        34,935</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.030</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.030</td>
+                </tr>
+                <tr>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0840NC00240</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        30,655</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        30,655</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.023</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.023</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #33cccc">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        66,344</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        754</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        65,590</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.026</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.903</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #cc99ff">
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        76,581</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        1,972</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        74,609</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.026</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.903</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #99ccff">
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="1" style="WIDTH: 120px; WHITE-SPACE: nowrap" valign="top">
+                        合計</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        775,495</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        30,267</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        745,228</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.027</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.905</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: yellowgreen">
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 50px; WHITE-SPACE: nowrap" valign="top">
+                        合計</td>
+                    <td align="middle" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap" valign="top">
+                        &nbsp;</td>
+                    <td onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        775,495</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        30,267</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WHITE-SPACE: nowrap">
+                        745,228</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.778</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        1.027</td>
+                    <td align="right" onmouseout="this.style.backgroundColor=currencol" 
+                        onmouseover="currencol=this.style.backgroundColor;this.style.backgroundColor='#ccFFff'" 
+                        style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        4.905</td>
+                </tr>
+            </table>
+            
+            報表邏輯說明：<br />
+            1. OutputQty(k)： Output的數量<br />
+            2. 損耗率=(Output Cost + Scrap Cost) / Output Cost<br />
+            3.TTL=Cell2損耗率 * MODULE損耗率<br />
+            4. 各TP對應各SHOP的料號關係，請參考MES主檔【4.4 Source Product對照Product主檔】<br />
+            5. 合計的 損耗率 = 所對應層級的(Output Cost加總 + Scrap Cost加總) / Output Cost 加總</div>
+
+</body>
+</html>

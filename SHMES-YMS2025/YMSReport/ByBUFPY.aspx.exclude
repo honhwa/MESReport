@@ -1,0 +1,332 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ByBUFPY.aspx.cs" Inherits="ByBUFPY" MaintainScrollPositionOnPostback="true"%>
+
+<%@ Register Assembly="DundasWebChart" Namespace="Dundas.Charting.WebControl" TagPrefix="DCWC" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>By Bu First Pass Yield</title>
+     <style type="text/css">
+        body { margin:0;}
+     </style>
+    <script type="text/javascript" language="javascript" src="popcalendar.js"></script>
+    <script type="text/javascript" language="JavaScript">dateFormat='yyyy-mm-dd'</script>
+    <style type="text/css"> 
+#winpop { width:200px; height:0px; position:absolute; right:0; bottom:0; border:1px solid #999999; margin:0; padding:1px; overflow:hidden;display:none; background:#FFFFFF} 
+#winpop .title { width:100%; height:20px; line-height:20px; background:#FFCC00; font-weight:bold; text-align:center; font-size:12px;} 
+#winpop .con { width:100%; height:80px; line-height:80px; font-weight:bold; font-size:12px; color:#FF0000; text-decoration:underline; text-align:center} 
+#silu { font-size:13px; color:#999999; position:absolute; right:0;bottom:0px; text-align:right; text-decoration:underline; line-height:22px;} 
+.close { position:absolute; right:4px; top:-1px; color:#FFFFFF; cursor:pointer} 
+</style> 
+<script type="text/javascript"> 
+function show_pop()
+{//显示窗口 
+    document.getElementById("winpop").style.display="block"; 
+    timer=setInterval("changeH(4)",2);//调用changeH(4),每0.002秒向上移动一次 
+} 
+function hid_pop()
+{//隐藏窗口 
+    timer=setInterval("changeH(-4)",2);//调用changeH(-4),每0.002秒向下移动一次 
+} 
+function changeH(addH) 
+{ 
+    var MsgPop=document.getElementById("winpop"); 
+    var popH=parseInt(MsgPop.style.height||MsgPop.currentStyle.height);//用parseInt将对象的高度转化为数字,以方便下面比较（JS读<style>中的height要用"currentStyle.height"） 
+    if (popH<=100&&addH>0||popH>=4&&addH<0)
+    {//如果高度小于等于100(str>0)或高度大于等于4(str<0) 
+        MsgPop.style.height=(popH+addH).toString()+"px";//高度增加或减少4个象素 
+    } 
+    else{//否则 
+        clearInterval(timer);//取消调用,意思就是如果高度超过100象素了,就不再增长了，或高度等于0象素了，就不再减少了 
+        MsgPop.style.display=addH>0?"block":"none"//向上移动时窗口显示,向下移动时窗口隐藏（因为窗口有边框,所以还是可以看见1~2象素没缩进去,这时候就把DIV隐藏掉） 
+    } 
+}
+//window.onload=function()
+//{//加载 
+//    setTimeout("show_pop()",1000);//1秒后调用show_pop() 
+//    setTimeout("hid_pop()",10000);//10秒后调用hid_pop() 
+//} 
+
+function RunFunc()
+{//加载 
+    setTimeout("show_pop()",1000);//1秒后调用show_pop() 
+    setTimeout("hid_pop()",10000);//10秒后调用hid_pop() 
+} 
+</script>
+</head>
+<body style="font-weight: bold; font-size: 10pt; color: blue; font-family: Arial; background-image: url(images/CMI_ch1.jpg); background-color: transparent;">
+    <form id="form1" runat="server">
+<div id="winpop">
+    <div class="title"><asp:Label ID="lblTitle" runat="server" Text=""></asp:Label><span class="close" onclick="hid_pop()" style="right: 3px; width: 213px; top: 1px"></span></div> 
+    <div class="con"><asp:TextBox ID="tbCon" runat="server" Height="80px" ReadOnly="True" TextMode="MultiLine" Width="198px"></asp:TextBox></div> 
+</div>
+        <asp:Panel ID="Panel1" runat="server" Width="800px">
+            <table style="width: 800px">
+                <tr>
+                    <td style="width: 333px;"><asp:Label ID="Label1" runat="server" Text="日期" Width="42px" Font-Names="Arial" Font-Size="10pt"></asp:Label>
+                        <asp:TextBox ID="txtDate" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"
+                            MaxLength="10" Width="80px"></asp:TextBox>
+                        <img id="imgF" runat="server" onclick="popUpCalendar(this, form1.txtDate, dateFormat,-1,-1,false)"
+                            src="../images/calendar.gif"  type="button" width="30" /></td>    
+            
+                    <td style="width: 676px;">
+                        &nbsp;<asp:DropDownList ID="DdlSHOP" runat="server" Width="161px" AutoPostBack="True" Font-Bold="True" Font-Names="Arial" Font-Size="10pt" ForeColor="Blue" OnSelectedIndexChanged="ButnQuery_Click">
+                            <asp:ListItem>CELL2</asp:ListItem>
+                            <asp:ListItem>Module</asp:ListItem>
+                        </asp:DropDownList>&nbsp;
+                        <asp:Label ID="lblTTime" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"
+                            ForeColor="Green" Width="150px"></asp:Label></td>
+                </tr>
+            </table>
+                          <%--  <asp:RadioButtonList AutoPostBack="True" Font-Bold="True" Font-Names="Arial" Font-Size="12pt" ForeColor="Red" ID="rblFabID" OnSelectedIndexChanged="rblFabID_SelectedIndexChanged" RepeatDirection="Horizontal" RepeatLayout="Flow" runat="server" Width="141px">
+                            <asp:ListItem>LCM1</asp:ListItem>
+                            <asp:ListItem>LCM2</asp:ListItem>
+                        </asp:RadioButtonList>--%>
+                        <asp:TextBox ID="tbFdate" runat="server" Visible="False" Width="18px"></asp:TextBox>
+            <asp:TextBox ID="tbTdate" runat="server" Visible="False" Width="18px"></asp:TextBox>
+            <asp:TextBox
+                            ID="tbFweek" runat="server" Visible="False" Width="23px"></asp:TextBox><asp:TextBox
+                                ID="tbTweek" runat="server" Visible="False" Width="23px"></asp:TextBox><asp:TextBox
+                                    ID="tbFmonth" runat="server" Visible="False" Width="24px"></asp:TextBox><asp:TextBox
+                                        ID="tbTmonth" runat="server" Visible="False" Width="20px"></asp:TextBox>
+                        <asp:TextBox ID="tbFABID" runat="server" Visible="False" Width="25px"></asp:TextBox>
+                        <asp:TextBox ID="tbFABName" runat="server" Visible="False" Width="21px"></asp:TextBox>
+            <asp:DropDownList ID="DropDPROD" runat="server" Width="96px" Visible="False">
+                        </asp:DropDownList><asp:TextBox ID="tbLoginNTName" runat="server" Visible="False"
+                            Width="50px"></asp:TextBox><asp:TextBox ID="tbLoginPCName" runat="server" Visible="False"
+                                Width="50px"></asp:TextBox><asp:TextBox ID="tbLoginPCIP" runat="server" Visible="False"
+                                    Width="50px"></asp:TextBox>
+            <asp:CheckBox ID="cbSpanTwoYears" runat="server" Text="SpanTwoYears" Visible="False" /></asp:Panel>
+        <asp:Panel ID="Panel3" runat="server" Width="800px">
+        <table style="width: 800px">
+            <tr>
+                <td style="width: 1670px;">
+            <asp:Button ID="ButnQuery" runat="server" Text="Query" Font-Names="Arial" Font-Size="10pt" OnClick="ButnQuery_Click" Font-Bold="True"  />
+            <asp:Button ID="btExport" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"
+                OnClick="ExportExcel_Click" Text="ExportExcel" />
+            <asp:Button ID="ButnClear" runat="server" Text="Clear" OnClick="ButnClear_Click" Font-Bold="True" Font-Names="Arial" Font-Overline="False" Font-Size="10pt"  />
+            <asp:Label ID="lblFabID" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"
+                ForeColor="Red" Width="60px"></asp:Label></td>
+                <td style="width: 221px;">
+                    <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Arial"
+                        Font-Size="10pt" NavigateUrl="~/Default.aspx" ToolTip="返回主頁面">Main Menu</asp:HyperLink></td>
+                <td style="width: 125px;">
+                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" Font-Names="Arial"
+                        Font-Size="10pt" NavigateUrl="~/Description/BYBUFPY.htm" Target="_blank" ToolTip="報表說明">Help</asp:HyperLink></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <asp:CheckBoxList ID="ChKBUlist1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" BackColor="Gainsboro" ForeColor="Blue" Height="23px" OnSelectedIndexChanged="ChKBUlist1_SelectedIndexChanged" AutoPostBack="True" Visible="False">
+                    </asp:CheckBoxList></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+            </tr>
+        </table>
+        </asp:Panel>
+        <asp:Panel ID="Panel2" runat="server" Height="400px" Width="800px" BackColor="White" BorderColor="White" Font-Bold="True" ForeColor="Black">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+            <asp:Label ID="lblDataRunTime" runat="server" Font-Bold="True" Font-Names="Arial"
+                Font-Size="8pt" ForeColor="Blue" Style="text-align: right" Width="601px"></asp:Label><br />
+            <DCWC:Chart ID="ChartAll" runat="server" Height="383px" Palette="Pastel" Width="800px" Visible="False" OnClick="ChartAll_Click">
+                <Legends>
+                    <DCWC:Legend Name="Default">
+                    </DCWC:Legend>
+                </Legends>
+                <Titles>
+                    <DCWC:Title Name="Title1">
+                    </DCWC:Title>
+                </Titles>
+                <Series>
+                    <DCWC:Series BorderColor="64, 64, 64" Name="Series1" ShadowOffset="1">
+                    </DCWC:Series>
+                    <DCWC:Series BorderColor="64, 64, 64" Name="Series2" ShadowOffset="1">
+                    </DCWC:Series>
+                </Series>
+                <ChartAreas>
+                    <DCWC:ChartArea Name="Default">
+                    </DCWC:ChartArea>
+                </ChartAreas>
+            </DCWC:Chart>
+        </asp:Panel>
+        ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br />
+        <asp:Panel ID="Panel4" runat="server" Height="250px" Width="800px" ScrollBars="Both">
+            <asp:GridView ID="GridView1" runat="server" Font-Names="Arial" Font-Size="10pt" GridLines="None"  Font-Bold="True" ForeColor="Blue" ShowFooter="True">
+             <FooterStyle BackColor="White" Font-Bold="True" ForeColor="White" Height="40px" />
+             <RowStyle BackColor="#EFF3FB" Wrap="False" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Left"  />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" Wrap="False" />
+                               <AlternatingRowStyle BackColor="White" />
+            </asp:GridView>
+        </asp:Panel>
+        &nbsp;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        <br />
+        <asp:Panel ID="Panel5" runat="server" Height="250px" ScrollBars="Both" Width="800px">
+            <asp:GridView ID="GridView2" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt" GridLines="None"  ForeColor="Blue" ShowFooter="True">
+           <FooterStyle BackColor="White" Font-Bold="True" ForeColor="White" Height="40px" />
+             <RowStyle BackColor="#EFF3FB" Wrap="False" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Left" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" Wrap="False" />
+                            <AlternatingRowStyle BackColor="White" />
+            </asp:GridView>
+        </asp:Panel>
+        <asp:Button ID="BtDefcode" runat="server" Font-Bold="True" Font-Size="14pt" Height="25px"
+                OnClick="BtDefcode_Click" Text="Show Top 10 Defect Code" Width="280px" BackColor="#C0C0FF" Visible="False" />
+        <asp:Label ID="lblTTime1" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"
+            ForeColor="Green" Width="150px"></asp:Label><br />
+        ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br />
+        <asp:Panel ID="Panel6" runat="server" Height="250px" ScrollBars="Both" Width="800px">
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" HorizontalAlign="Left"  Font-Bold="True" Font-Names="Arial" Font-Size="10pt" GridLines="None"  ForeColor="Blue" ShowFooter="True">
+                 <FooterStyle BackColor="White" Font-Bold="True" ForeColor="White" Height="40px" />
+                <Columns>
+                    <asp:BoundField DataField="BU_ID" HeaderText="BU_ID" >
+                         <ItemStyle Font-Names="Arial" HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="PRODUCT_ID" HeaderText="PRODUCT_ID">
+                         <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE1" HeaderText="DEFCODE1">
+                         <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    
+                    <asp:BoundField DataField="TTL_CNT1" HeaderText="TTL_CNT1">
+                         <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate1" HeaderText="DefectRate1">
+                     <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" ForeColor="red"/>
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE2" HeaderText="DEFCODE2">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT2" HeaderText="TTL_CNT2">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField> 
+                    <asp:BoundField DataField="DefectRate2" HeaderText="DefectRate2" >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" ForeColor="red" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE3" HeaderText="DEFCODE3">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT3" HeaderText="TTL_CNT3">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate3" HeaderText="DefectRate3"  >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False"  ForeColor="red"/>
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE4" HeaderText="DEFCODE4">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT4" HeaderText="TTL_CNT4">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate4" HeaderText="DefectRate4" >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False"  ForeColor="red" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE5" HeaderText="DEFCODE5">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT5" HeaderText="TTL_CNT5">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate5" HeaderText="DefectRate5" >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" ForeColor="red"  Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE6" HeaderText="DEFCODE6">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT6" HeaderText="TTL_CNT6">
+                      <ItemStyle Font-Names="Arial" HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate6" HeaderText="DefectRate6">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left"  ForeColor="red" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE7" HeaderText="DEFCODE7">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT7" HeaderText="TTL_CNT7">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate7" HeaderText="DefectRate7"  >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" ForeColor="red" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE8" HeaderText="DEFCODE8">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT8" HeaderText="TTL_CNT8">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate8" HeaderText="DefectRate8"  >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" ForeColor="red" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE9" HeaderText="DEFCODE9">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT9" HeaderText="TTL_CNT9">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate9" HeaderText="DefectRate9" >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" ForeColor="red" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DEFCODE10" HeaderText="DEFCODE10">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="TTL_CNT10" HeaderText="TTL_CNT10">
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="DefectRate10" HeaderText="DefectRate10"  >
+                      <ItemStyle Font-Names="Arial"  HorizontalAlign="Left" ForeColor="red"  Wrap="False" />
+                         <HeaderStyle HorizontalAlign="Center" Wrap="False" />
+                    </asp:BoundField>
+                </Columns>
+                     <RowStyle BackColor="#EFF3FB" Wrap="False" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Left"  />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" Wrap="False" />
+                            <AlternatingRowStyle BackColor="White" />
+            </asp:GridView>
+        
+        </asp:Panel>
+        <br />
+    <%--</div>--%>
+    </form>
+</body>
+</html>

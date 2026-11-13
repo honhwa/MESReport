@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="Connect8">
+      <ConnectionProperties>
+        <ConnectString />
+        <DataProvider>SQL</DataProvider>
+      </ConnectionProperties>
+      <rd:DataSourceID>a564054c-dee4-4b75-b31c-3c292b4c768b</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="Connect10">
+      <ConnectionProperties>
+        <ConnectString />
+        <DataProvider>SQL</DataProvider>
+      </ConnectionProperties>
+      <rd:DataSourceID>816c64cd-56a6-46e4-9810-7cdc79dfaf05</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>2.5cm</BottomMargin>
+  <RightMargin>2.5cm</RightMargin>
+  <PageWidth>21cm</PageWidth>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>21cm</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Matrix Name="matrix1">
+        <MatrixColumns>
+          <MatrixColumn>
+            <Width>1.25cm</Width>
+          </MatrixColumn>
+        </MatrixColumns>
+        <RowGroupings>
+          <RowGrouping>
+            <Width>3.25cm</Width>
+            <DynamicRows>
+              <ReportItems>
+                <Textbox Name="entityid">
+                  <rd:DefaultName>entityid</rd:DefaultName>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <TextAlign>Left</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingBottom>2pt</PaddingBottom>
+                    <FontFamily>新細明體</FontFamily>
+                    <BackgroundColor>LightBlue</BackgroundColor>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!entityid.Value</Value>
+                </Textbox>
+              </ReportItems>
+              <Grouping Name="matrix1_entityid">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!entityid.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>3.5cm</Width>
+            <DynamicRows>
+              <ReportItems>
+                <Textbox Name="textbox2">
+                  <rd:DefaultName>textbox2</rd:DefaultName>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <TextAlign>Left</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingBottom>2pt</PaddingBottom>
+                    <FontFamily>新細明體</FontFamily>
+                    <BackgroundColor>LightBlue</BackgroundColor>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!prodid.Value</Value>
+                </Textbox>
+              </ReportItems>
+              <Grouping Name="matrix1_RowGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!prodid.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>1.75cm</Width>
+            <DynamicRows>
+              <ReportItems>
+                <Textbox Name="cworkctr">
+                  <rd:DefaultName>cworkctr</rd:DefaultName>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingBottom>2pt</PaddingBottom>
+                    <FontFamily>新細明體</FontFamily>
+                    <BackgroundColor>LightBlue</BackgroundColor>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!cworkctr.Value</Value>
+                </Textbox>
+              </ReportItems>
+              <Grouping Name="matrix1_cworkctr">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!cworkctr.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+            </DynamicRows>
+          </RowGrouping>
+        </RowGroupings>
+        <ColumnGroupings>
+          <ColumnGrouping>
+            <DynamicColumns>
+              <ReportItems>
+                <Textbox Name="defectcd">
+                  <rd:DefaultName>defectcd</rd:DefaultName>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <TextAlign>Center</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingBottom>2pt</PaddingBottom>
+                    <FontFamily>新細明體</FontFamily>
+                    <BackgroundColor>LightBlue</BackgroundColor>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!defectcd.Value</Value>
+                </Textbox>
+              </ReportItems>
+              <Grouping Name="matrix1_defectcd">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!defectcd.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+            </DynamicColumns>
+            <Height>0.63492cm</Height>
+          </ColumnGrouping>
+        </ColumnGroupings>
+        <DataSetName>OnlineDefectSummary_VWLDXA</DataSetName>
+        <Width>9.75cm</Width>
+        <Corner>
+          <ReportItems>
+            <Textbox Name="textbox1">
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingBottom>2pt</PaddingBottom>
+                <FontFamily>新細明體</FontFamily>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <Value />
+            </Textbox>
+          </ReportItems>
+        </Corner>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <FontFamily>新細明體</FontFamily>
+        </Style>
+        <Height>1.26984cm</Height>
+        <MatrixRows>
+          <MatrixRow>
+            <Height>0.63492cm</Height>
+            <MatrixCells>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="defectqty">
+                    <rd:DefaultName>defectqty</rd:DefaultName>
+                    <Style>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingBottom>2pt</PaddingBottom>
+                      <FontFamily>新細明體</FontFamily>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                    <Value>=Sum(Fields!defectqty.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+            </MatrixCells>
+          </MatrixRow>
+        </MatrixRows>
+      </Matrix>
+    </ReportItems>
+    <Height>5cm</Height>
+  </Body>
+  <rd:ReportID>a5883f98-a7ad-4b1f-beb8-2d5f9f90e499</rd:ReportID>
+  <LeftMargin>2.5cm</LeftMargin>
+  <DataSets>
+    <DataSet Name="OnlineDefectSummary_VWLDXA">
+      <rd:DataSetInfo>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:DataSetName>OnlineDefectSummary</rd:DataSetName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterName>VWLDXATableAdapter</rd:TableAdapterName>
+        <rd:TableName>VWLDXA</rd:TableName>
+      </rd:DataSetInfo>
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>select cworkctr,entityid,defectcd,prodid,defectqty from vwldxa</CommandText>
+        <DataSourceName>Connect10</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="entityid">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>entityid</DataField>
+        </Field>
+        <Field Name="defectcd">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>defectcd</DataField>
+        </Field>
+        <Field Name="defectqty">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>defectqty</DataField>
+        </Field>
+        <Field Name="prodid">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>prodid</DataField>
+        </Field>
+        <Field Name="cworkctr">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>cworkctr</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Width>16cm</Width>
+  <InteractiveHeight>29.7cm</InteractiveHeight>
+  <Language>zh-TW</Language>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>

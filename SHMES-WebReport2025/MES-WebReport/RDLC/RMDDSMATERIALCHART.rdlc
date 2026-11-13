@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="RMDDSMATERIALCHART">
+      <rd:DataSourceID>9fdc4e5a-28a6-4038-afd9-ea6e54c42ac4</rd:DataSourceID>
+      <DataSourceReference>RMDDSMATERIALCHART</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>2.5cm</RightMargin>
+  <LeftMargin>2.5cm</LeftMargin>
+  <BottomMargin>2.5cm</BottomMargin>
+  <rd:ReportID>02f643e9-7e74-4868-a6f0-86a3f56adc13</rd:ReportID>
+  <PageWidth>21cm</PageWidth>
+  <DataSets>
+    <DataSet Name="RMDDSMATERIALCHART">
+      <Fields>
+        <Field Name="REPORTDATE">
+          <DataField>REPORTDATE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RATE">
+          <DataField>RATE</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TEAMMODE">
+          <DataField>TEAMMODE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEAMID">
+          <DataField>TEAMID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARTTYPE">
+          <DataField>PARTTYPE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARTQTY">
+          <DataField>PARTQTY</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>RMDDSMATERIALCHART</DataSourceName>
+        <CommandText>SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(UPSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'UP' AS PARTTYPE ,UPSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND UPSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,UPSQTY
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(LPSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'LP' AS PARTTYPE ,LPSQTY AS PARTQTY  FROM RMDD WHERE FABID='B' AND LPSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,LPSQTY
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(ICSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'IC' AS PARTTYPE,ICSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND ICSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,ICSQTY
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(FPSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'FP' AS PARTTYPE,FPSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND FPSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,FPSQTY 
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(BLSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'BL' AS PARTTYPE,BLSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND BLSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,BLSQTY
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(WBSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'WB' AS PARTTYPE,WBSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND WBSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,WBSQTY
+UNION ALL
+SELECT SUBSTRING(CONVERT(VARCHAR,REPORTDATE,120),1,10) AS REPORTDATE,CASE WHEN SUM(AOUTPUT)=0 THEN 0 ELSE (SUM(TPSQTY)/SUM(AOUTPUT)) END AS RATE ,
+TEAMMODE,TEAMID,'TP' AS PARTTYPE,TPSQTY AS PARTQTY FROM RMDD WHERE FABID='B' AND TPSQTY&gt;0
+GROUP BY REPORTDATE,TEAMMODE,TEAMID,TPSQTY</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Width>35.75cm</Width>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>RightCenter</Position>
+          <InsidePlotArea>true</InsidePlotArea>
+        </Legend>
+        <CategoryAxis>
+          <Axis>
+            <Title />
+            <Style />
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <ZIndex>1</ZIndex>
+        <DataSetName>RMDDSMATERIALCHART</DataSetName>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>White</BackgroundColor>
+            <BackgroundGradientType>LeftRight</BackgroundGradientType>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <PointWidth>0</PointWidth>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <DynamicSeries>
+              <Grouping Name="chart1_SeriesGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!PARTTYPE.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!PARTTYPE.Value</Label>
+            </DynamicSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>0.75cm</Top>
+        <Subtype>Smooth</Subtype>
+        <ValueAxis>
+          <Axis>
+            <Title />
+            <Style />
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <MinorTickMarks>Cross</MinorTickMarks>
+            <Min>0</Min>
+            <Interlaced>true</Interlaced>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Line</Type>
+        <Width>34.25cm</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!REPORTDATE.Value</GroupExpression>
+                  <GroupExpression>=Fields!TEAMID.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!REPORTDATE.Value+Fields!TEAMID.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!RATE.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel />
+                <Marker>
+                  <Type>Diamond</Type>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+          <FontFamily>新細明體</FontFamily>
+        </Style>
+        <Title />
+        <Height>11.75cm</Height>
+      </Chart>
+      <Textbox Name="textbox1">
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Width>3.75cm</Width>
+        <Style>
+          <Color>SteelBlue</Color>
+          <FontFamily>新細明體</FontFamily>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>生產日報報廢物料圖形</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>15.75cm</Height>
+  </Body>
+  <Language>zh-TW</Language>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>

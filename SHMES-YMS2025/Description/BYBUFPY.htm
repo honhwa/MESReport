@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>By BU First Pass Yield報表說明</title>
+</head>
+<body>
+    <table border="1" style="border-right: black thin solid; border-top: black thin solid;
+        font-weight: bold; font-size: 12pt; border-left: black thin solid; width: 871px;
+        border-bottom: black thin solid; font-family: Arial; height: 1px">
+        <tr>
+            <td style="width: 97px; height: 71px">
+                <img height="69" src="../images/CMI_ch2.jpg" width="187" /></td>
+            <td colspan="3" style="font-weight: bold; font-size: 16pt; color: blue; height: 71px">
+                First Pass Yield BY BU報表說明 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="font-size: 10pt; color: blue; font-family: Arial; height: 4px">
+                版本變更記錄:<br />
+                <table style="width: 856px">
+                    <tr>
+                        <td style="color: black; width: 69px;">
+                            版本號</td>
+                        <td style="color: black; width: 82px;">
+                            日期</td>
+                        <td style="color: black; width: 68px;">
+                            記錄人</td>
+                        <td style="color: black">
+                            記錄說明</td>
+                    </tr>
+                    <tr>
+                        <td style="color: black; width: 69px;">
+                            V1.00</td>
+                        <td style="color: black; width: 82px;">
+                            2012-11-20</td>
+                        <td style="color: black; width: 68px;">
+                            王晴晴</td>
+                        <td style="color: black">
+                            新增(報表需求者--劉文娟)</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 69px; color: black; height: 18px;">
+                            V1.01</td>
+                        <td style="width: 82px; color: black; height: 18px;">
+                            2013-03-21</td>
+                        <td style="width: 68px; color: black; height: 18px;">
+                            劉雙雙</td>
+                        <td style="color: black; height: 18px;">
+                            增加8192&amp;838L站點</td>
+                    </tr>
+                    <tr>
+                        <td style="color: black; width: 69px;">
+                            V1.02</td>
+                        <td style="color: black; width: 82px;">
+                            2013-05-04</td>
+                        <td style="color: black; width: 68px;">
+                            孫斯超</td>
+                        <td style="color: black">
+                            增加Garmin Station(8GCO,8GFP,8GL2,8GSL,8GBA,8GSD,8GAG,8GL3,8GTP,8GTT,8GOQ)</td>
+                    </tr>
+                    <tr>
+                        <td style="color: black; width: 69px;">
+                            V1.03</td>
+                        <td style="color: black; width: 82px;">
+                            2013-07-10</td>
+                        <td style="color: black; width: 68px;">
+                            孫斯超</td>
+                        <td style="color: black">
+                            增加8個Grade A1~P5</td>
+                    </tr>
+                </table>
+         </td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; width: 97px; color: blue">
+                1.報表的作用:</td>
+            <td colspan="3" style="font-size: 10pt;">
+                供製造單位BY BU查看First Pass Yield</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; color: blue">
+                2.報表說明:</td>
+            <td colspan="3" style="font-size: 10pt">
+                1.報表公式同BEOL(Cell2)/Module Firsrt Pass Yield<br />
+                2.此報表只撈取正常工單的數據,即LOT_TYPE 為PR,PY,EY,MP 的數據<br />
+                3.此報表是By BU,By Product顯示數據</td>
+        </tr>
+        <tr>
+            <td align="left" style="font-size: 10pt; color: blue; height: 21px">
+                3.報表公式介紹:</td>
+            <td colspan="3" style="font-size: 10pt; height: 21px">
+                BEOL(Cell2):<br />
+                [A/R/S/AA]: 各站點出賬A/R/S等級的數量<br />
+                [A??]:代表A0,A1,A2,A3,A4,A5,AP,AM,AV,AD,AX,AK,AF,AH,AB,AL各Level相加<br />
+                [LOT1_?]:代表[8080出賬打下的?等級只有如下DEFECTCODE才算[8080LOT1]的?等級數量<br />
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (MA%,MD%,MM%,MV%,ML%,99%,BS%,MS07,MS28,MS38,MS40,A000且不為99SA的不良代碼)<br />
+                [外觀_?]:代表[8080]出賬打下的?等級只有如下DEFECTCODE才算[8080外觀]的?等級數量<br />
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (DS%,MS%,99SA且不為MS07,MS28,MS38,MS40的不良代碼)<br />
+                MODULE:<br />
+                [A/R/S/AA]: 各站點出賬A/R/S等級的數量</td>
+        </tr>
+        <tr>
+            <td align="left" style="font-size: 10pt; color: blue; height: 23px;">
+                4.FPY:</td>
+            <td colspan="3" style="font-size: 10pt; height: 23px;">
+                BEOL(Cell2):<br />
+                FPY=(8020,8040,8050,8060,808E,8080LOT1,8080外觀,8090)各站點的 A Yield的相乘<br />
+                ChipQty=(8020,8040,8050,8060,808E,8080LOT1,8080外觀,8090)取最後一站數量不為0的ChipQty<br />
+                MODULE:<br />
+                FPY=(8180,8200,8201,8210,8280,8281,8283,8450,8350,<br />
+                8GCO,8GFP,8GL2,8GSL,8GBA,8GSD,8GAG,8GL3,8GTP,8GTT,8GOQ,8380)各站點的 A Yield的相乘<br />
+                ChipQty=(8180,8200,8201,8210,8280,8281,8283,8450,8350,<br />
+                8GCO,8GFP,8GL2,8GSL,8GBA,8GSD,8GAG,8GL3,8GTP,8GTT,8GOQ,8380)取最後一站數量不為0的ChipQty</td>
+        </tr>
+        <tr>
+            <td align="left" style="font-size: 10pt; color: blue">
+                5.公式:</td>
+            <td colspan="3" style="font-size: 10pt">
+                BEOL(Cell2):<br />
+                1.[8080LOT1] :<br />
+                ChipQty=A+R+S-A1-A2-L2-LR-BP-PC-PT-P5<br />
+                A Yield=(ChipQty-LOT1_R-LOT1_S)/(ChipQty-LOT1_R)<br />
+                S Yield=LOT1_S/(ChipQty-LOT1_R)<br />
+                2.[8080外觀]:<br />
+                ChipQty=A+R+S-LOT1_(S+R+AA+A??)-外觀_R-A1-A2-L2-LR-BP-PC-PT-P5<br />
+                A Yield=(A-LOT1_(AA+A??)-A1-A2-L2-LR-BP-PC-PT-P5)/(ChipQty)<br />
+                S Yield=外觀_S/(ChipQty)<br />
+                3.[8090,8060,8050,8040,8020,808E]:<br />
+                ChipQty=A+R+S-A1-A2-L2-LR-BP-PC-PT-P5<br />
+                A Yield=(A-A1-A2-L2-LR-BP-PC-PT-P5)/(ChipQty)<br />
+                S Yield=S/(ChipQty)<br />
+                A1 Yield=A1/ChipQty<br />
+                A2 Yield=A2/ChipQty<br />
+                L2 Yield=L2/ChipQty<br />
+                LR Yield=LR/ChipQty<br />
+                BP Yield=BP/ChipQty<br />
+                PC Yield=PC/ChipQty<br />
+                PT Yield=PT/ChipQty<br />
+                P5 Yield=P5/ChipQty<br />
+                <br />
+                MODULE:<br />
+                1.[8180,8200,8201,8210,8280,8281,8283,8450,8350,<br />
+                8GCO,8GFP,8GL2,8GSL,8GBA,8GSD,8GAG,8GL3,8GTP,8GTT,8GOQ,8380]:<br />
+                ChipQty=A+R+S<br />
+                A Yield=A/(ChipQty)<br />
+                S Yield=S/(ChipQty)</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; color: blue">
+                6.數據產生說明:</td>
+            <td colspan="3" style="font-size: 10pt">
+                1.每天早上八點和晚上八點跑前一天的資料，當前一天日期為當月第一天則跑前一個月的資料，當前一天日期為當周第一天則跑前一周的數據<br />
+                5.資料庫只保留最近2年的數據</td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; width: 97px; color: blue">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+            <td style="font-size: 10pt; width: 100px">
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

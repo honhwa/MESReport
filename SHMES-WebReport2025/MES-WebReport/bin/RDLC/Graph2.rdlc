@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="Graph2">
+      <rd:DataSourceID>d5c28e5e-d1dd-4a47-b342-7403b13abd15</rd:DataSourceID>
+      <DataSourceReference>Graph2</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>2.5cm</RightMargin>
+  <LeftMargin>2.5cm</LeftMargin>
+  <BottomMargin>2.5cm</BottomMargin>
+  <rd:ReportID>8f767dc1-6860-4044-9d13-749e2c3f4c3d</rd:ReportID>
+  <PageWidth>21cm</PageWidth>
+  <DataSets>
+    <DataSet Name="Graph2">
+      <Fields>
+        <Field Name="TRANSDATE">
+          <DataField>TRANSDATE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WORKCTR">
+          <DataField>WORKCTR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LINEID">
+          <DataField>LINEID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SUBLINEID">
+          <DataField>SUBLINEID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EQID">
+          <DataField>EQID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ACC">
+          <DataField>ACC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ENG">
+          <DataField>ENG</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FAC">
+          <DataField>FAC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IQC">
+          <DataField>IQC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MFG">
+          <DataField>MFG</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OTHER">
+          <DataField>OTHER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PC">
+          <DataField>PC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PE">
+          <DataField>PE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PUR">
+          <DataField>PUR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QRA">
+          <DataField>QRA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ALLTIME">
+          <DataField>ALLTIME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>Graph2</DataSourceName>
+        <CommandText>SELECT 
+                     ''   AS  TRANSDATE,
+                       ''  AS WORKCTR,
+                       ''  AS LINEID,
+                         '' AS SUBLINEID, 
+                       '1'  AS  EQID,
+                        '1'  AS ACC,
+                      '1'   AS ENG,
+                       '1'  AS FAC,
+                       '1'    AS IQC,
+                       '1'   AS MFG,
+                      '1'   AS OTHER,
+                      '1'   AS PC,
+                   '1'   AS PE,
+                     '1'   AS PUR,
+                   '1'   AS QRA,
+                   '10'   AS ALLTIME</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Width>9.13492cm</Width>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+          <Position>RightCenter</Position>
+        </Legend>
+        <CategoryAxis>
+          <Axis>
+            <Title />
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <DataSetName>Graph2</DataSetName>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>LightGrey</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ThreeDProperties>
+          <Enabled>true</Enabled>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <PointWidth>0</PointWidth>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <StaticSeries>
+              <StaticMember>
+                <Label>ACC</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>ENG</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>IQC</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>FAC</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>MFG</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>OTHER</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>PC</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>PE</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>PUR</Label>
+              </StaticMember>
+              <StaticMember>
+                <Label>QRA</Label>
+              </StaticMember>
+            </StaticSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Subtype>Plain</Subtype>
+        <ValueAxis>
+          <Axis>
+            <Title />
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Pie</Type>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!ACC.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!ACC.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!ENG.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!ENG.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!IQC.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!IQC.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!FAC.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!FAC.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!MFG.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!MFG.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!OTHER.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(IIf(val(Fields!ALLTIME.Value)=0,0,val(Fields!OTHER.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PC.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PC.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PE.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PE.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PUR.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!PUR.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!QRA.Value)/val(Fields!ALLTIME.Value))</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Value>=FormatPercent(iif(val(Fields!ALLTIME.Value)=0,0,val(Fields!QRA.Value)/val(Fields!ALLTIME.Value)))</Value>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+          <FontFamily>新細明體</FontFamily>
+        </Style>
+        <Title />
+      </Chart>
+    </ReportItems>
+    <Height>6.75cm</Height>
+  </Body>
+  <Language>zh-TW</Language>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>

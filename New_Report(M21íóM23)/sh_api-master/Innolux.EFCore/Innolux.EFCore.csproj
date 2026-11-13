@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <UserSecretsId>f699eb14-bd79-4d00-99ce-66d9fba96e70</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Innolux.EFCore.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Innolux.EFCore.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Innolux.EFCore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\Common\" />
+  </ItemGroup>
+
+  <ItemGroup>
+  
+    <ProjectReference Include="..\Innolux.Core\Innolux.Core.csproj" />
+  </ItemGroup>
+</Project>

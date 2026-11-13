@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>TACT TIME 信息說明</title>
+</head>
+<body>
+<table style ="width:90% ; border-style:groove ; border-width :thick" border="2" align="center"  >
+<tr>
+<td colspan ="4" style="background-color:white; font-size:x-large; font-weight:bolder" align ="center"  >TACT TIME 信息說明</td>
+</tr>
+<tr>
+<td colspan ="4" style="background-color:Silver">功能描述</td>
+</tr>
+<tr>
+<td colspan ="4" >依過帳信息確認每片實物的標準生產時間</td>
+</tr>
+<tr>
+<td colspan ="4" style="background-color:Silver">時間段說明</td>
+</tr>
+<tr>
+<td colspan ="4" >每天抓取前一天的信息；如2013-12-06抓取2013-12-05日的信息，則時間為2013-12-05 08：00：00～2013-12-06 08：00：00</td>
+</tr>
+<tr>
+<td colspan ="4" style="background-color:Silver">TACT TIME信息</td>
+</tr>
+<tr style="background-color:InactiveBorder; border-left-style:inset;border-right-style:inset;border-top-style:inset;border-bottom-style:inset;" >
+<td style ="width:20%" align="center" >欄位編號 </td>
+<td style ="width:20%" align="center">EDW欄位名稱</td>
+<td style ="width:30%" align="center">欄位定義</td>
+<td style ="width:30%" align="center">公式說明</td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >A </td>
+<td style ="width:20%" align="center">SRC_SYS_CD</td>
+<td style ="width:30%" align="center">Default "MES"</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >B </td>
+<td style ="width:20%" align="center">PLANT_LOC_ID</td>
+<td style ="width:30%" align="center">IE定義
+</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >C </td>
+<td style ="width:20%" align="center">MFG_DT</td>
+<td style ="width:30%" align="center">日期，格式Sample：2012/08/01</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >D </td>
+<td style ="width:20%" align="center">EQUIP_PROC_TYPE_CD</td>
+<td style ="width:30%" align="center">IE定義（依功能不同劃分)</td>
+<td style ="width:30%" align="left">如：8015為AUTOSCRIBE<br />
+8020為SEMISCRIBE<br />
+8030為VA<br />
+8040為LC等
+</td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >E </td>
+<td style ="width:20%" align="center">Bonding_unit</td>
+<td style ="width:30%" align="center">參照D欄信息（IE自定義）</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style="width:20%; height: 25px;" align="center" >F </td>
+<td style="width:20%; height: 25px;" align="center">EQUIP_ID</td>
+<td style="width:30%; height: 25px;" align="center">線體（即生產過帳線體)</td>
+<td style="width:30%; height: 25px;" align="center"></td>
+</tr>
+<tr >
+<td style="width:20%; height: 40px;" align="center" >G </td>
+<td style="width:20%; height: 40px;" align="center">PRODUCT_SIZE</td>
+<td style="width:30%; height: 40px;" align="center">產品尺寸（依中央提供的尺寸對比表）</td>
+<td style="width:30%; height: 40px;" align="center">MTACTSM</td>
+</tr>
+<tr >
+<td style="width:20%; height: 21px;" align="center" >H </td>
+<td style="width:20%; height: 21px;" align="center">MODEL</td>
+<td style="width:30%; height: 21px;" align="center">機種的前五碼</td>
+<td style="width:30%; height: 21px;" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >I </td>
+<td style ="width:20%" align="center">PRODUCTID</td>
+<td style ="width:30%" align="center">機種信息</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >J </td>
+<td style ="width:20%" align="center">MOVE_PROD_QTY</td>
+<td style ="width:30%" align="center">線體、機種對應的產出數量</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >K </td>
+<td style ="width:20%" align="center">TACTTIME_TGT</td>
+<td style ="width:30%" align="center">IE上傳的TARGET 值</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >L </td>
+<td style ="width:20%" align="center">TACTTIME_ACT</td>
+<td style ="width:30%" align="center">系統算出來的TACT TIME</td>
+<td style ="width:30%" align="LEFT">1.	取出樣本(多筆資料) A <br />
+2.	計算樣本之出帳時間差異（多筆資料）B <br />
+3.	取出平均每個產出的時間，即B/A=C（多筆資料）<br />
+4.	依站點、線體、機種取每個產品產出的時間的平均值，即AVERAGE(C)=D<br />
+5.	依站點、線體、機種標準差，即E<br />
+6.	依站點、線體、機種依1倍標準差取上、下限，即 上限為D+E=F, 下限為D-E=G<br />
+7.	依站點，線體、機種及上、下限過濾A資料，為H<br />
+8.	依站點、線體、機種對H取中位值（H為奇數筆資料，則取中間那一條記錄的平均值C為標準值；H為偶數筆資料，則取中間兩條記錄的平均值（C）的平均為標準值）
+</td>
+</tr>
+<tr >
+<td style ="width:20%" align="center" >M </td>
+<td style ="width:20%" align="center">MRUN_MEAS</td>
+<td style ="width:30%" align="center">線體掛MRUN狀態的時間</td>
+<td style ="width:30%" align="center"></td>
+</tr>
+</table>
+</body>
+</html>

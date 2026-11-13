@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="Connect7">
+      <ConnectionProperties>
+        <ConnectString />
+        <DataProvider>SQL</DataProvider>
+      </ConnectionProperties>
+      <rd:DataSourceID>f866acdd-ad20-417b-88b6-fe6f0ff15c33</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>2.5cm</BottomMargin>
+  <RightMargin>2.5cm</RightMargin>
+  <PageWidth>21cm</PageWidth>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>21cm</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ColumnSpacing>0cm</ColumnSpacing>
+    <ReportItems>
+      <Table Name="table1">
+        <DataSetName>LotWIP_WLTM</DataSetName>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <ZIndex>7</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!ENTITYID.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox5">
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <ZIndex>6</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!SOLOTID.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <ZIndex>5</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!WONBR.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox11">
+                      <rd:DefaultName>textbox11</rd:DefaultName>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CARTID.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox14">
+                      <rd:DefaultName>textbox14</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!ENTITYTQTY.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox17">
+                      <rd:DefaultName>textbox17</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!BANKID.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="TRANSDATE">
+                      <rd:DefaultName>TRANSDATE</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!TRANSDATE.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox23">
+                      <rd:DefaultName>textbox23</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!PRODID.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Style>
+          <FontFamily>新細明體</FontFamily>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <ZIndex>15</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>ENTITYID</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <ZIndex>14</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>LOT</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <ZIndex>13</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>WONBR</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <ZIndex>12</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>CARTID</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox13">
+                      <rd:DefaultName>textbox13</rd:DefaultName>
+                      <ZIndex>11</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>CARTQTY</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox16">
+                      <rd:DefaultName>textbox16</rd:DefaultName>
+                      <ZIndex>10</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>BANKID</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox19">
+                      <rd:DefaultName>textbox19</rd:DefaultName>
+                      <ZIndex>9</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>BANKIDTIME</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox22">
+                      <rd:DefaultName>textbox22</rd:DefaultName>
+                      <ZIndex>8</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>新細明體</FontFamily>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>PRODID</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.75cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3.75cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3.02645cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.5cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>4.25cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3.5cm</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>1.26984cm</Height>
+      </Table>
+    </ReportItems>
+    <Height>5cm</Height>
+  </Body>
+  <rd:ReportID>f1137b98-5dc5-4867-88bb-da03994aa691</rd:ReportID>
+  <LeftMargin>2.5cm</LeftMargin>
+  <DataSets>
+    <DataSet Name="LotWIP_WLTM">
+      <rd:DataSetInfo>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:DataSetName>LotWIP</rd:DataSetName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterName>WLTMTableAdapter</rd:TableAdapterName>
+        <rd:TableName>WLTM</rd:TableName>
+      </rd:DataSetInfo>
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT FABID, ENTITYID, ENTITYUNIT, RTGCD, PWORKCTR, CWORKCTR, PENTITYSTS, ENTITYSTS, PLOTGRADE, PLOTLEVEL, LOTGRADE, LOTLEVEL, DEFECTCD, ENTITYTQTY, SubWorkCtr, SubENTITYSTS, HIDEFLG, PRODID, N9NCNO, WOTYPE, WONBR, RMANO, LOTTYPE, LOTPTY, TRANSDATE, PENTITYQTY, PENTITYUNIT, BOMVersion, SOLOTID, SOPRODID, SO9NCNO, SOFAB, SOBANK, SOGRADE, SOLEVEL, SOLOTTYPE, SOPACKFLG, SOBatchID, CPRODID, C9NCNO, WOPSTARTDATE, WOPDUEDATE, ENTITYCARRY, ENTITYPOS, MLOTID, PACKLOTID, PLOTID, RLOTID, LIDTYPE, LARGESN, GROUPID, QANBR, DCARTID, CARTID, BOXID, PALLETID, ReasonCD, STARTDATE, DUEDATE, TRANSID, TRANSSeq, TRANSMonth, TRANSWeek, TRACKINDATE, TRACKOUTDATE, RunCardID, TeamID, USERID, TrackINTeamID, TRACKINUSERID, SHIFTID, RRTGCD, OPRSEQNO, MAXOPRSEQ, PSHOPCD, CSHOPCD, PPROCID, CPROCID, CAUCTR, RWKCTR, RWKCNT, HOLDCD, HOLDCTR, FHOLDID, HOLDID, BANKID, STORAGEID, PACKFLG, UNITTRACEFLG, SALEORDER, CUSTOMERID, PSubLineID, SubLineID, LineID, EQID, PASSBOXID, SNFLG, USGFLG, AgingID, ListID, ListType, WOOWNER, LOTOWNER, ReworkFlg, ScrapMode, ToLocation, PostingDate, MFGDATE FROM eif.WLTM WHERE (FABID = 'B') AND (HIDEFLG = '0') AND (ENTITYID = '027N1AA00004CY') ORDER BY ENTITYID</CommandText>
+        <DataSourceName>Connect7</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="FABID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FABID</DataField>
+        </Field>
+        <Field Name="ENTITYID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ENTITYID</DataField>
+        </Field>
+        <Field Name="ENTITYUNIT">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ENTITYUNIT</DataField>
+        </Field>
+        <Field Name="RTGCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RTGCD</DataField>
+        </Field>
+        <Field Name="PWORKCTR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PWORKCTR</DataField>
+        </Field>
+        <Field Name="CWORKCTR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CWORKCTR</DataField>
+        </Field>
+        <Field Name="PENTITYSTS">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PENTITYSTS</DataField>
+        </Field>
+        <Field Name="ENTITYSTS">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ENTITYSTS</DataField>
+        </Field>
+        <Field Name="PLOTGRADE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PLOTGRADE</DataField>
+        </Field>
+        <Field Name="PLOTLEVEL">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PLOTLEVEL</DataField>
+        </Field>
+        <Field Name="LOTGRADE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LOTGRADE</DataField>
+        </Field>
+        <Field Name="LOTLEVEL">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LOTLEVEL</DataField>
+        </Field>
+        <Field Name="DEFECTCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DEFECTCD</DataField>
+        </Field>
+        <Field Name="ENTITYTQTY">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>ENTITYTQTY</DataField>
+        </Field>
+        <Field Name="SubWorkCtr">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SubWorkCtr</DataField>
+        </Field>
+        <Field Name="SubENTITYSTS">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SubENTITYSTS</DataField>
+        </Field>
+        <Field Name="HIDEFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>HIDEFLG</DataField>
+        </Field>
+        <Field Name="PRODID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PRODID</DataField>
+        </Field>
+        <Field Name="N9NCNO">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>N9NCNO</DataField>
+        </Field>
+        <Field Name="WOTYPE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>WOTYPE</DataField>
+        </Field>
+        <Field Name="WONBR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>WONBR</DataField>
+        </Field>
+        <Field Name="RMANO">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RMANO</DataField>
+        </Field>
+        <Field Name="LOTTYPE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LOTTYPE</DataField>
+        </Field>
+        <Field Name="LOTPTY">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LOTPTY</DataField>
+        </Field>
+        <Field Name="TRANSDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>TRANSDATE</DataField>
+        </Field>
+        <Field Name="PENTITYQTY">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>PENTITYQTY</DataField>
+        </Field>
+        <Field Name="PENTITYUNIT">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PENTITYUNIT</DataField>
+        </Field>
+        <Field Name="BOMVersion">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>BOMVersion</DataField>
+        </Field>
+        <Field Name="SOLOTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOLOTID</DataField>
+        </Field>
+        <Field Name="SOPRODID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOPRODID</DataField>
+        </Field>
+        <Field Name="SO9NCNO">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SO9NCNO</DataField>
+        </Field>
+        <Field Name="SOFAB">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOFAB</DataField>
+        </Field>
+        <Field Name="SOBANK">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOBANK</DataField>
+        </Field>
+        <Field Name="SOGRADE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOGRADE</DataField>
+        </Field>
+        <Field Name="SOLEVEL">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOLEVEL</DataField>
+        </Field>
+        <Field Name="SOLOTTYPE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOLOTTYPE</DataField>
+        </Field>
+        <Field Name="SOPACKFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOPACKFLG</DataField>
+        </Field>
+        <Field Name="SOBatchID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SOBatchID</DataField>
+        </Field>
+        <Field Name="CPRODID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CPRODID</DataField>
+        </Field>
+        <Field Name="C9NCNO">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>C9NCNO</DataField>
+        </Field>
+        <Field Name="WOPSTARTDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>WOPSTARTDATE</DataField>
+        </Field>
+        <Field Name="WOPDUEDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>WOPDUEDATE</DataField>
+        </Field>
+        <Field Name="ENTITYCARRY">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ENTITYCARRY</DataField>
+        </Field>
+        <Field Name="ENTITYPOS">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>ENTITYPOS</DataField>
+        </Field>
+        <Field Name="MLOTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>MLOTID</DataField>
+        </Field>
+        <Field Name="PACKLOTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PACKLOTID</DataField>
+        </Field>
+        <Field Name="PLOTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PLOTID</DataField>
+        </Field>
+        <Field Name="RLOTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RLOTID</DataField>
+        </Field>
+        <Field Name="LIDTYPE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LIDTYPE</DataField>
+        </Field>
+        <Field Name="LARGESN">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LARGESN</DataField>
+        </Field>
+        <Field Name="GROUPID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>GROUPID</DataField>
+        </Field>
+        <Field Name="QANBR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>QANBR</DataField>
+        </Field>
+        <Field Name="DCARTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>DCARTID</DataField>
+        </Field>
+        <Field Name="CARTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CARTID</DataField>
+        </Field>
+        <Field Name="BOXID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>BOXID</DataField>
+        </Field>
+        <Field Name="PALLETID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PALLETID</DataField>
+        </Field>
+        <Field Name="ReasonCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ReasonCD</DataField>
+        </Field>
+        <Field Name="STARTDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>STARTDATE</DataField>
+        </Field>
+        <Field Name="DUEDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>DUEDATE</DataField>
+        </Field>
+        <Field Name="TRANSID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TRANSID</DataField>
+        </Field>
+        <Field Name="TRANSSeq">
+          <rd:TypeName>System.Int64</rd:TypeName>
+          <DataField>TRANSSeq</DataField>
+        </Field>
+        <Field Name="TRANSMonth">
+          <rd:TypeName>System.Int16</rd:TypeName>
+          <DataField>TRANSMonth</DataField>
+        </Field>
+        <Field Name="TRANSWeek">
+          <rd:TypeName>System.Int16</rd:TypeName>
+          <DataField>TRANSWeek</DataField>
+        </Field>
+        <Field Name="TRACKINDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>TRACKINDATE</DataField>
+        </Field>
+        <Field Name="TRACKOUTDATE">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>TRACKOUTDATE</DataField>
+        </Field>
+        <Field Name="RunCardID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RunCardID</DataField>
+        </Field>
+        <Field Name="TeamID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TeamID</DataField>
+        </Field>
+        <Field Name="USERID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="TrackINTeamID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TrackINTeamID</DataField>
+        </Field>
+        <Field Name="TRACKINUSERID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>TRACKINUSERID</DataField>
+        </Field>
+        <Field Name="SHIFTID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SHIFTID</DataField>
+        </Field>
+        <Field Name="RRTGCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RRTGCD</DataField>
+        </Field>
+        <Field Name="OPRSEQNO">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>OPRSEQNO</DataField>
+        </Field>
+        <Field Name="MAXOPRSEQ">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>MAXOPRSEQ</DataField>
+        </Field>
+        <Field Name="PSHOPCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PSHOPCD</DataField>
+        </Field>
+        <Field Name="CSHOPCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CSHOPCD</DataField>
+        </Field>
+        <Field Name="PPROCID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PPROCID</DataField>
+        </Field>
+        <Field Name="CPROCID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CPROCID</DataField>
+        </Field>
+        <Field Name="CAUCTR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CAUCTR</DataField>
+        </Field>
+        <Field Name="RWKCTR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>RWKCTR</DataField>
+        </Field>
+        <Field Name="RWKCNT">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>RWKCNT</DataField>
+        </Field>
+        <Field Name="HOLDCD">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>HOLDCD</DataField>
+        </Field>
+        <Field Name="HOLDCTR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>HOLDCTR</DataField>
+        </Field>
+        <Field Name="FHOLDID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>FHOLDID</DataField>
+        </Field>
+        <Field Name="HOLDID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>HOLDID</DataField>
+        </Field>
+        <Field Name="BANKID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>BANKID</DataField>
+        </Field>
+        <Field Name="STORAGEID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>STORAGEID</DataField>
+        </Field>
+        <Field Name="PACKFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PACKFLG</DataField>
+        </Field>
+        <Field Name="UNITTRACEFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>UNITTRACEFLG</DataField>
+        </Field>
+        <Field Name="SALEORDER">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SALEORDER</DataField>
+        </Field>
+        <Field Name="CUSTOMERID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>CUSTOMERID</DataField>
+        </Field>
+        <Field Name="PSubLineID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PSubLineID</DataField>
+        </Field>
+        <Field Name="SubLineID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SubLineID</DataField>
+        </Field>
+        <Field Name="LineID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LineID</DataField>
+        </Field>
+        <Field Name="EQID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>EQID</DataField>
+        </Field>
+        <Field Name="PASSBOXID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>PASSBOXID</DataField>
+        </Field>
+        <Field Name="SNFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>SNFLG</DataField>
+        </Field>
+        <Field Name="USGFLG">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>USGFLG</DataField>
+        </Field>
+        <Field Name="AgingID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>AgingID</DataField>
+        </Field>
+        <Field Name="ListID">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ListID</DataField>
+        </Field>
+        <Field Name="ListType">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ListType</DataField>
+        </Field>
+        <Field Name="WOOWNER">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>WOOWNER</DataField>
+        </Field>
+        <Field Name="LOTOWNER">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>LOTOWNER</DataField>
+        </Field>
+        <Field Name="ReworkFlg">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ReworkFlg</DataField>
+        </Field>
+        <Field Name="ScrapMode">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ScrapMode</DataField>
+        </Field>
+        <Field Name="ToLocation">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>ToLocation</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="MFGDATE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>MFGDATE</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Width>23.77645cm</Width>
+  <InteractiveHeight>29.7cm</InteractiveHeight>
+  <Language>zh-TW</Language>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>

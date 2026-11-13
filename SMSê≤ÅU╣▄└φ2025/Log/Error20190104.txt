@@ -1,0 +1,26 @@
+20190104170904:System.Web.HttpException (0x80072746): The remote host closed the connection. The error code is 0x80072746.
+   at System.Web.Hosting.ISAPIWorkerRequestInProcForIIS6.FlushCore(Byte[] status, Byte[] header, Int32 keepConnected, Int32 totalBodySize, Int32 numBodyFragments, IntPtr[] bodyFragments, Int32[] bodyFragmentLengths, Int32 doneWithSession, Int32 finalStatus, Boolean& async)
+   at System.Web.Hosting.ISAPIWorkerRequest.FlushCachedResponse(Boolean isFinal)
+   at System.Web.Hosting.ISAPIWorkerRequest.FlushResponse(Boolean finalFlush)
+   at System.Web.HttpResponse.Flush(Boolean finalFlush)
+   at System.Web.HttpResponse.Flush()
+   at System.Web.HttpWriter.Write(String s)
+   at ModuleClass.ExportExcel(GridView gvData) in d:\WebReport\SMS2018\App_Code\ModuleClass.cs:line 272
+20190104171125:System.Web.HttpException (0x80072746): The remote host closed the connection. The error code is 0x80072746.
+   at System.Web.Hosting.ISAPIWorkerRequestInProcForIIS6.FlushCore(Byte[] status, Byte[] header, Int32 keepConnected, Int32 totalBodySize, Int32 numBodyFragments, IntPtr[] bodyFragments, Int32[] bodyFragmentLengths, Int32 doneWithSession, Int32 finalStatus, Boolean& async)
+   at System.Web.Hosting.ISAPIWorkerRequest.FlushCachedResponse(Boolean isFinal)
+   at System.Web.Hosting.ISAPIWorkerRequest.FlushResponse(Boolean finalFlush)
+   at System.Web.HttpResponse.Flush(Boolean finalFlush)
+   at System.Web.HttpResponse.Flush()
+   at System.Web.HttpWriter.Write(String s)
+   at ModuleClass.ExportExcel(GridView gvData) in d:\WebReport\SMS2018\App_Code\ModuleClass.cs:line 272
+20190104171327:System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at ModuleClass.ExportExcel(GridView gvData) in d:\WebReport\SMS2018\App_Code\ModuleClass.cs:line 273
+20190104180335:System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at ModuleClass.ExportExcel(GridView gvData) in d:\WebReport\SMS2018\App_Code\ModuleClass.cs:line 273

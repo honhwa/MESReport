@@ -1,0 +1,13 @@
+version: '2.4'
+
+services:
+  web:    
+    # image: ${img_api}:${CI_COMMIT_REF_NAME}
+    image: ${img_api}:${CI_COMMIT_SHORT_SHA}
+    container_name: BD-dev-report-api
+    #restart: unless-stopped
+    network_mode: 'R2R'
+    # volumes:
+    #   - /home/DDXIAN/app/Qportal_RPT:/app
+    ports:
+      - "22000:80"

@@ -1,0 +1,1034 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using Dundas.Charting.WebControl;
+using Dundas.Charting;
+using System.Text;
+using System.Drawing;
+using System.Collections.Generic;
+/*
+ * 2013-03-21  Innolux/lss     V1.00       Add 8192&838L Station
+ * 2013-05-03  Innolux/ssc     V1.01       Add Garmin Station(8GCO,8GFP,8GL2,8GSL,8GBA,8GSD,8GAG,8GL3,8GTP,8GTT,8GOQ)
+*/
+
+public partial class ByBUFPY : System.Web.UI.Page
+{  
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        // if (Session["Login"] == null)
+        //{            
+        //    tbFABID.Text = "";
+        //    tbFABName.Text = "";
+        //    Page.Response.Redirect(@"~\Default.aspx");
+        //    return;
+        //}
+        if (Session["Login"] == null)
+        {
+            HyperLink1.Visible = false;
+        }
+        if (!Page.IsPostBack)
+        {
+            cbSpanTwoYears.Checked = false;
+            AppClass Apc = new AppClass();
+            if (Request.QueryString["FABID"] != null)
+            {
+                tbFABID.Text = this.Request.QueryString["FABID"].ToString();
+                if (tbFABID.Text == "B")
+                {
+                    tbFABName.Text = "SH";
+                }
+                /*---------------------------------------------*/
+                Session["Login"] = tbFABID.Text.ToString();
+                /*---------------------------------------------*/
+
+                string strLoginPCName = "";
+                string strLoginPCIP = "";
+                string strLoginNTName = "";
+                tbLoginNTName.Text = "";
+                tbLoginPCIP.Text = "";
+                tbLoginPCName.Text = "";
+
+                Apc.GetLoginInfo(out strLoginPCName, out strLoginPCIP, out strLoginNTName);
+
+                tbLoginNTName.Text = strLoginNTName;
+                tbLoginPCIP.Text = strLoginPCIP;
+                tbLoginPCName.Text = strLoginPCName;
+                HyperLink1.NavigateUrl = "~/MainButton.aspx?FABID=" + tbFABID.Text.Trim();
+                Apc.RecordLogInfo(tbFABID.Text, tbLoginNTName.Text, "UnLogin", Session.SessionID.ToString(), "Browse", HttpContext.Current.Request.Url.AbsolutePath.ToString(), tbLoginPCName.Text, tbLoginPCIP.Text, "Choose Report", tbFABID.Text.ToString(), "");
+            }
+            else
+            {
+                Page.Response.Redirect(@"~\Default.aspx");
+            }
+            if (tbFABName.Text == "")
+            {
+                Page.Response.Redirect(@"~\Default.aspx");
+                return;
+            }
+
+            lblFabID.Text = tbFABName.Text;
+            lblTTime.Text = "";
+            lblTTime1.Text = "";
+            tbFdate.Text = "";
+            tbTdate.Text = "";
+            tbFweek.Text = "";
+            tbTweek.Text = "";
+            tbFmonth.Text = "";
+            tbTmonth.Text = "";
+            ChKBUlist1.Enabled = false;
+            PageTitleBound();
+            DataBoundtxtDate();
+            DataBoundBU();
+            txtDate.Attributes.Add("readonly", "readonly");
+
+            lblDataRunTime.Text = Apc.QueryDataRunTime(tbFABID.Text).ToString();
+
+            GetSubject();
+        }
+    }
+    protected void GetSubject()
+    {
+        AppClass Apc = new AppClass();
+        /**************************************************************************************************************************/
+        string strTitle = "";
+        string strCon = "";
+        string strDateTime = "";
+
+        if (Apc.QuerySubject("ByBUFPY", "ByBUFPY", out strTitle, out strCon, out strDateTime) == true)
+        {
+            lblTitle.Text = strTitle.ToString();
+            tbCon.Text = strCon.ToString();
+            Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript'>RunFunc();</script>");
+        }
+        else
+        {
+            lblTitle.Text = "";
+            tbCon.Text = "";
+            strDateTime = "";
+        }
+        /**************************************************************************************************************************/
+    }
+    protected void PageTitleBound()
+    {
+        Page.Title = "By Bu First Pass Yield";
+    }
+    protected void DataBoundtxtDate()
+    {
+        txtDate.Text = System.DateTime.Now.AddHours(-12).ToString("yyyy-MM-dd");
+    }
+    protected void ButnQuery_Click(object sender, EventArgs e)
+    {
+        /*----------------------*/
+        //選擇時間推出周別月份
+        int intSecCnt = 0;
+        DateTime dtF = System.DateTime.Now;
+        string strSql = "";
+        AppClass Apc = new AppClass();
+        DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+        strSql = "";
+        if (cbSpanTwoYears.Checked == true)
+        {
+            strSql = strSql + " SELECT ";
+            strSql = strSql + "     CONVERT(VARCHAR(7),DATEADD(MONTH,-12,'" + txtDate.Text + "'),120) AS FRMONTH, ";
+            strSql = strSql + "     CONVERT(VARCHAR(7),DATEADD(MONTH,-1,'" + txtDate.Text + "'),120) AS TOMONTH, ";
+            strSql = strSql + "     CASE WHEN DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 4 < 0 THEN ";
+            strSql = strSql + " 	    CAST(YEAR('" + txtDate.Text + "') - 1 AS VARCHAR(4))+'-'+RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') - 1 AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 4 AS VARCHAR(2)),2) ";
+            strSql = strSql + "     ELSE ";
+            strSql = strSql + " 	    CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4))+'-'+RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 4 AS VARCHAR(2)),2) ";
+            strSql = strSql + "     END AS FRWEEK, ";
+            strSql = strSql + "     CASE WHEN DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 1 < 0 THEN ";
+            strSql = strSql + " 	    CAST(YEAR('" + txtDate.Text + "') - 1 AS VARCHAR(4))+'-'+RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') - 1 AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 1 AS VARCHAR(2)),2) ";
+            strSql = strSql + "     ELSE ";
+            strSql = strSql + " 	    CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4))+'-'+RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 1 AS VARCHAR(2)),2) ";
+            strSql = strSql + "     END AS TOWEEK, ";
+            strSql = strSql + "     CONVERT(VARCHAR(10),DATEADD(DAY,(DATEPART(w,'" + txtDate.Text + "') - 1) * -1,'" + txtDate.Text + "'),120) AS FRDATE, ";
+            strSql = strSql + "     '" + txtDate.Text + "' AS TODATE ";
+        }
+        else
+        {
+            strSql = strSql + " SELECT ";
+            strSql = strSql + " 	CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01' AS FRMONTH, ";
+            strSql = strSql + " 	CASE WHEN DATEPART(MONTH,'" + txtDate.Text + "') = 1 THEN  ";
+            strSql = strSql + " 		CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01'  ";
+            strSql = strSql + " 	ELSE  ";
+            strSql = strSql + " 		CONVERT(VARCHAR(7),DATEADD(MONTH,-1,'" + txtDate.Text + "'),120)  ";
+            strSql = strSql + " 	END AS TOMONTH, ";
+            strSql = strSql + " 	CASE WHEN DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') < 4 THEN  ";
+            strSql = strSql + " 		CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01' ";
+            strSql = strSql + " 	ELSE ";
+            strSql = strSql + " 		CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-' + RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 4 AS VARCHAR(2)),2) ";
+            strSql = strSql + " 	END AS FRWEEK, ";
+            strSql = strSql + " 	CASE WHEN DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') < 1 THEN  ";
+            strSql = strSql + " 		CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01' ";
+            strSql = strSql + " 	ELSE ";
+            strSql = strSql + " 		CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-' + RIGHT('0'+CAST(DATEDIFF(WW,CAST(YEAR('" + txtDate.Text + "') AS VARCHAR(4)) + '-01-01','" + txtDate.Text + "') - 1 AS VARCHAR(2)),2) ";
+            strSql = strSql + " 	END AS TOWEEK, ";
+            strSql = strSql + " 	CONVERT(VARCHAR(10),DATEADD(DAY,(DATEPART(w,'" + txtDate.Text + "') - 1) * -1,'" + txtDate.Text + "'),120) AS FRDATE, ";
+            strSql = strSql + " 	'" + txtDate.Text + "' AS TODATE ";
+        }
+
+        DataSet ds = dbConn.GetDataSetBySql(strSql, "");
+        if (ds.Tables[0].Rows.Count == 1)
+        {
+            tbFmonth.Text = ds.Tables[0].Rows[0][0].ToString();
+            tbTmonth.Text = ds.Tables[0].Rows[0][1].ToString();
+
+            tbFweek.Text = ds.Tables[0].Rows[0][2].ToString();
+            tbTweek.Text = ds.Tables[0].Rows[0][3].ToString();
+
+            tbFdate.Text = ds.Tables[0].Rows[0][4].ToString();
+            tbTdate.Text = ds.Tables[0].Rows[0][5].ToString();
+        }
+        ds.Dispose();
+        /*------------------------------------------------------------------*/
+        ChKBUlist1.Enabled = true;
+        BtDefcode.Visible = true;
+        QueryFPYDataBound();/*處理FPY數據*/
+        QueryFPYBYPRODDataBound();
+        Panel1.Enabled = false;
+        string strLogWhere = "Date:" + txtDate.Text.ToString() +
+                             ";Shop:" + DdlSHOP.SelectedValue.ToString();
+        Apc.RecordLogInfo(tbFABID.Text, tbLoginNTName.Text, "UnLogin", Session.SessionID.ToString(), "Query", HttpContext.Current.Request.Url.AbsolutePath.ToString(), tbLoginPCName.Text, tbLoginPCIP.Text, "Query-btQuery", strLogWhere.Replace("'", ""), "");
+        /*--------------------------------------------------------------------------------------*/
+        DateTime dtT = System.DateTime.Now;
+        TimeSpan tsDiff = dtT - dtF;
+        intSecCnt = Convert.ToInt32(tsDiff.TotalSeconds);
+        lblTTime.Text = "查詢耗時：" + intSecCnt.ToString() + "s";
+        /*--------------------------------------------------------------------------------------*/
+    }
+    protected void DataBoundBU()
+    {
+        string strSql = "";
+        DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+        strSql = "";
+        strSql = "SELECT BU FROM REP.MBUM WHERE FABID = '" + tbFABID.Text + " ' UNION ALL SELECT 'ALL' AS BU";
+        DataSet ds = new DataSet();
+        ds = dbConn.GetDataSetBySql(strSql, "");
+        ChKBUlist1.DataSource = ds;
+        ChKBUlist1.DataTextField = "BU";
+        ChKBUlist1.DataValueField = "BU";
+        ChKBUlist1.DataBind();
+        ds.Dispose();
+
+        for (int i = 0; i < ChKBUlist1.Items.Count; i++)
+        {
+            ChKBUlist1.Items[i].Selected = true;
+        }
+    }
+    protected void DataBoundProdID()
+    {
+        string strSql = "";
+        DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+        strSql = "";
+        //strSql = "SELECT PRODID FROM MPIM WHERE FABID = '" + tbFABID.Text  + " 'AND PRODID  NOT LIKE 'V%' AND PRODID NOT LIKE '#%' ORDER BY PRODID";
+        strSql = "select distinct project_name as PRODID from mpim order by project_name ";
+        DataSet ds = new DataSet();
+        ds =dbConn.GetDataSetBySql(strSql, "");
+        DropDPROD.DataSource = ds;
+        DropDPROD.DataTextField = "PRODID";
+        DropDPROD.DataValueField = "PRODID";
+        DropDPROD.DataBind();
+        ds.Dispose();
+    }
+    protected void QueryFPYDataBound()
+    {
+        try
+        {
+            StringBuilder strSql = new StringBuilder();
+            DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+            /*----------------------------------------------------------------------------------------------*/
+            strSql.Remove(0, strSql.Length);
+            strSql.Append(" SELECT T1.BU AS BU_ID");
+
+            for (int DTCnt = 0; DTCnt < 12; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFmonth.Text).AddMonths(DTCnt).ToString("yyyy-MM");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='M' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  'M" + strDate + "'");
+                if (strDate.ToString() == tbTmonth.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 5; DTCnt++)
+            {
+                int intYear = Convert.ToInt32(tbFweek.Text.Substring(0,4).ToString());
+                int intWeek = Convert.ToInt32(tbFweek.Text.Substring(5, 2).ToString()) + DTCnt;
+                string strDate = "";
+                if (intWeek > 52)
+                {
+                    intYear = Convert.ToInt32(tbFweek.Text.Substring(0, 4).ToString()) + 1;
+                    intWeek = intWeek - 53;
+                }
+                if (intWeek.ToString().Length == 1)
+                {
+                    strDate = intYear.ToString() + "-0" + intWeek.ToString();
+                }
+                else
+                {
+                    strDate = intYear.ToString() + "-" + intWeek.ToString();
+                }
+
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='W' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  'W" + strDate + "'");
+                if (strDate.ToString() == tbTweek.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 7; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFdate.Text).AddDays(DTCnt).ToString("yyyy-MM-dd");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='D' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  '" + strDate + "'");
+                if (strDate.ToString() == tbTdate.Text.ToString())
+                {
+                    break;
+                }
+            }
+            strSql.Append(" FROM (");
+            strSql.Append(" SELECT  REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY,A_YIELD");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='D'");
+            strSql.Append(" AND REPORTDT>= '" + tbFdate.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTdate.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY,A_YIELD");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='W'");
+            strSql.Append(" AND REPORTDT>= '" + tbFweek.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTweek.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY,A_YIELD");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='M'");
+            strSql.Append(" AND REPORTDT>= '" + tbFmonth.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTmonth.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" ) T1 GROUP BY BU;");
+            /*----------------------------------------------------------------------------------------------*/
+
+
+            /*----------------------------------------------------------------------------------------------*/
+            strSql.Append(" SELECT * FROM(SELECT 3 AS ITEMNO,REPORTDT,DATETYPE");
+            for (int i = 0; i < ChKBUlist1.Items.Count; i++)
+            {
+                if (ChKBUlist1.Items[i].Selected == true)
+                {
+                    strSql.Append(" ,SUM(CASE WHEN BU='" + ChKBUlist1.Items[i].Value.ToString() + "' THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS " + ChKBUlist1.Items[i].Value.ToString() + "_YIELD");
+                }
+            }
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='D'");
+            strSql.Append(" AND REPORTDT>= '" + tbFdate.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTdate.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" GROUP BY REPORTDT,DATETYPE");
+            strSql.Append(" UNION ALL");
+            strSql.Append(" SELECT 2 AS ITEMNO,DATETYPE+REPORTDT AS REPORTDT,DATETYPE");
+            for (int i = 0; i < ChKBUlist1.Items.Count; i++)
+            {
+                if (ChKBUlist1.Items[i].Selected == true)
+                {
+                    strSql.Append(" ,SUM(CASE WHEN BU='" + ChKBUlist1.Items[i].Value.ToString() + "' THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS " + ChKBUlist1.Items[i].Value.ToString() + "_YIELD");
+                }
+            }
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='W'");
+            strSql.Append(" AND REPORTDT>= '" + tbFweek.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTweek.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" GROUP BY REPORTDT,DATETYPE");
+            strSql.Append(" UNION ALL");
+            strSql.Append(" SELECT 1 AS ITEMNO,DATETYPE+REPORTDT AS REPORTDT,DATETYPE");
+            for (int i = 0; i < ChKBUlist1.Items.Count; i++)
+            {
+                if (ChKBUlist1.Items[i].Selected == true)
+                {
+                    strSql.Append(" ,SUM(CASE WHEN BU='" + ChKBUlist1.Items[i].Value.ToString() + "' THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS " + ChKBUlist1.Items[i].Value.ToString() + "_YIELD");
+                }
+            }
+            strSql.Append(" FROM YIELD_TBL_FPYByBU WHERE PRODUCT_ID='ALL'  ");
+            strSql.Append(" AND DATETYPE='M'");
+            strSql.Append(" AND REPORTDT>= '" +  tbFmonth.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" +  tbTmonth.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" GROUP BY REPORTDT,DATETYPE");
+            strSql.Append(" )TT ORDER BY ITEMNO,REPORTDT");
+            /*----------------------------------------------------------------------------------------------*/
+            /*----------------------------------------------------------------------------------------------*/
+            DataSet dt011 = new DataSet();
+            SqlDataAdapter sqlApt011 = new SqlDataAdapter(strSql.ToString(), dbConn.ConnectionString);
+            sqlApt011.Fill(dt011);
+            /*-------------------------------------------------------------------------------------*/
+            ClearChartBound();
+            QueryDataGroupByFPY(dt011);
+            GridView1.DataSource = dt011.Tables[0];
+            GridView1.DataBind();
+            /*-------------------------------------------------------------------------------------*/
+            dt011.Dispose();
+            sqlApt011.Dispose();
+            strSql.Remove(0, strSql.Length);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    protected void QueryFPYBYPRODDataBound()
+    {
+        try
+        {
+            StringBuilder strSql = new StringBuilder();
+            DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+            int Year = Convert.ToDateTime(tbTdate.Text).Year;
+            /*----------------------------------------------------------------------------------------------*/
+            strSql.Remove(0, strSql.Length);
+            strSql.Append(" SELECT T1.BU AS BU_ID,T1.PRODUCT_ID");
+            for (int DTCnt = 0; DTCnt < 12; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFmonth.Text).AddMonths(DTCnt).ToString("yyyy-MM");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='M' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  'M" + strDate + "'");
+                if (strDate.ToString() == tbTmonth.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 5; DTCnt++)
+            {
+                int intYear = Convert.ToInt32(tbFweek.Text.Substring(0, 4).ToString());
+                int intWeek = Convert.ToInt32(tbFweek.Text.Substring(5, 2).ToString()) + DTCnt;
+                string strDate = "";
+                if (intWeek > 52)
+                {
+                    intYear = Convert.ToInt32(tbFweek.Text.Substring(0, 4).ToString()) + 1;
+                    intWeek = intWeek - 53;
+                }
+                if (intWeek.ToString().Length == 1)
+                {
+                    strDate = intYear.ToString() + "-0" + intWeek.ToString();
+                }
+                else
+                {
+                    strDate = intYear.ToString() + "-" + intWeek.ToString();
+                }
+
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='W' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  'W" + strDate + "'");
+                if (strDate.ToString() == tbTweek.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 7; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFdate.Text).AddDays(DTCnt).ToString("yyyy-MM-dd");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='D' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),A_YIELD) ELSE 0 END) AS  '" + strDate + "'");
+                if (strDate.ToString() == tbTdate.Text.ToString())
+                {
+                    break;
+                }
+            }
+            strSql.Append(" FROM (");
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY AS CHIP_QTY,A_YIELD ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='D'");
+            strSql.Append(" AND REPORTDT>= '" + tbFdate.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTdate.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY AS CHIP_QTY,A_YIELD ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='W'");
+            strSql.Append(" AND REPORTDT>= '" + tbFweek.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTweek.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,PRODUCT_ID,CHIPQTY AS CHIP_QTY,A_YIELD ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='M'");
+            strSql.Append(" AND REPORTDT>= '" +  tbFmonth.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" +  tbTmonth.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" ) T1 GROUP BY BU,PRODUCT_ID");
+            /*----------------------------------------------------------------------------------------------*/
+            /*QTY*/
+            strSql.Append(" UNION ALL");
+            strSql.Append(" SELECT T1.BU,'ALL-QTY' AS PRODUCT_ID");
+            for (int DTCnt = 0; DTCnt < 12; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFmonth.Text).AddMonths(DTCnt).ToString("yyyy-MM");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='M' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),CHIPQTY) ELSE 0 END) AS  'M" + strDate + "'");
+                if (strDate.ToString() == tbTmonth.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 5; DTCnt++)
+            {
+                int intYear = Convert.ToInt32(tbFweek.Text.Substring(0, 4).ToString());
+                int intWeek = Convert.ToInt32(tbFweek.Text.Substring(5, 2).ToString()) + DTCnt;
+                string strDate = "";
+                if (intWeek > 52)
+                {
+                    intYear = Convert.ToInt32(tbFweek.Text.Substring(0, 4).ToString()) + 1;
+                    intWeek = intWeek - 53;
+                }
+                if (intWeek.ToString().Length == 1)
+                {
+                    strDate = intYear.ToString() + "-0" + intWeek.ToString();
+                }
+                else
+                {
+                    strDate = intYear.ToString() + "-" + intWeek.ToString();
+                }
+
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='W' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),CHIPQTY) ELSE 0 END) AS  'W" + strDate + "'");
+                if (strDate.ToString() == tbTweek.Text.ToString())
+                {
+                    break;
+                }
+            }
+            for (int DTCnt = 0; DTCnt < 7; DTCnt++)
+            {
+                string strDate = Convert.ToDateTime(tbFdate.Text).AddDays(DTCnt).ToString("yyyy-MM-dd");
+                strSql.Append(" ,SUM(CASE WHEN DATETYPE='D' AND REPORTDT= '" + strDate + "'THEN Convert(decimal(18,2),CHIPQTY) ELSE 0 END) AS  '" + strDate + "'");
+                if (strDate.ToString() == tbTdate.Text.ToString())
+                {
+                    break;
+                }
+            }
+            strSql.Append("FROM (");
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,FLOOR(CHIPQTY) AS CHIPQTY ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='D'");
+            strSql.Append(" AND REPORTDT>= '" + tbFdate.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTdate.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,FLOOR(CHIPQTY) AS CHIPQTY ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='W'");
+            strSql.Append(" AND REPORTDT>= '" + tbFweek.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTweek.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" UNION ALL");
+
+            strSql.Append(" SELECT  REPORTDT AS REPORTDT,DATETYPE,BU,FLOOR(CHIPQTY) AS CHIPQTY ");
+            strSql.Append(" FROM YIELD_TBL_FPYByBU ");
+            strSql.Append(" WHERE BU!='ALL' ");
+            strSql.Append(" AND DATETYPE='M'");
+            strSql.Append(" AND REPORTDT>= '" + tbFmonth.Text + "'");
+            strSql.Append(" AND REPORTDT<= '" + tbTmonth.Text + "'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='MODULE'");
+            }
+            strSql.Append(" ) T1 GROUP BY BU");
+
+            /*----------------------------------------------------------------------------------------------*/
+            DataSet dt011 = new DataSet();
+            SqlDataAdapter sqlApt011 = new SqlDataAdapter(strSql.ToString(), dbConn.ConnectionString);
+            sqlApt011.Fill(dt011);
+            /*-------------------------------------------------------------------------------------*/
+            dt011.Tables[0].DefaultView.Sort = "BU_ID,PRODUCT_ID";
+            GridView2.DataSource = dt011.Tables[0];
+            GridView2.DataBind();
+            /*-------------------------------------------------------------------------------------*/
+            dt011.Dispose();
+            sqlApt011.Dispose();
+            strSql.Remove(0, strSql.Length);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    protected void ClearDataBound()
+    {
+        //dtBuDef.Dispose();
+        //dtBuDef.Clear();
+        ChKBUlist1.Enabled = false;
+        BtDefcode.Visible = false;
+        GetSubject();
+        GridView1.Dispose();
+        GridView2.Dispose();
+        GridView3.Dispose();
+        GridView1.DataBind();
+        GridView2.DataBind();
+        GridView3.DataBind();
+
+        lblTTime.Text = "";
+        lblTTime1.Text = "";
+        tbFdate.Text = "";
+        tbTdate.Text = "";
+        tbFweek.Text = "";
+        tbTweek.Text = "";
+        tbFmonth.Text = "";
+        tbTmonth.Text = "";
+    }
+    protected void ButnClear_Click(object sender, EventArgs e)
+    {
+        Panel1.Enabled = true;
+        ClearDataBound();
+        AppClass Apc = new AppClass();
+        Apc.RecordLogInfo(tbFABID.Text, tbLoginNTName.Text, "UnLogin", Session.SessionID.ToString(), "Clear", HttpContext.Current.Request.Url.AbsolutePath.ToString(), tbLoginPCName.Text, tbLoginPCIP.Text, "ButnClear_Click", "", "");
+    }
+    protected void QueryDataGroupByFPY(DataSet dsTmp)
+    {
+        ChartAll.Series.Clear();
+        ChartAll.DataSource = "";
+        ChartAll.Series.Clear();
+
+        ChartAll.DataSource = dsTmp.Tables[1];
+
+        ChartAll.Titles.Add("Title1");
+        int Cnt = 0;
+        foreach (ListItem li in this.ChKBUlist1.Items)
+        {
+            if (li.Selected)
+            {
+                Cnt = Cnt + 1;
+                if (Cnt == 1) { ChartAll.Series.Add("Series1"); ChartAll.Series["Series1"].Color = Color.Red; }
+                if (Cnt == 2) { ChartAll.Series.Add("Series2"); ChartAll.Series["Series2"].Color = Color.Lime; }
+                if (Cnt == 3) { ChartAll.Series.Add("Series3"); ChartAll.Series["Series3"].Color = Color.Olive; }
+                if (Cnt == 4) { ChartAll.Series.Add("Series4"); ChartAll.Series["Series4"].Color = Color.Blue; }
+                if (Cnt == 5) { ChartAll.Series.Add("Series5"); ChartAll.Series["Series5"].Color = Color.Black; }
+                if (Cnt == 6) { ChartAll.Series.Add("Series6"); ChartAll.Series["Series6"].Color = Color.DarkOrange; }
+                if (Cnt == 7) { ChartAll.Series.Add("Series7"); ChartAll.Series["Series7"].Color = Color.DarkRed; }
+                if (Cnt == 8) { ChartAll.Series.Add("Series8"); ChartAll.Series["Series8"].Color = Color.DarkGreen; }
+                if (Cnt == 9) { ChartAll.Series.Add("Series9"); ChartAll.Series["Series9"].Color = Color.DarkSlateGray; }
+                if (Cnt == 10) { ChartAll.Series.Add("Series10"); ChartAll.Series["Series10"].Color = Color.Aquamarine; }
+                if (Cnt == 11) { ChartAll.Series.Add("Series11"); ChartAll.Series["Series11"].Color = Color.DarkGray; }
+                if (Cnt == 12) { ChartAll.Series.Add("Series12"); ChartAll.Series["Series12"].Color = Color.CornflowerBlue; }
+                if (Cnt == 13) { ChartAll.Series.Add("Series13"); ChartAll.Series["Series13"].Color = Color.Crimson; }
+                if (Cnt == 14) { ChartAll.Series.Add("Series14"); ChartAll.Series["Series14"].Color = Color.Cyan; }
+                if (Cnt == 15) { ChartAll.Series.Add("Series15"); ChartAll.Series["Series15"].Color = Color.DarkBlue; }
+
+                ChartAll.Series["Series" + Cnt.ToString()].Name = li.Value + "_Yield";
+                ChartAll.Series[li.Value + "_Yield"].ValueMemberX = "REPORTDT";
+                ChartAll.Series[li.Value + "_Yield"].ValueMembersY = li.Value + "_Yield";
+                ChartAll.Series[li.Value + "_Yield"].Type = SeriesChartType.Line;
+                ChartAll.Series[li.Value + "_Yield"].YAxisType = AxisType.Primary;
+                ChartAll.Series[li.Value + "_Yield"].MarkerStyle = MarkerStyle.Triangle;
+                ChartAll.Series[li.Value + "_Yield"].XValueType = ChartValueTypes.String;
+                ChartAll.Series[li.Value + "_Yield"].ToolTip = " #VALX:  #VALY{##,##0.##}";
+            }
+        }
+
+        ChartAll.Titles[0].Alignment = ContentAlignment.TopCenter;
+        ChartAll.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
+        ChartAll.Titles[0].Color = Color.Blue;
+        ChartAll.Titles[0].Text = "By Bu First Pass Yield";
+
+
+        ChartAll.ChartAreas["Default"].BackColor = System.Drawing.Color.FromArgb(196, 189, 219);
+        ChartAll.ChartAreas["Default"].AxisX.LabelStyle.FontAngle = -60;
+        ChartAll.ChartAreas["Default"].AxisX.Interval = 1;
+        ChartAll.ChartAreas["Default"].AxisX.Title = "日期";
+        ChartAll.ChartAreas["Default"].AxisY.Title = "良率%";
+        ChartAll.ChartAreas["Default"].AxisY.LabelStyle.Format = "##,##0.##";
+        ChartAll.ChartAreas["Default"].AxisY.MajorGrid.LineStyle = ChartDashStyle.Dot;
+        ChartAll.ChartAreas["Default"].AxisY.MajorGrid.LineColor = Color.White;
+        ChartAll.ChartAreas["Default"].AxisX.MajorGrid.LineStyle = ChartDashStyle.Dot;
+        ChartAll.ChartAreas["Default"].AxisX.MajorGrid.LineColor = Color.White;
+
+        ChartAll.BackColor = System.Drawing.Color.FromArgb(234, 234, 234);
+
+        ChartAll.UI.Toolbar.Enabled = true;
+        ChartAll.UI.Toolbar.Position.Width = 28;
+        ChartAll.UI.Toolbar.BorderStyle = 0;
+
+        ChartAll.Visible = true;
+        ChartAll.DataBind();
+    }
+    protected void BtDefcode_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            QueryFPYDataBound();
+            DataBoundProdID();
+            StringBuilder strSql = new StringBuilder();
+            AppClass Apc = new AppClass();
+            DBConn dbConn = new DBConn(tbFABID.Text.ToString());
+            string date = "";
+            if (cbSpanTwoYears.Checked == true)
+            {
+                date = Convert.ToDateTime(txtDate.Text).AddMonths(-12).ToString("yyyy-MM") + "-01";
+            }
+            else
+            {
+                date = Convert.ToDateTime(txtDate.Text).Year + "-01-01";
+            }
+            /*-------------------------------------------------------------------------------------*/
+            /*計算各機種DefectCode數量 DATE*/
+
+            strSql.Remove(0, strSql.Length);
+            strSql.Append(" SELECT T1.BU,T1.PRODUCT_ID,T2.DEF_CODE,ISNULL(T2.TTL_CNT,0) AS TTL_CNT, ");
+            strSql.Append(" CASE WHEN T1.CHIP_QTY>0 THEN  ROUND(T2.TTL_CNT/T1.CHIP_QTY *100 ,2) ELSE 0 END AS DEF_RATE");
+            strSql.Append(" FROM(");
+            strSql.Append(" SELECT BU,PRODUCT_ID,SUM(CHIPQTY) AS CHIP_QTY from YIELD_TBL_FPYByBU WHERE ");
+            strSql.Append(" DATETYPE='D'AND BU<>'ALL' AND PRODUCT_ID<>'ALL'");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND SHOP='CELL2'");
+            }
+            else
+            {
+                strSql.Append(" AND SHOP='Module'");
+            }
+            strSql.Append(" AND FAB_ID = '" + tbFABID.Text + "' ");
+            strSql.Append(" AND REPORTDT>='" + date + "'AND REPORTDT<='" + tbTdate.Text + "'");
+            strSql.Append(" GROUP BY BU,PRODUCT_ID)T1");
+            strSql.Append(" LEFT JOIN");
+            strSql.Append(" (SELECT B.BU, A.PRODUCT_ID,DEF_CODE, SUM(DEF_CNT) AS TTL_CNT");
+
+            strSql.Append(" FROM NJ_TBL_LIGHTON_DEFECT A WITH(NOLOCK) LEFT JOIN MPIM B WITH(NOLOCK) ON  A.FAB_ID=B.FABID AND A.PRODUCT_ID=B.PRODID ");
+            strSql.Append(" WHERE ReportDate>='" + date + "' AND ReportDate<= '" + tbTdate.Text + "'");
+            strSql.Append(" AND A.FAB_ID = '" + tbFABID.Text + "' ");
+            strSql.Append(" AND A.LOT_TYPE IN('PR','PY','EY','MP')");
+            if (DdlSHOP.Text == "CELL2")
+            {
+                strSql.Append(" AND A.OPERATION_ID IN('8020','8040','8050','8060','8080','808E','8090')");
+            }
+            else
+            {
+                strSql.Append(" AND A.OPERATION_ID IN ('8180','8200','8201','8210','8280','8281','8283','8450','8350','8GCO','8GFP','8GL2','8GSL','8GBA','8GSD','8GAG','8GL3','8GTP','8GTT','8GOQ','8380','8192','838L')");    /*V1.00*//*V1.01*/
+            }
+            strSql.Append(" AND LOT_GRADE='S'");
+            strSql.Append(" GROUP BY  B.BU,A.PRODUCT_ID,DEF_CODE )T2 ");
+            strSql.Append(" ON T1.BU=T2.BU AND T1.PRODUCT_ID=T2.PRODUCT_ID");
+            strSql.Append(" WHERE (DEF_CODE!=''OR DEF_CODE!=NULL )");
+            strSql.Append(" ORDER BY  BU");
+            /*-------------------------------------------------------------------------------------*/
+
+            /*-------------------------------------------------------------------------------------*/
+            DataSet dt012 = new DataSet();
+            SqlDataAdapter sqlApt012 = new SqlDataAdapter(strSql.ToString(), dbConn.ConnectionString);
+            sqlApt012.Fill(dt012);
+            /*-------------------------------------------------------------------------------------*/
+            BoudDefectDataTable(dt012);
+            Apc.RecordLogInfo(tbFABID.Text, tbLoginNTName.Text, "UnLogin", Session.SessionID.ToString(), "Query", HttpContext.Current.Request.Url.AbsolutePath.ToString(), tbLoginPCName.Text, tbLoginPCIP.Text, "Query-btDefCode", "", "");
+            /*-------------------------------------------------------------------------------------*/
+            dt012.Dispose();
+            sqlApt012.Dispose();
+            strSql.Remove(0, strSql.Length);
+            /*-------------------------------------------------------------------------------------*/
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    private void   BoudDefectDataTable(DataSet dsTmp)
+    {
+        try
+        {
+            int intSecCnt = 0;
+            DateTime dtF = System.DateTime.Now;
+
+            /*------------------------------------------------------------------*/
+            DataTable dtBuDef = new DataTable();
+            dtBuDef.Columns.Add(new DataColumn("BU_ID", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("PRODUCT_ID", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE1", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT1", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate1", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE2", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT2", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate2", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE3", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT3", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate3", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE4", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT4", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate4", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE5", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT5", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate5", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE6", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT6", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate6", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE7", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT7", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate7", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE8", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT8", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate8", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE9", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT9", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate9", typeof(double)));
+            dtBuDef.Columns.Add(new DataColumn("DEFCODE10", typeof(string)));
+            dtBuDef.Columns.Add(new DataColumn("TTL_CNT10", typeof(long)));
+            dtBuDef.Columns.Add(new DataColumn("DefectRate10", typeof(double)));
+            dtBuDef.Clear();
+            /*------------------------------------------------------------------*/
+
+            for (int k = 0; k < Convert.ToInt32(DropDPROD.Items.Count); k++)
+            {
+                string strRPROD = "";
+                strRPROD = DropDPROD.Items[k].Value.ToString();       /*獲取PRODD
+                /*-------------------------------------------------------------------------------------*/
+                DataRow[] drDef = dsTmp.Tables[0].Select(" (PRODUCT_ID ='" + strRPROD + "')", "DEF_RATE DESC");
+
+                if (drDef.Length > 0)
+                {
+                    int time = 0;
+                    if (drDef.Length > 10)
+                    {
+                        time = 10;
+                    }
+                    else
+                    {
+                        time = Convert.ToInt32(drDef.Length);
+                    }
+                    DataRow drNew = dtBuDef.NewRow();
+                    for (int DefCnt = 0; DefCnt < time; DefCnt++)
+                    {
+                        switch (DefCnt)
+                        {
+                            case 0:
+                                drNew["BU_ID"] = Convert.ToString(drDef[DefCnt].ItemArray[0]);
+                                drNew["PRODUCT_ID"] = strRPROD;
+                                drNew["DEFCODE1"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT1"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate1"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 1:
+                                drNew["DEFCODE2"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT2"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate2"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 2:
+                                drNew["DEFCODE3"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT3"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate3"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 3:
+                                drNew["DEFCODE4"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT4"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate4"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 4:
+                                drNew["DEFCODE5"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT5"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate5"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 5:
+                                drNew["DEFCODE6"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT6"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate6"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 6:
+                                drNew["DEFCODE7"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT7"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate7"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 7:
+                                drNew["DEFCODE8"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT8"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate8"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+
+                            case 8:
+                                drNew["DEFCODE9"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT9"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate9"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            case 9:
+                                drNew["DEFCODE10"] = drDef[DefCnt].ItemArray[2].ToString();
+                                drNew["TTL_CNT10"] = Convert.ToInt64(drDef[DefCnt].ItemArray[3]);
+                                drNew["DefectRate10"] = Math.Round(Convert.ToDouble(drDef[DefCnt].ItemArray[4]), 4);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    dtBuDef.Rows.Add(drNew);
+                }
+            }
+            dtBuDef.DefaultView.Sort = "BU_ID,PRODUCT_ID";
+            GridView3.DataSource = dtBuDef;
+            GridView3.DataBind();
+            /*--------------------------------------------------------------------------------------*/
+            DateTime dtT = System.DateTime.Now;
+            TimeSpan tsDiff = dtT - dtF;
+            intSecCnt = Convert.ToInt32(tsDiff.TotalSeconds);
+            lblTTime1.Text = "查詢耗時：" + intSecCnt.ToString() + "s";
+
+            /*--------------------------------------------------------------------------------------*/
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+    protected void ChartDataBound()
+    {
+        PageTitleBound();
+        ClearChartBound();
+        QueryFPYDataBound();
+    }
+    protected void ClearChartBound()
+    {
+        ChartAll.DataSource = "";
+        ChartAll.Series.Clear();
+        ChartAll.Titles.Clear();
+        ChartAll.UI.Toolbar.Enabled = false;
+    }
+    protected void ChKBUlist1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ChKBUlist1.Items.Count >= 4)
+        {
+            int Cnt = 0;
+            foreach (ListItem li in this.ChKBUlist1.Items)
+            {
+                if (li.Selected)
+                {
+                    Cnt = Cnt + 1;
+                }
+            }
+        }
+        ChartDataBound();
+    }
+    protected void ChartAll_Click(object sender, ImageClickEventArgs e)
+    {
+        HitTestResult HTR = ChartAll.HitTest(e.X, e.Y);
+        if (HTR.ChartElementType == ChartElementType.DataPoint)
+        {
+            if (ChartAll.Series[HTR.Series.Name.ToString()].Label == "")
+            {
+                ChartAll.Series[HTR.Series.Name.ToString()].Label = " #VALY{##,##0.##}";
+                ChartAll.Series[HTR.Series.Name.ToString()].LabelBackColor = Color.White;
+            }
+            else
+            {
+                ChartAll.Series[HTR.Series.Name.ToString()].Label = "";
+            }
+        }
+    }
+    protected void ExportExcel_Click(object sender, EventArgs e)
+    {
+        AppClass Apc = new AppClass();
+        Apc.RecordLogInfo(tbFABID.Text, tbLoginNTName.Text, "UnLogin", Session.SessionID.ToString(), "Export", HttpContext.Current.Request.Url.AbsolutePath.ToString(), tbLoginPCName.Text, tbLoginPCIP.Text, "Export-Excel", "", "");
+        Response.Clear();
+        Response.Buffer = false;
+        Response.Charset = "UTF-8";
+        Response.ContentType = "Content-Language;content=UTF-8";
+        Response.AppendHeader("Content-Disposition", "attachment;filename=addNewWorker.xls");
+        Response.ContentEncoding = System.Text.Encoding.UTF8;
+        Response.ContentType = "application/ms-excel";
+        this.EnableViewState = false;
+        System.IO.StringWriter oStringWriter = new System.IO.StringWriter();
+        System.Web.UI.HtmlTextWriter oHtmlTextWriter = new System.Web.UI.HtmlTextWriter(oStringWriter);
+        this.GridView1.RenderControl(oHtmlTextWriter);
+        this.GridView2.RenderControl(oHtmlTextWriter);
+        this.GridView3.RenderControl(oHtmlTextWriter);
+        Response.Output.Write(oStringWriter.ToString());
+        Response.End();
+    }
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+    }
+
+}
+

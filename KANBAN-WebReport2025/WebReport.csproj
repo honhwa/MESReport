@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0F69980-9BD0-4B72-8BD7-5E48762D5C69}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebReport</RootNamespace>
+    <AssemblyName>WebReport</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2FInfoTV1.htm" />
+    <Content Include="3FInfoFH7.htm" />
+    <Content Include="3FInfoLM1.htm" />
+    <Content Include="3FLamTV1.htm" />
+    <Content Include="4FInfoFH4.htm" />
+    <Content Include="4FInfoTV12.htm" />
+    <Content Include="4FInfoTV2.htm" />
+    <Content Include="2FInfoTV2.htm" />
+    <Content Include="2FInfoTV3.htm" />
+    <Content Include="4FInfoTV1.htm" />
+    <Content Include="4FInfoTV3.htm" />
+    <Content Include="4FInfoTV4.htm" />
+    <Content Include="4FInfoTV8.htm" />
+    <Content Include="4FInfoTV7.htm" />
+    <Content Include="4FInfoTV6.htm" />
+    <Content Include="4FInfoTV5.htm" />
+    <Content Include="2FInfoTV9.htm" />
+    <Content Include="3FInfoTV6.htm" />
+    <Content Include="3FInfoTV7.htm" />
+    <Content Include="3FInfoTV5.htm" />
+    <Content Include="4FInfoFH6.htm" />
+    <Content Include="4FInfoFH7.htm" />
+    <Content Include="2FInfoFH9.htm" />
+    <Content Include="2FInfoFH8.htm" />
+    <Content Include="2FInfoFH1.htm" />
+    <Content Include="3FInfoTV4.htm" />
+    <Content Include="3FInfoFH5.htm" />
+    <Content Include="3FInfoFH4.htm" />
+    <Content Include="4FInfoTV9.htm" />
+    <Content Include="2FInfoFH6.htm" />
+    <Content Include="2FInfoFH7.htm" />
+    <Content Include="2FInfoTV11.htm" />
+    <Content Include="3FInfoFH3.htm" />
+    <Content Include="2FInfoTV10.htm" />
+    <Content Include="4FInfoTV10.htm" />
+    <Content Include="4FInfoTV11.htm" />
+    <Content Include="3FInfoFH1.htm" />
+    <Content Include="2FInfoFH2.htm" />
+    <Content Include="bin\WebReport.dll" />
+    <Content Include="bin\WebReport.pdb" />
+    <Content Include="FabNavigator.aspx" />
+    <Content Include="Image\Logo\ALPINE.JPG" />
+    <Content Include="Image\Logo\Audi.JPG" />
+    <Content Include="Image\Logo\BMW.JPG" />
+    <Content Include="Image\Logo\BMW1.jpg" />
+    <Content Include="Image\Logo\BMW2.jpg" />
+    <Content Include="Image\Logo\BMW3.jpg" />
+    <Content Include="Image\Logo\Bosch.JPG" />
+    <Content Include="Image\Logo\Continental.JPG" />
+    <Content Include="Image\Logo\DELPHI.JPG" />
+    <Content Include="Image\Logo\DESAY.JPG" />
+    <Content Include="Image\Logo\Geely.jpg" />
+    <Content Include="Image\Logo\GM.JPG" />
+    <Content Include="Image\Logo\Harman Becker.JPG" />
+    <Content Include="Image\Logo\Idle.JPG" />
+    <Content Include="Image\Logo\Nippon Seiki.JPG" />
+    <Content Include="Image\Logo\Panasonic.JPG" />
+    <Content Include="Image\Logo\PASMY.JPG" />
+    <Content Include="Image\Logo\Porsche.JPG" />
+    <Content Include="Image\Logo\preh.jpg" />
+    <Content Include="Image\Logo\PSA.jpg" />
+    <Content Include="Image\Logo\RUN.jpg" />
+    <Content Include="Image\Logo\Sanyo.JPG" />
+    <Content Include="Image\Logo\Tomtom.JPG" />
+    <Content Include="Image\Logo\Visteon.JPG" />
+    <Content Include="Image\Logo\VW .JPG" />
+    <Content Include="Image\Logo\Xiaopeng.jpg" />
+    <Content Include="Image\Logo\Xiaopeng1.jpg" />
+    <Content Include="Image\Logo\Xiaopeng2.jpg" />
+    <Content Include="Image\Logo\Xiaopeng3.jpg" />
+    <Content Include="Image\Logo\威奇爾.jpg" />
+    <Content Include="Image\RUN.jpg" />
+    <Content Include="Library\bootstrap.min.css" />
+    <Content Include="Library\bootstrap.min.js" />
+    <Content Include="Library\jquery.min.js" />
+    <Content Include="Library\popper.min.js" />
+    <Content Include="obj\Debug\test.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebReport.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebReport.dll" />
+    <Content Include="obj\Debug\WebReport.pdb" />
+    <Content Include="OnLineReportAssyVer4_3.aspx" />
+    <Content Include="OnLineReportAssyVer8353_8360.aspx" />
+    <Content Include="OnLineReportAssyVer4.aspx" />
+    <Content Include="OnLineReportAssyVer5.aspx" />
+    <Content Include="OnLineReportAssyVerBMW.aspx" />
+    <Content Include="OnLineReportAssyVerAudi.aspx" />
+    <Content Include="OnLineReportAssyVerGM_1IMG.aspx" />
+    <Content Include="OnLineReportAssyVerXiaopeng.aspx" />
+    <Content Include="OnLineReportAssyVerGM.aspx" />
+    <Content Include="OnLineReportAssyVer6.aspx" />
+    <Content Include="OnLineReportAssyVer8.aspx" />
+    <Content Include="OnLineReportFinishingVer1.aspx" />
+    <Content Include="OAInfoTV5.htm" />
+    <Content Include="OnLineReportAssyVer3.aspx" />
+    <Content Include="OnLineReportAssy02.aspx" />
+    <Content Include="OnLineReportAssy01.aspx" />
+    <Content Include="Image\FileNotExist.JPG" />
+    <Content Include="OnLineReport2FAssy02.aspx" />
+    <Content Include="OnLineReport2FAssy01.aspx" />
+    <Content Include="OnLineReportAssy.aspx" />
+    <Content Include="OnLineReport.aspx" />
+    <Content Include="OnlineReportLamVer1.aspx" />
+    <Content Include="Properties\app.min.css" />
+    <Content Include="SH2InfoTV-BMW.htm" />
+    <Content Include="SH2InfoTV-Audi.htm" />
+    <Content Include="SH2InfoTV-GM-1220.htm" />
+    <Content Include="SH2InfoTV-GM.htm" />
+    <Content Include="SH2InfoTV1-1.htm" />
+    <Content Include="SH2InfoTV1-8353-8360.html" />
+    <Content Include="SH2InfoTV1-2.html" />
+    <Content Include="SH2InfoTV1.htm" />
+    <Content Include="SH2InfoTV-Xiaopeng.htm" />
+    <Content Include="SH2InfoTV2-2.htm" />
+    <Content Include="SH2InfoTV2-1.htm" />
+    <Content Include="SH2InfoTV2.htm" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebReport.Publish.xml" />
+    <Content Include="OnLineReportAssyVer4_2.aspx" />
+    <Content Include="4FInfoTV12_2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FabNavigator.aspx.cs">
+      <DependentUpon>FabNavigator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FabNavigator.aspx.designer.cs">
+      <DependentUpon>FabNavigator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer4_3.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer4_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer4_3.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer4_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer8353_8360.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer8353_8360.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer8353_8360.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer8353_8360.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer4.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer4.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer5.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer5.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerBMW.aspx.cs">
+      <DependentUpon>OnLineReportAssyVerBMW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerBMW.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVerBMW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerAudi.aspx.cs">
+      <DependentUpon>OnLineReportAssyVerAudi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerAudi.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVerAudi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerGM_1IMG.aspx.cs">
+      <DependentUpon>OnLineReportAssyVerGM_1IMG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerGM_1IMG.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVerGM_1IMG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerXiaopeng.aspx.cs">
+      <DependentUpon>OnLineReportAssyVerXiaopeng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerXiaopeng.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVerXiaopeng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerGM.aspx.cs">
+      <DependentUpon>OnLineReportAssyVerGM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVerGM.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVerGM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer6.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer6.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer8.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer8.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportFinishingVer1.aspx.cs">
+      <DependentUpon>OnLineReportFinishingVer1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportFinishingVer1.aspx.designer.cs">
+      <DependentUpon>OnLineReportFinishingVer1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getLogo.ashx.cs">
+      <DependentUpon>getLogo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer3.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer3.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssy02.aspx.cs">
+      <DependentUpon>OnLineReportAssy02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssy02.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssy02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssy01.aspx.cs">
+      <DependentUpon>OnLineReportAssy01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssy01.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssy01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getImage.ashx.cs">
+      <DependentUpon>getImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Common.cs" />
+    <Compile Include="OnLineReport2FAssy02.aspx.cs">
+      <DependentUpon>OnLineReport2FAssy02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReport2FAssy02.aspx.designer.cs">
+      <DependentUpon>OnLineReport2FAssy02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReport2FAssy01.aspx.cs">
+      <DependentUpon>OnLineReport2FAssy01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReport2FAssy01.aspx.designer.cs">
+      <DependentUpon>OnLineReport2FAssy01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnLineReportAssy.aspx.cs">
+      <DependentUpon>OnLineReportAssy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssy.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Library\DBConn.cs" />
+    <Compile Include="OnLineReport.aspx.cs">
+      <DependentUpon>OnLineReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReport.aspx.designer.cs">
+      <DependentUpon>OnLineReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineReportLamVer1.aspx.cs">
+      <DependentUpon>OnlineReportLamVer1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineReportLamVer1.aspx.designer.cs">
+      <DependentUpon>OnlineReportLamVer1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OnLineReportAssyVer4_2.aspx.cs">
+      <DependentUpon>OnLineReportAssyVer4_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnLineReportAssyVer4_2.aspx.designer.cs">
+      <DependentUpon>OnLineReportAssyVer4_2.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Printer\打印頭\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="getImage.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="getLogo.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\Logo\Thumbs.db" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7240</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

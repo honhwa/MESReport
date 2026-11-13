@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>17404d4f-e24f-46e4-8d5a-43232ddcf7ff</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CHTCHSConv" Version="1.0.0" />
+    <PackageReference Include="epplus.core" Version="1.5.4" />
+	<!--<PackageReference Include="IBM.Data.DB.Provider" Version="11.5.5010.4" />
+	<PackageReference Include="IBM.Data.DB2.Core" Version="3.1.0.600" />
+	<PackageReference Include="IBM.Data.DB2.Core-lnx" Version="3.1.0.600-alpha" />-->
+	<PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="6.1.0" />
+    <PackageReference Include="log4net" Version="2.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="microsoft.aspnetcore.http.extensions" Version="2.2.0" />
+    <PackageReference Include="microsoft.aspnetcore.mvc.abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.design" Version="6.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.sqlserver" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.1" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="6.21.5" />
+    <PackageReference Include="RestSharp" Version="107.1.2" />
+    <PackageReference Include="SqlSugarCore" Version="5.0.8" />
+    <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+    <PackageReference Include="system.data.sqlclient" Version="4.8.3" />
+  </ItemGroup>
+
+</Project>

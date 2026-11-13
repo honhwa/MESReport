@@ -1,0 +1,108 @@
+body
+{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: White;
+}
+
+
+#title
+{
+	font-size: 10pt;
+	width: 100%;
+	height: 30px;
+	border-width: 1px;
+	border-color: Black;
+}
+#filter
+{
+	border-width: 0px;
+	border-style: groove;
+}
+.timeDiv
+{
+	width: 230px;
+	height: 22px;
+}
+.LabelText
+{
+	font-size: 10pt;
+	text-align: center;
+	vertical-align: middle;
+	width: 70px;
+	height: 22px;
+}
+.timePicker
+{
+	width: 160px;
+	height: 22px;
+	float: right;
+	vertical-align: middle;
+}
+.CalendarBotton
+{
+	background-image: url(../../images/Button.gif);
+	width: 25px;
+	height: 17px;
+	border: 0px;
+	padding: 0px;
+}
+#report
+{
+	width: 100%;
+	height: 476px;
+}
+#TimeBox
+{
+	width: 150px;
+}
+#time
+{
+}
+#ErrMsg
+{
+	font-size: 9pt;
+	color: red;
+	text-decoration: underline;
+}
+.table
+{
+	border-width: 0px;
+	margin: 0px;
+}
+.foo
+{
+	background-color: Fuchsia;
+}
+.bar
+{
+	background-color: Aqua;
+}
+table
+{
+	table-layout: auto;
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-width: 0px;
+	border-style: none;
+}
+font
+{
+	font-size: 12px;
+}
+tr
+{
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+}
+td
+{
+	padding:0px;
+	margin:0px;
+	border-collapse: collapse;
+}

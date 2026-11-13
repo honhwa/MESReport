@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Innolux.EFCore</name>
+    </assembly>
+    <members>
+        <member name="T:Innolux.EFCore.SQLserverDbContext">
+            <summary>
+            public class InnoluxDbContext :
+            </summary>
+        </member>
+        <member name="M:Innolux.EFCore.SQLserverDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Innolux.EFCore.SQLserverDbContext})">
+            <summary>
+            SmoothHR連線
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:Innolux.EFCore.InnoluxDbContext">
+            <summary>
+            public class InnoluxDbContext :
+            </summary>
+        </member>
+        <member name="M:Innolux.EFCore.InnoluxDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Innolux.EFCore.InnoluxDbContext})">
+            <summary>
+            OQCDb連線
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Innolux.EFCore.LCMDBRDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Innolux.EFCore.LCMDBRDbContext})">
+            <summary>
+            OQCDb連線
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Innolux.EFCore.PHAMRTDbConnection.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Innolux.EFCore.PHAMRTDbConnection})">
+            <summary>
+            OQCDb連線
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h">
+             <summary>
+             
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h.CITY">
+             <summary>
+              城市
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h.DATEWEEK">
+             <summary>
+              週幾
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h.TEMP">
+             <summary>
+              溫度
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h.TIME">
+             <summary>
+              時間
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.TbWeather36h.WEATHER">
+             <summary>
+              天氣
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.prod_nbr">
+            <summary>
+            機種(product)
+            </summary>
+            <example>[""]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.Product">
+            <summary>
+            big product
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.vDate_s">
+            <summary>
+            开始时间
+            </summary>
+            <example>2022-08-25</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.vDate_e1">
+            <summary>
+            结束时间
+            </summary>
+            <example>2022-08-25</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.owner_code">
+            <summary>
+            owner
+            </summary>
+            <example>["ALL"]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.workGroup">
+            <summary>
+            opration
+            </summary>
+            <example>["ALL"]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.Shift">
+            <summary>
+            ALL或日或夜
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.Wo_nbr">
+            <summary>
+            worker_order like
+            </summary>
+            <example></example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.intercond">
+            <summary>
+            hour或day
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.G_FAC">
+            <summary>
+            
+            </summary>
+            <example>A</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.DailyMove_Lcm1.PHARS_REQ.wo_num">
+            <summary>
+            work_order
+            </summary>
+            <example>[""]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.Rework_RES.col1">
+            <summary>
+            对应operation
+            </summary>
+            
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformanceDetail_RES.col1">
+            <summary>
+            对应operation
+            </summary>
+            
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformancePassQty_RES.row1">
+            <summary>
+            对应operation
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformanceReworkQty_RES.row1">
+            <summary>
+            对应operation
+              "row1": 1350,
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.WipQty_RES.row1">
+            <summary>
+            </summary>
+            
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.PanelWipStayChart_RES.acct_date">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformanceDetail9_RES.prod_no">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.WipQty10_RES.row1">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformancePassQtyZ_RES.row0">
+            <summary>
+            </summary>
+            
+        </member>
+        <member name="P:Innolux.EFCore.Model.OperationPerformance.OperationPerformancePassQtyZ1_RES.prod_nbr">
+            <summary>
+            </summary>
+            
+        </member>
+        <member name="P:Innolux.EFCore.Model.OprationPerformance.OperationPerformanceLcm1Req.Product">
+            <summary>
+            
+            </summary>
+            <example>[""]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OprationPerformance.OperationPerformanceLcm1Req.ProdId">
+            <summary>
+            
+            </summary>
+            <example>[""]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OprationPerformance.OperationPerformanceLcm1Req.LcmOwner">
+            <summary>
+            
+            </summary>
+            <example>[""]</example>
+        </member>
+        <member name="P:Innolux.EFCore.Model.OprationPerformance.OperationPerformanceLcm1Req.LcdGrade">
+            <summary>
+            
+            </summary>
+            <example>[""]</example>
+        </member>
+    </members>
+</doc>

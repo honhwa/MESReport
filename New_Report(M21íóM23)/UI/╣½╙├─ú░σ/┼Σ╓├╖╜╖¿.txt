@@ -1,0 +1,4 @@
+https://blog.csdn.net/m0_6309C:\Program Files\nodejs\node_global\node_modules\less1773/article/details/124375879?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167832774216800192275740%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167832774216800192275740&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124375879-null-null.142^v73^control_1,201^v4^add_ask,239^v2^insert_chatgpt&utm_term=vscode%E7%94%A8%E6%88%B6%E4%BB%A3%E7%A2%BC%E7%89%87%E6%AE%B5&spm=1018.2226.3001.4187
+
+"根目錄下的.vscode下的vue3.json.code-snipets'已經配置好公用模板
+在.vue文件輸入reportui回車即可生成z
