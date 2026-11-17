@@ -1,0 +1,111 @@
+image:
+  name: docker/compose:1.25.4
+  entrypoint: ["/bin/sh", "-c"]
+
+services:
+    - docker:dind
+
+
+# variables :
+  # img_api : ngb_reporttest_api
+  # account: "CICD01.ngb" #harbor_robot
+  # password: "2@qq.com" #harbor_token
+  # project_name: testngbreportapi
+  # # project_name1 : fsapimod2
+  # harbor_url: https://ngbhabor1.cminl.oa/api/v2.0/projects/
+
+
+
+include:
+  - 'NGB.yml'
+  - 'NGBTest.yml'
+
+
+stages:
+  - build_img
+  # - deploy_service
+  - img_push
+  - img_delete
+
+# workflow:
+#   rules:
+#     - if: $CI_COMMIT_SHORT_SHA =~ /^[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+#       when: always
+
+# .def_rule: &def_rule
+#   only:
+#     refs:
+#       - tags
+#   allow_failure: true
+
+ngb_build:
+  stage: build_img
+  extends: .ngb-build
+  tags:
+    - "docker-runner"
+  # only:
+    # - master
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always
+      allow_failure: true
+ 
+
+
+ngb_harbor_img:
+  stage: img_push
+  extends: .ngb-harbor_img
+  tags:
+    - "docker-runner"
+  # only:
+    # - master
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always
+      allow_failure: true
+
+
+ngb_harbor_del_img:
+  stage: img_delete
+  extends: .ngb-harbor_del_img
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner"
+  # only:
+    # - master  
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always
+      allow_failure: true
+
+
+ngbTest_build:
+  stage: build_img
+  extends: .ngbTest-build
+  tags:
+    - "docker-runner"
+  # <<: *def_rule
+  only:
+    - master
+
+
+ngbTest_harbor_img:
+  stage: img_push
+  extends: .ngbTest-harbor_img
+  tags:
+    - "docker-runner"
+  #except:
+  only:
+    - master # 不執行
+
+
+ngbTest_harbor_del_img:
+  stage: img_delete
+  extends: .ngbTest-harbor_del_img
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner"
+  #except:
+  only:
+    - master
+

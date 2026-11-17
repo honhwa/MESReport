@@ -1,0 +1,25 @@
+version: '2.4'
+services:
+  web:    
+    image: ${IMAGETAG}
+    container_name: BD-DEV-REPORTUI
+    #restart: unless-stopped
+    network_mode: 'bridge1'
+    hostname: 'fspc'
+    mem_limit: 1024m
+    cpus: 1
+    # volumes:
+    #   - /home/DDXIAN/app/Qportal_RPT:/app
+    ports:
+      - "22001:80"
+    #restart: always
+    dns:
+      - 10.189.128.36
+    environment:
+      - 'TZ=Asia/Taipei'
+    #  - FLASK_APP=manage.py
+    #  - FLASK_DEBUG=1
+    #-'catalina.sh' 'run'
+# command: flask run --host=0.0.0.0 --port=80
+# Infinite loop, to keep it alive, for debugging
+# command: bash -c "while true; do echo 'sleeping...' && sleep 10; done"

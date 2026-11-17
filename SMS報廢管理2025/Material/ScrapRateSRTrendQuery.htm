@@ -1,0 +1,1440 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SR報表-趨勢查詢報表說明</title>
+    <script language="javascript" type="text/javascript">
+        function document.onkeydown() {
+            if (event.keyCode == 27) {
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body style="font-size:12px">
+        <div>
+            <table id="gvData" border="1" cellspacing="0" rules="all" 
+                style="WIDTH: 1540px; BORDER-COLLAPSE: collapse; FONT-SIZE: 10pt">
+                <tr style="BACKGROUND-COLOR: yellowgreen">
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        廠別</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Application</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Project Name</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Module Name</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        TP</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        SHOP</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        料號</th>
+                    <th align="middle" rowspan="2" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Output Qty<br />
+                        (2017-10)</th>
+                    <th align="middle" colspan="6" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Month 損耗率</th>
+                    <th align="middle" colspan="6" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        SAP Plan損耗率</th>
+                </tr>
+                <tr style="BACKGROUND-COLOR: yellowgreen">
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        May.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Jun.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Jul.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Aug.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Sep.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Oct.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        May.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Jun.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Jul.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Aug.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Sep.17</th>
+                    <th align="middle" 
+                        style="BACKGROUND-COLOR: yellowgreen; WHITE-SPACE: nowrap; COLOR: #014f8a">
+                        Oct.17</th>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="39" style="WIDTH: 50px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        WE01</td>
+                    <td align="middle" rowspan="5" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        Bosch</td>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NP-01B</td>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NP00540</td>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NP00540</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700044N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NP00540</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: red">
+                        1.083</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.083</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        LAJ070T001A</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700044N</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700044N</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700044N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="8" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        Continental</td>
+                    <td rowspan="8" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NA-02B</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00240</td>
+                    <td rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00240</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00240</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        672</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        8,662</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        JCI</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NA-02D</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00340</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00340</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00340</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        Nippon Seiki</td>
+                    <td rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NA-02E</td>
+                    <td rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td rowspan="6" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00240</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        672</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00440</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        8,662</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="12" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        Tomtom</td>
+                    <td rowspan="7" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DD070NA-02G</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9N0700NZ00140</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9N0700NZ00140</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9N0700NZ00140</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        12,808</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td rowspan="5" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00G40</td>
+                    <td rowspan="5" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00G40</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00G40</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00G40</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        13,280</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DD070NA-02C</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td rowspan="2" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DD070NA-02E</td>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00B40</td>
+                    <td rowspan="3" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00B40</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00B40</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td align="middle" rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap" 
+                        valign="top">
+                        Visteon</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        DJ070NA-02D</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00H40</td>
+                    <td rowspan="4" style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00H40</td>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M0700024N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        CELL2</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        9430M07020F4N</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        194</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr>
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        MODULE</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        GD0700NA00H40</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                        0</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap; COLOR: black">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+                <tr style="BACKGROUND-COLOR: #ffffcc">
+                    <td style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        合計</td>
+                    <td style="WIDTH: 120px; WHITE-SPACE: nowrap">
+                        &nbsp;</td>
+                    <td align="right" style="WIDTH: 80px; WHITE-SPACE: nowrap">
+                    </td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                    <td align="right" style="WIDTH: 60px; WHITE-SPACE: nowrap">
+                        1.000</td>
+                </tr>
+            </table>
+            報表邏輯說明：<br />
+            1. OutputQty： 只顯示當前月的數量<br />
+            2. Month損耗率=(Output Cost + Scrap Cost) / Output Cost<br />
+            3. SAP Plan損耗率是經管上傳的值(沒有上傳Plan值系統默認為 1)<br />
+            4.合計中的值計算： Month損耗率 = 各SHOP所有料號Cost加總后用公式計算得出各SHOP的損耗率，各SHOP的損耗率再相乘為合計的損耗率<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            SAP Plan損耗率 = 各SHOP料號有Plan值的加總取平均值為各SHOP的目標值，各ＳＨＯＰ的目標值再相乘為合計的目標值<br />
+&nbsp;&nbsp;&nbsp; 舉例：如範例圖示　中Jan.16的各SHOP料號的目標值為1的都是沒有維護值的， 故在算BEOL目標值只算1.33 和 1.34&nbsp; 
+            的平均值為1.335，再與LCM &amp; LAM的目標值相乘得出合計目標值<br />
+            　　　&nbsp;&nbsp;&nbsp; 合計目標值＝1.335 * 2.18 * 1.63=4.744<br />
+            5. 各TP對應各SHOP的料號關係，請參考MES主檔【4.4 Source Product對照Product主檔】<br />
+            6.報表後台默認是當前系統時間9點前，數據截止日期為前2天數據，9點后為前一天數據； 
+            <br />
+&nbsp;&nbsp;&nbsp; 舉例：系統時間=2016-01-19 08:20:00 則報表後臺數據截止日期為2016-01-17； 
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            系統時間=2016-01-19 09:10:00 則報表後臺數據截止日期為2016-01-18</div>
+
+</body>
+</html>

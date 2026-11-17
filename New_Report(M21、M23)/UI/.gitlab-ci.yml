@@ -1,0 +1,183 @@
+image:
+  name: docker/compose:1.25.4
+  entrypoint: ["/bin/sh", "-c"]
+
+services:
+    - docker:dind
+
+# before_script:
+  # - docker info
+  # - docker version
+  # - docker-compose version
+
+#variables:
+#  ImgTag: date +'%Y%m%d%H%M'
+
+include:
+  - 'FS.yml'
+  - 'NGB.yml' 
+  - 'TN.yml' 
+
+stages:
+  - build_img
+  - img_push
+  - img_delete
+  - k8s_token
+  # - harbor_api
+  # - k8s_api
+
+# workflow:
+#   rules:
+#     - if: $CI_COMMIT_TAG =~ /^[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+#       when: always
+#     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+#       when: always  
+
+# .def_rule: &def_rule
+#   only:
+#     refs:
+#       - tags
+#   allow_failure: true
+
+fs_test_build:
+  stage: build_img
+  extends: .fs-test-build
+  tags:
+    - "docker-runner2"
+  only:
+    - master
+
+fs_test_push:
+  stage: img_push
+  extends: .fs-test-push
+  tags:
+    - "docker-runner2"
+  only:
+    - master
+
+# fs_test_delete:
+#   stage: img_test_delete
+#   extends: .fs-test-delete
+#   image: selenium:fs20210513
+#   tags:
+#     - "docker-runner2"
+#   only:
+#     - master
+
+
+fs_build:
+  stage: build_img
+  extends: .fs-build
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^FS_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always  
+      allow_failure: true
+
+fs_push:
+  stage: img_push
+  extends: .fs-push
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^FS_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always
+      allow_failure: true
+
+fs_delete:
+  stage: img_delete
+  extends: .fs-delete
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^FS_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: always  
+      allow_failure: true
+
+fs-k8s_deploy:
+  stage: k8s_token
+  extends: .fs-k8s_deploy
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "master" && $CI_COMMIT_TAG =~ /^FS_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      when: manual  
+      allow_failure: true 
+
+ngb_build:
+  stage: build_img
+  extends: .ngb-build
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "NGB" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/NGB/*
+      when: always
+      allow_failure: true
+
+
+ngb_push:
+  stage: img_push
+  extends: .ngb-push
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "NGB" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/NGB/*
+      when: always
+      allow_failure: true
+
+ngb_delete:
+  stage: img_delete
+  extends: .ngb-delete
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "NGB" && $CI_COMMIT_TAG =~ /^NGB_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/NGB/*
+      when: always
+      allow_failure: true
+      
+tn_build:
+  stage: build_img
+  extends: .tn-build
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "TN" && $CI_COMMIT_TAG =~ /^TN_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/TN/*
+      when: always
+      allow_failure: true
+
+tn_push:
+  stage: img_push
+  extends: .tn-push
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "TN" && $CI_COMMIT_TAG =~ /^TN_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/TN/*
+      when: always
+      allow_failure: true
+
+tn_delete:
+  stage: img_delete
+  extends: .tn-delete
+  image: selenium:fs20210513
+  tags:
+    - "docker-runner2"
+  rules:
+    - if: $CI_COMMIT_TITLE == "TN" && $CI_COMMIT_TAG =~ /^TN_[1-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}\.[0-9][0-9]{0,1}$/
+      changes:
+       - src/pages/ReportPortal/TN/*
+      when: always
+      allow_failure: true      

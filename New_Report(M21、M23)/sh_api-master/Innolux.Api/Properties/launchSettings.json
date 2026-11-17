@@ -1,0 +1,53 @@
+{
+  "profiles": {
+    "Innolux.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "AppConfig/apiWorkList.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:8000",
+      "dotnetRunMessages": true
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Innolux.SmoothHr.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "AppConfig/apiWorkList.html",
+      "applicationUrl": "http://localhost:8000",
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger/index.html",
+      "publishAllPorts": true
+    },
+    "Innolux.SmoothHr.SHTest": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "AppConfig/apiWorkList.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "SHTest"
+      },
+      "applicationUrl": "http://localhost:8000"
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:28701",
+      "sslPort": 0
+    }
+  }
+}

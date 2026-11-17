@@ -1,0 +1,321 @@
+{
+  //这个是范例
+  "BLMES": { //数据库的命名
+    "dbInitCatelog": "", //暂时无用  
+    "dbUser": "innmes2", //数据库的用户名
+    "dbHost": "TNBLFW1", //数据库的Host
+    "dbConnectionType": "oraOdpConnection", //数据库的类型，如Oracle
+    "dbPass": "T4jpSeHg/5g=", //数据库的密码
+    "passwordEncrypted": true //是否加密
+  },
+  //这个也是范例
+  "INSMES": {
+    "dbInitCatelog": "",
+    "dbUser": "ins_mes",
+    "dbHost": "TNBLFW1",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "ins_mes",
+    "passwordEncrypted": false
+  },
+  //--------------------------------------------------------MENU DB---------------------------------------------------------------------------------
+  /// <summary>
+  /// MENU DB  RPCT  建立权限管控表单 2023-02-22开始使用
+  /// </summary>
+  "MENUDB": {
+    "dbInitCatelog": "",
+    "dbUser": "RPCTRAP1",
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.93.65.152)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pnbrpct) ) )",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "mX3zz0S4/v2lkErAiyW12g==",
+    "passwordEncrypted": true
+  },
+  /// <summary>
+  /// MENU 备援DB1 RPCT做维护时，关闭RPCT,开启该配置
+  /// </summary>
+  //"MENUDB": {
+  //  "dbInitCatelog": "",
+  //  "dbUser": "MCSAP1",
+  //  "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.172.3.64)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pncmr)))",
+  //  "dbConnectionType": "oraOdpConnection",
+  //  "dbPass": "vzFVpx1PJ6IdgtlFL+8acQ==",
+  //  "passwordEncrypted": true
+  //},
+
+  /// <summary>
+  /// MENU 备援DB2 RPCT与LCM1均做维护时，关闭以上2个连接,开启该配置
+  /// </summary>
+  //"MENUDB": {
+  //  "dbInitCatelog": "",
+  //  "dbUser": "MESAP1",
+  //  "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.174.3.79)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pnemr)))",
+  //  "dbConnectionType": "oraOdpConnection",
+  //  "dbPass": "3Wcn/jMCLzpef+ocFbJP0g==",
+  //  "passwordEncrypted": true
+  //},
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+  ////用做混货比例异常监控DB连接 （命名使用RPCT与MENUDB进行区分，防止改动 后台管理系统进行影响） //测试不能成功连接 故注释 //备注说明 mixratealarmdataset.cs使用MENUDB连接
+  //"RPCT":{
+  //  "dbInitCatelog": "",
+  //  "dbUser": "RPCTRAP1",
+  //  "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.93.65.152)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pnbrpct) ) )",
+  //  "dbConnectionType": "oraOdpConnection",
+  //  "dbPass": "mX3zz0S4/v2lkErAiyW12g==",
+  //  "passwordEncrypted": true
+  //},
+  //测试区  测试混货比例界面
+  "TESTDB": {
+    "dbInitCatelog": "",
+    "dbUser": "MDRDA1",
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST =10.93.128.118)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = tnbfmr)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "CvQBVeSrGKw=",
+    "passwordEncrypted": true
+  },
+  //LCM1  SUM DB
+  "MCSDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "MCSAP1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.172.3.64)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pncmr)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "vzFVpx1PJ6IdgtlFL+8acQ==",
+    "passwordEncrypted": true
+  },
+  //LCM3 SUM DB
+  "MESDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "MESAP1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.174.3.79)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pnemr)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "3Wcn/jMCLzpef+ocFbJP0g==",
+    "passwordEncrypted": true
+  },
+  //LCM2  SUM DB
+  "MBSDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "MBSAP1",
+    "dbHost": "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.172.3.84)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = pnbmr)  ))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "78tfU+UOiPKhzrbrR+kJXg==",
+    "passwordEncrypted": true
+  },
+  //LCM4 SUM DB
+  "MDSDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "MDSAP1",
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.174.3.78)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = pndmr)) )",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "vuxCKYIf5A+oBnUy5P5FZg==",
+    "passwordEncrypted": true
+  },
+  //LCM1 EDC DB
+  "PNCMECDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "PNCMECAP1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.93.128.163)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pndmec)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "AOCRnOvifZphXUuQ7B4URA==",
+    "passwordEncrypted": true
+  },
+  //LCM3 EDC DB
+  "PNEMECDA1": {
+    "dbInitCatelog": "",
+    "dbUser": "PNEMECAP1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.93.128.163)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=pndmec)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "eaFaqdH8XnP49vEwfQLwEQ==",
+    "passwordEncrypted": true
+  },
+
+
+
+  //BL_1 RAW DB 
+  "BCRDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BCRAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.172.3.64)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pncmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "mHV1zv8fZ7y1SobmEoMvAw==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_2 RAW DB 
+  "BBRDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BBRAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.172.3.84)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pnbmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "Q65XrhFYvTrXKIEjAm7K7w==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_3 RAW DB 
+  "BERDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BERAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.174.3.79)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pnemr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "xAOhB1W1gURq0F1tJp/70A==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_4 RAW DB
+  "BDRDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BDRAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.174.3.78)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pndmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "DAxwSCbnH9T3lCCdkA7rpw==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+
+
+  //BL_1 SUM DB
+  "BCSDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BCSAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.172.3.64)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pncmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "4EVaaGA1hB99A7GWX74ESw==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_2 SUM DB
+  "BBSDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BBSAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.172.3.84)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pnbmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "8rgymvSvY/ZxLphZ7eAuaQ==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_3 SUM DB
+  "BESDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BESAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.174.3.79)(PORT=1521))(CONNECT_DATA=(SERVER=dedicated)(SERVICE_NAME=pnemr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "PXy9OA9R9iZJYA44OG+lPg==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+  //BL_4 SUM DB
+  "BDSDA1": { //自己定義鏈接名
+    "dbInitCatelog": "", //默認為空
+    "dbUser": "BDSAP1", //oracle各DB連接用戶名，也是自己定義的
+    "dbHost": "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.174.3.78)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = pndmr)))",
+    "dbConnectionType": "oraOdpConnection", //默認值
+    "dbPass": "PgN7pBneNVwqP9lmHFJPfQ==", //各DB連接的密碼，通過EXE文件生成
+    "passwordEncrypted": true
+  },
+
+
+
+  ///-------------------------------------以下是OQC的DBConnectStr-------------------------------------------------------------------------------------------------///
+  //TEST
+  "TEST": {
+    "dbInitCatelog": "",
+    "dbUser": "TNCLRAP1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.93.128.119)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=tnbmwr)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "2MpdDQR9nv3sz036rk+GrA==",
+    "passwordEncrypted": true
+  },
+  //OQCDB
+  "OQCDB": {
+    "dbInitCatelog": "",
+    "dbUser": "pnboqcap1",
+    "dbHost": "PNBOQCDB1",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "lHYrCTqE8gtU3FQ5QM8m0Q==",
+    "passwordEncrypted": true
+  },
+  //PNBQY
+  "PNBQY": {
+    "dbInitCatelog": "",
+    "dbUser": "PNBQYAP1",
+    "dbHost": "PNBQY",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "Rs2o6cA3o+o9XTh5EyHb5g==",
+    "passwordEncrypted": true
+  },
+  //DataMart
+  "DataMartLocal": {
+    "dbInitCatelog": "",
+    "dbUser": "nbq_user",
+    "dbHost": "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST =10.93.68.197 )(PORT = 11521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = qintpotl)) )",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "mRGzT5OFvQ1ehdkrtGv8uQ==",
+    "passwordEncrypted": true
+  },
+  //DataMart
+  "DataMart": {
+    "dbInitCatelog": "",
+    "dbUser": "nbq_user",
+    "dbHost": "QINTPOTL",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "mRGzT5OFvQ1ehdkrtGv8uQ==",
+    "passwordEncrypted": true
+  },
+  //PNBHR
+  "PNBHR": {
+    "dbInitCatelog": "",
+    "dbUser": "nbhd1",
+    "dbHost": "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.93.65.157)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=pnbhrms)))",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "Z41V0FYeDqM1S8XEaWyuPQ==",
+    "passwordEncrypted": true
+  },
+
+
+  //OQCSELECT OQC連報表專用
+  "OQCMCSRA1": {
+    "dbInitCatelog": "",
+    "dbUser": "OQCSELECT",
+    "dbHost": "PNCMR",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "O1s3aYX+d7xzuBf24TDOFA==",
+    "passwordEncrypted": true
+  },
+  "OQCMBSRA1": {
+    "dbInitCatelog": "",
+    "dbUser": "OQCSELECT",
+    "dbHost": "PNBMR",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "O1s3aYX+d7xzuBf24TDOFA==",
+    "passwordEncrypted": true
+  },
+  "OQCMESRA1": {
+    "dbInitCatelog": "",
+    "dbUser": "OQCSELECT",
+    "dbHost": "PNEMR",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "O1s3aYX+d7xzuBf24TDOFA==",
+    "passwordEncrypted": true
+  },
+  "OQCMDSRA1": {
+    "dbInitCatelog": "",
+    "dbUser": "OQCSELECT",
+    "dbHost": "PNDMR",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "O1s3aYX+d7xzuBf24TDOFA==",
+    "passwordEncrypted": true
+  },
+
+
+
+  //QIMS
+  "QIMS": {
+    "dbInitCatelog": "",
+    "dbUser": "PNBQSAP1",
+    "dbHost": "PNBQY",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "I977GQKdzbJTc3gz2tAt/A==",
+    "passwordEncrypted": true
+  },
+  //RPCT
+  "RPCT": {
+    "dbInitCatelog": "",
+    "dbUser": "RPCTRAP1",
+    "dbHost": "PNBRPCT",
+    "dbConnectionType": "oraOdpConnection",
+    "dbPass": "mX3zz0S4/v2lkErAiyW12g==",
+    "passwordEncrypted": true
+  }
+
+}

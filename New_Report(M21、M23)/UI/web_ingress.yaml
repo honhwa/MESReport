@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: 	fsvueplatform
+  namespace: 	fsvueplatform
+  labels:
+    dnsSerial: '2021100025'
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/session-cookie-expires: '3600'
+    nginx.ingress.kubernetes.io/session-cookie-max-age: '3600'
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: fsreportui.cminl.oa
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: 	fsvueplatform
+                port:
+                  number: 80
