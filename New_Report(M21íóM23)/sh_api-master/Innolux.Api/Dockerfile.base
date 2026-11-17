@@ -1,3 +1,0 @@
-# 你建置baseimage需要把這份放到你的nuget package的所在位置
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-COPY ./packages /root/.nuget/packages

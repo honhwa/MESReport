@@ -1,5 +1,0 @@
-20181231142210:System.Threading.ThreadAbortException: Thread was being aborted.
-   at System.Threading.Thread.AbortInternal()
-   at System.Threading.Thread.Abort(Object stateInfo)
-   at System.Web.HttpResponse.End()
-   at ModuleClass.ExportExcel(GridView gvData) in d:\WebReport\SMS2018\App_Code\ModuleClass.cs:line 273
